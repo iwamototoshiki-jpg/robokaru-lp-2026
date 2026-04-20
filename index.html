@@ -424,9 +424,16 @@
     position: relative;
   }
   .problem-card .h3-card {
-    font-size: 24px;
-    line-height: 1.6;
-    white-space: nowrap;
+    font-size: 18px;
+    line-height: 1.55;
+    letter-spacing: -0.01em;
+    white-space: normal;
+    word-break: keep-all;
+    overflow-wrap: normal;
+    min-height: calc(2em * 1.55);
+  }
+  .problem-card .h3-card > span {
+    display: inline-block;
   }
   .problem-card .body-text {
     white-space: normal;
@@ -798,7 +805,7 @@
     display: flex;
     gap: 32px;
     width: max-content;
-    animation: logo-scroll 50s linear infinite;
+    animation: logo-scroll 30s linear infinite;
     align-items: center;
   }
   .logo-marquee:hover .logo-track { animation-play-state: paused; }
@@ -808,12 +815,14 @@
   }
   .logo-item {
     flex: 0 0 auto;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 96px;
-    min-width: 200px;
-    padding: 16px 28px;
+    display: grid;
+    grid-template-rows: 60px 20px;
+    row-gap: 14px;
+    place-items: center;
+    align-content: center;
+    height: 140px;
+    min-width: 220px;
+    padding: 18px 28px;
     background: #FFFFFF;
     border: 1px solid var(--border);
     border-radius: 16px;
@@ -827,13 +836,26 @@
   }
   .logo-item img {
     max-height: 60px;
-    max-width: 180px;
+    max-width: 170px;
     width: auto;
     height: auto;
     object-fit: contain;
     filter: none;
     opacity: 1;
     display: block;
+  }
+  .logo-name {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    line-height: 20px;
+    height: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   /* ---- Case Study cards ---- */
   .case-card {
@@ -877,7 +899,11 @@
     letter-spacing: -0.005em;
     word-break: keep-all;
     line-break: strict;
-    overflow-wrap: break-word;
+    overflow-wrap: normal;
+    min-height: calc(3em * 1.55);
+  }
+  .case-card .case-title > span {
+    display: inline-block;
   }
   .case-card .case-desc {
     font-size: 15px;
@@ -1459,9 +1485,6 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 16c0 3 2 5 5 5M15 3c3 0 5 2 5 5M4 8c0-3 2-5 5-5M15 21c3 0 5-2 5-5"/><circle cx="12" cy="12" r="3"/></svg>回路設計
         </span>
         <span style="display:inline-flex;align-items:center;gap:5px;background:var(--primary-pale);color:var(--primary-dark);font-size:14px;font-weight:800;padding:8px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 2px 6px -3px rgba(14,165,233,.25);">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 20h20M6 20V10M12 20V4M18 20v-8"/></svg>インフラ設計
-        </span>
-        <span style="display:inline-flex;align-items:center;gap:5px;background:var(--primary-pale);color:var(--primary-dark);font-size:14px;font-weight:800;padding:8px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 2px 6px -3px rgba(14,165,233,.25);">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 21V7l9-5 9 5v14M9 21v-6h6v6"/></svg>プラント設計
         </span>
         <span style="display:inline-flex;align-items:center;gap:5px;background:var(--primary-pale);color:var(--primary-dark);font-size:14px;font-weight:800;padding:8px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 2px 6px -3px rgba(14,165,233,.25);">
@@ -1479,6 +1502,9 @@
         <span style="display:inline-flex;align-items:center;gap:5px;background:var(--primary-pale);color:var(--primary-dark);font-size:14px;font-weight:800;padding:8px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 2px 6px -3px rgba(14,165,233,.25);">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 17l6-6 4 4 8-8"/><polyline points="14 7 21 7 21 14"/></svg>生産性改善
         </span>
+        <span style="display:inline-flex;align-items:center;gap:5px;background:var(--primary-pale);color:var(--primary-dark);font-size:14px;font-weight:800;padding:8px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 2px 6px -3px rgba(14,165,233,.25);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="5" y="3" width="14" height="10" rx="2"/><circle cx="9" cy="8" r="1.2" fill="currentColor"/><circle cx="15" cy="8" r="1.2" fill="currentColor"/><path d="M12 13v4M8 21h8"/></svg>ロボットティーチング
+        </span>
       </div>
 
       <!-- H1 -->
@@ -1489,7 +1515,7 @@
 
       <!-- サブコピー（1文に集約） -->
       <p class="body-text mb-10 mx-auto" style="font-size:18px; line-height:1.9; max-width:720px;">
-        製造業10領域の即戦力を、<strong class="text-primary-dark">月額60万円/月のシンプル定額</strong>で。
+        製造業10領域の即戦力を、<strong class="text-primary-dark">月額60万円のシンプル定額</strong>で。
       </p>
 
       <!-- CTA -->
@@ -1524,27 +1550,29 @@
   </div>
   <div class="logo-marquee">
     <div class="logo-track">
-      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-kawasaki.png" alt="川崎重工業株式会社" loading="lazy"></div>
-      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-nabtesco.png" alt="ナブテスコ株式会社" loading="lazy"></div>
-      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-misumi.png" alt="株式会社ミスミグループ本社" loading="lazy"></div>
-      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-akebono.png" alt="曙ブレーキ工業株式会社" loading="lazy"></div>
-      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-nisshinbo.png" alt="日清紡メカトロニクス株式会社" loading="lazy"></div>
-      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-taikisha.png" alt="株式会社大気社" loading="lazy"></div>
-      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-sankei.png" alt="三恵技研工業株式会社" loading="lazy"></div>
-      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-kyotoss.png" alt="株式会社京都製作所" loading="lazy"></div>
-      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-aska.png" alt="アスカ株式会社" loading="lazy"></div>
-      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-hirata.png" alt="平田機工株式会社" loading="lazy"></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-kawasaki.png" alt="川崎重工業株式会社" loading="lazy"><div class="logo-name">川崎重工業株式会社</div></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-nabtesco.png" alt="ナブテスコ株式会社" loading="lazy"><div class="logo-name">ナブテスコ株式会社</div></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-misumi.png" alt="株式会社ミスミグループ本社" loading="lazy"><div class="logo-name">株式会社ミスミグループ本社</div></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-akebono.png" alt="曙ブレーキ工業株式会社" loading="lazy"><div class="logo-name">曙ブレーキ工業株式会社</div></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-nisshinbo.png" alt="日清紡メカトロニクス株式会社" loading="lazy"><div class="logo-name">日清紡メカトロニクス株式会社</div></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-taikisha.png" alt="株式会社大気社" loading="lazy"><div class="logo-name">株式会社大気社</div></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-sankei.png" alt="三恵技研工業株式会社" loading="lazy"><div class="logo-name">三恵技研工業株式会社</div></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-kyotoss.png" alt="株式会社京都製作所" loading="lazy"><div class="logo-name">株式会社京都製作所</div></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-aska.png" alt="アスカ株式会社" loading="lazy"><div class="logo-name">アスカ株式会社</div></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-hirata.png" alt="平田機工株式会社" loading="lazy"><div class="logo-name">平田機工株式会社</div></div>
+      <div class="logo-item"><img src="data:image/svg+xml;base64,PHN2ZyBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAyNTAwIDUwNi45IiB2aWV3Qm94PSIwIDAgMjUwMCA1MDYuOSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMjUyLjYgNTA2LjljLTEzOC45IDAtMjUyLjYtMTEzLjctMjUyLjYtMjU0LjYgMC0xMzguNiAxMTMuNy0yNTIuMyAyNTIuNi0yNTIuMyAxNDAuNyAwIDI1NC4zIDExMy43IDI1NC4zIDI1Mi4zIDAgMTQwLjktMTEzLjcgMjU0LjYtMjU0LjMgMjU0LjZ6bTAtMTA2LjFjODIuNyAwIDE0OC4yLTY1LjUgMTQ4LjItMTQ4LjUgMC04MC45LTY1LjUtMTQ2LjQtMTQ4LjItMTQ2LjQtODEuMiAwLTE0Ni43IDY1LjUtMTQ2LjcgMTQ2LjQgMCA4MyA2NS41IDE0OC41IDE0Ni43IDE0OC41bTE1NTcuNSAxMDYuMWMtMTM4LjkgMC0yNTIuNi0xMTMuNy0yNTIuNi0yNTQuNiAwLTEzOC42IDExMy43LTI1Mi4zIDI1Mi42LTI1Mi4zIDE0MC43IDAgMjU0LjMgMTEzLjcgMjU0LjMgMjUyLjMgMCAxNDAuOS0xMTMuNyAyNTQuNi0yNTQuMyAyNTQuNnptMC0xMDYuMWM4Mi43IDAgMTQ4LjItNjUuNSAxNDguMi0xNDguNSAwLTgwLjktNjUuNS0xNDYuNC0xNDguMi0xNDYuNC04MS4yIDAtMTQ2LjcgNjUuNS0xNDYuNyAxNDYuNCAwIDgzIDY1LjUgMTQ4LjUgMTQ2LjcgMTQ4LjVtLTEyNzQuMi0zODUuNHY0NzkuOWgxMDUuOXYtMzkxLjJoMTE3Ljd2MzkxLjJoMTA1Ljl2LTM5MS4yaDQwLjZjNDIuMyAwIDc1LjEgMzIuOCA3NS4xIDczLjF2MzE4LjFoMTA2LjF2LTMxNC4zYzAtOTQuMy03NS4xLTE2OS42LTE2OS42LTE2OS42aC0yNzMuOGMtMzYuNi0uMS03My40LS4xLTEwNy45IDRtMTU1Ny41IDB2NDc5LjloMTA1Ljl2LTM5MS4yaDExOS43YzQwLjMgMCA3NS4xIDMyLjggNzUuMSA3My4xdjMxOC4xaDEwNS45di0zMTQuM2MwLTk0LjMtNzUuMS0xNjkuNi0xNjkuNi0xNjkuNmgtMTMxLjFjLTM0LjUtLjEtNzEuNC0uMS0xMDUuOSA0bS05NjEuOSAwdjQ3OS45aDEwNS45di0zOTEuMmgxMjUuM2M0Mi42IDAgNzUuNCAzMi44IDc1LjQgNzMuMSAwIDQyLjMtMzIuOCA3NS4xLTc1LjQgNzUuMWgtOTAuNWwxNjMuOCAyNDNoMTMxLjFsLTExOS41LTE3NS40YzU3LjctMjEuMiA5Ni4zLTc3LjEgOTYuMy0xNDIuNyAwLTkwLjUtNzMuMS0xNjUuOS0xNjUuOS0xNjUuOWgtMTQwLjdjLTM2LjUgMC03MS4yIDAtMTA1LjggNC4xIiBmaWxsPSIjMTY2ZmMwIi8+PC9zdmc+" alt="オムロン株式会社" loading="lazy"><div class="logo-name">オムロン株式会社</div></div>
       <!-- duplicate for seamless loop -->
-      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-kawasaki.png" alt="川崎重工業株式会社" loading="lazy"></div>
-      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-nabtesco.png" alt="ナブテスコ株式会社" loading="lazy"></div>
-      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-misumi.png" alt="株式会社ミスミグループ本社" loading="lazy"></div>
-      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-akebono.png" alt="曙ブレーキ工業株式会社" loading="lazy"></div>
-      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-nisshinbo.png" alt="日清紡メカトロニクス株式会社" loading="lazy"></div>
-      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-taikisha.png" alt="株式会社大気社" loading="lazy"></div>
-      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-sankei.png" alt="三恵技研工業株式会社" loading="lazy"></div>
-      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-kyotoss.png" alt="株式会社京都製作所" loading="lazy"></div>
-      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-aska.png" alt="アスカ株式会社" loading="lazy"></div>
-      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-hirata.png" alt="平田機工株式会社" loading="lazy"></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-kawasaki.png" alt="川崎重工業株式会社" loading="lazy"><div class="logo-name">川崎重工業株式会社</div></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-nabtesco.png" alt="ナブテスコ株式会社" loading="lazy"><div class="logo-name">ナブテスコ株式会社</div></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-misumi.png" alt="株式会社ミスミグループ本社" loading="lazy"><div class="logo-name">株式会社ミスミグループ本社</div></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-akebono.png" alt="曙ブレーキ工業株式会社" loading="lazy"><div class="logo-name">曙ブレーキ工業株式会社</div></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-nisshinbo.png" alt="日清紡メカトロニクス株式会社" loading="lazy"><div class="logo-name">日清紡メカトロニクス株式会社</div></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-taikisha.png" alt="株式会社大気社" loading="lazy"><div class="logo-name">株式会社大気社</div></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-sankei.png" alt="三恵技研工業株式会社" loading="lazy"><div class="logo-name">三恵技研工業株式会社</div></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-kyotoss.png" alt="株式会社京都製作所" loading="lazy"><div class="logo-name">株式会社京都製作所</div></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-aska.png" alt="アスカ株式会社" loading="lazy"><div class="logo-name">アスカ株式会社</div></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-hirata.png" alt="平田機工株式会社" loading="lazy"><div class="logo-name">平田機工株式会社</div></div>
+      <div class="logo-item"><img src="data:image/svg+xml;base64,PHN2ZyBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAyNTAwIDUwNi45IiB2aWV3Qm94PSIwIDAgMjUwMCA1MDYuOSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMjUyLjYgNTA2LjljLTEzOC45IDAtMjUyLjYtMTEzLjctMjUyLjYtMjU0LjYgMC0xMzguNiAxMTMuNy0yNTIuMyAyNTIuNi0yNTIuMyAxNDAuNyAwIDI1NC4zIDExMy43IDI1NC4zIDI1Mi4zIDAgMTQwLjktMTEzLjcgMjU0LjYtMjU0LjMgMjU0LjZ6bTAtMTA2LjFjODIuNyAwIDE0OC4yLTY1LjUgMTQ4LjItMTQ4LjUgMC04MC45LTY1LjUtMTQ2LjQtMTQ4LjItMTQ2LjQtODEuMiAwLTE0Ni43IDY1LjUtMTQ2LjcgMTQ2LjQgMCA4MyA2NS41IDE0OC41IDE0Ni43IDE0OC41bTE1NTcuNSAxMDYuMWMtMTM4LjkgMC0yNTIuNi0xMTMuNy0yNTIuNi0yNTQuNiAwLTEzOC42IDExMy43LTI1Mi4zIDI1Mi42LTI1Mi4zIDE0MC43IDAgMjU0LjMgMTEzLjcgMjU0LjMgMjUyLjMgMCAxNDAuOS0xMTMuNyAyNTQuNi0yNTQuMyAyNTQuNnptMC0xMDYuMWM4Mi43IDAgMTQ4LjItNjUuNSAxNDguMi0xNDguNSAwLTgwLjktNjUuNS0xNDYuNC0xNDguMi0xNDYuNC04MS4yIDAtMTQ2LjcgNjUuNS0xNDYuNyAxNDYuNCAwIDgzIDY1LjUgMTQ4LjUgMTQ2LjcgMTQ4LjVtLTEyNzQuMi0zODUuNHY0NzkuOWgxMDUuOXYtMzkxLjJoMTE3Ljd2MzkxLjJoMTA1Ljl2LTM5MS4yaDQwLjZjNDIuMyAwIDc1LjEgMzIuOCA3NS4xIDczLjF2MzE4LjFoMTA2LjF2LTMxNC4zYzAtOTQuMy03NS4xLTE2OS42LTE2OS42LTE2OS42aC0yNzMuOGMtMzYuNi0uMS03My40LS4xLTEwNy45IDRtMTU1Ny41IDB2NDc5LjloMTA1Ljl2LTM5MS4yaDExOS43YzQwLjMgMCA3NS4xIDMyLjggNzUuMSA3My4xdjMxOC4xaDEwNS45di0zMTQuM2MwLTk0LjMtNzUuMS0xNjkuNi0xNjkuNi0xNjkuNmgtMTMxLjFjLTM0LjUtLjEtNzEuNC0uMS0xMDUuOSA0bS05NjEuOSAwdjQ3OS45aDEwNS45di0zOTEuMmgxMjUuM2M0Mi42IDAgNzUuNCAzMi44IDc1LjQgNzMuMSAwIDQyLjMtMzIuOCA3NS4xLTc1LjQgNzUuMWgtOTAuNWwxNjMuOCAyNDNoMTMxLjFsLTExOS41LTE3NS40YzU3LjctMjEuMiA5Ni4zLTc3LjEgOTYuMy0xNDIuNyAwLTkwLjUtNzMuMS0xNjUuOS0xNjUuOS0xNjUuOWgtMTQwLjdjLTM2LjUgMC03MS4yIDAtMTA1LjggNC4xIiBmaWxsPSIjMTY2ZmMwIi8+PC9zdmc+" alt="オムロン株式会社" loading="lazy"><div class="logo-name">オムロン株式会社</div></div>
     </div>
   </div>
   <p class="text-center mt-6" style="font-size:13px; color:var(--text-muted); font-weight:700;">※ 一部抜粋・敬称略／掲載順不同</p>
@@ -1575,7 +1603,7 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           工場長
         </div>
-        <h3 class="h3-card mb-4">来週から人が欲しい。<br>採用は間に合わない。</h3>
+        <h3 class="h3-card mb-4"><span>来週から人が欲しい。</span><span>採用は間に合わない。</span></h3>
         <p class="body-text" style="font-size:16px;">ライン立ち上げ・納期前の増産で"今すぐ"の人手が必要。採用は数ヶ月、単発外注も条件交渉に時間がかかる。</p>
       </div>
       <div class="problem-card">
@@ -1583,7 +1611,7 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 10h8M8 14h5"/></svg>
           経理・購買
         </div>
-        <h3 class="h3-card mb-4">見積が複雑で、<br>稟議が通りづらい。</h3>
+        <h3 class="h3-card mb-4"><span>見積が複雑で、</span><span>稟議が通りづらい。</span></h3>
         <p class="body-text" style="font-size:16px;">時間単価＋諸経費＋変動費…最終金額が読めず、予算化も説明も難しい。稟議書の書き直しが続く。</p>
       </div>
       <div class="problem-card">
@@ -1591,7 +1619,7 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
           生産技術
         </div>
-        <h3 class="h3-card mb-4">請求書が想定と違う。<br>毎月モヤモヤ。</h3>
+        <h3 class="h3-card mb-4"><span>請求書が想定と違う。</span><span>毎月モヤモヤ。</span></h3>
         <p class="body-text" style="font-size:16px;">残業・出張・宿泊…"追加請求"が毎月バラバラで、経理からの問い合わせが絶えない。予実管理もズレる。</p>
       </div>
       <div class="problem-card">
@@ -1599,7 +1627,7 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           プロジェクトマネージャー
         </div>
-        <h3 class="h3-card mb-4">スキル要件に合う人が<br>すぐに見つからない。</h3>
+        <h3 class="h3-card mb-4"><span>スキル要件に合う人が</span><span>すぐに見つからない。</span></h3>
         <p class="body-text" style="font-size:16px;">PLC・ロボット・電気設計など、専門性の高い人材ほど市場に出ていない。探している間にプロジェクトが遅延する。</p>
       </div>
       <div class="problem-card">
@@ -1607,7 +1635,7 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg>
           経営層
         </div>
-        <h3 class="h3-card mb-4">固定費を増やさずに<br>柔軟に人員調整したい。</h3>
+        <h3 class="h3-card mb-4"><span>固定費を増やさずに</span><span>柔軟に人員調整したい。</span></h3>
         <p class="body-text" style="font-size:16px;">受注の波に合わせてリソースを変動させたい。正社員採用はリスクが大きく、派遣は条件が合わない。</p>
       </div>
       <div class="problem-card">
@@ -1615,7 +1643,7 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.48 0 4.73 1.01 6.36 2.64"/></svg>
           人事・採用担当
         </div>
-        <h3 class="h3-card mb-4">採用コストと時間が<br>かかりすぎる。</h3>
+        <h3 class="h3-card mb-4"><span>採用コストと時間が</span><span>かかりすぎる。</span></h3>
         <p class="body-text" style="font-size:16px;">求人媒体・エージェント費用に加え、面接調整や書類選考の工数が膨大。採用しても早期離職のリスクがある。</p>
       </div>
     </div>
@@ -1715,7 +1743,7 @@
           <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         </div>
         <h3 class="h3-card mb-3">発注は、1ヶ月単位。</h3>
-        <p class="body-text" style="font-size:16px;">月額60万円/月のシンプル定額。1ヶ月単位で発注できるから、必要な期間だけ、柔軟に現場の体制を整えられます。</p>
+        <p class="body-text" style="font-size:16px;">月額60万円のシンプル定額。1ヶ月単位で発注できるから、必要な期間だけ、柔軟に現場の体制を整えられます。</p>
       </div>
       <div class="pillar-card">
         <div class="pillar-num">03</div>
@@ -1959,7 +1987,7 @@
           <span class="case-tag">精密機器</span>
           <span class="case-tag">機械設計</span>
         </div>
-        <h3 class="case-title">SOLIDWORKSで精密部品の設計と部品表作成を担当</h3>
+        <h3 class="case-title"><span>SOLIDWORKSで</span><span>精密部品の設計と</span><span>部品表作成を担当</span></h3>
         <p class="case-desc">
           精密光学部品の構想設計〜詳細設計、3D組立モデル、部品表作成まで一貫対応。金属加工の公差設計を前提に、組立基準と検査観点を図面へ反映しました。
         </p>
@@ -1991,7 +2019,7 @@
           <span class="case-tag">工作機械</span>
           <span class="case-tag">海外SV</span>
         </div>
-        <h3 class="case-title">欧州工作機械のPLC改造＋デバッグを短納期で完了</h3>
+        <h3 class="case-title"><span>欧州工作機械の</span><span>PLC改造＋デバッグを</span><span>短納期で完了</span></h3>
         <p class="case-desc">
           ライン改造に伴うPLCロジック変更、デバッグ、現地調整を担当。工程間の信号タイミングを再調整し、HMIアラームと対処手順まで更新しました。
         </p>
@@ -2023,7 +2051,7 @@
           <span class="case-tag">家電</span>
           <span class="case-tag">ロボット</span>
         </div>
-        <h3 class="case-title">東南アジアでABB組立ロボット12台を立ち上げ</h3>
+        <h3 class="case-title"><span>東南アジアで</span><span>ABB組立ロボット12台を</span><span>立ち上げ</span></h3>
         <p class="case-desc">
           海外工場の組立ラインでABBロボットの教示、RobotStudioでの動作最適化、現地SVを実施。複数セルの立上げ順序とチェックリストも整備しました。
         </p>
@@ -2055,7 +2083,7 @@
           <span class="case-tag">自動車部品</span>
           <span class="case-tag">据付調整</span>
         </div>
-        <h3 class="case-title">Tier1サプライヤーのプレスライン据付調整を短期完遂</h3>
+        <h3 class="case-title"><span>Tier1サプライヤーの</span><span>プレスライン据付調整を</span><span>短期完遂</span></h3>
         <p class="case-desc">
           大型プレス機の据付精度出し、安全カバー・センサーの配線、インターロックの動作確認まで担当。休日稼働を組み合わせ、生産影響ゼロで完了しました。
         </p>
@@ -2087,7 +2115,7 @@
           <span class="case-tag">医薬品</span>
           <span class="case-tag">制御設計</span>
         </div>
-        <h3 class="case-title">無菌充填ラインの制御ロジック改修とバリデーション支援</h3>
+        <h3 class="case-title"><span>無菌充填ラインの</span><span>制御ロジック改修と</span><span>バリデーション支援</span></h3>
         <p class="case-desc">
           GMP要求に基づく制御ロジックの見直し、シーケンス改修、IQ/OQ/PQドキュメントの作成までを支援。変更管理と監査対応の痕跡も整備しました。
         </p>
@@ -2119,7 +2147,7 @@
           <span class="case-tag">半導体装置</span>
           <span class="case-tag">立上げ</span>
         </div>
-        <h3 class="case-title">半導体製造装置の立上げと装置間通信の安定化</h3>
+        <h3 class="case-title"><span>半導体製造装置の立上げと</span><span>装置間通信の安定化</span></h3>
         <p class="case-desc">
           クリーンルーム内の装置据付、搬送ロボット通信の調整、SECS/GEM接続の動作確認を担当。装置間の取合いを一本化し、稼働率を底上げしました。
         </p>
@@ -2151,7 +2179,7 @@
           <span class="case-tag">食品機械</span>
           <span class="case-tag">保全メンテ</span>
         </div>
-        <h3 class="case-title">包装ラインの予防保全プログラム構築と稼働率改善</h3>
+        <h3 class="case-title"><span>包装ラインの</span><span>予防保全プログラム構築と</span><span>稼働率改善</span></h3>
         <p class="case-desc">
           予兆検知項目の洗い出し、日常点検フォーマット、消耗品交換スケジュールを現場と一緒に整備。ライン停止を計画停止に変える仕組みをつくりました。
         </p>
@@ -2183,7 +2211,7 @@
           <span class="case-tag">物流装置</span>
           <span class="case-tag">配線配管</span>
         </div>
-        <h3 class="case-title">自動倉庫の配線・配管工事を短工期で完遂</h3>
+        <h3 class="case-title"><span>自動倉庫の</span><span>配線・配管工事を</span><span>短工期で完遂</span></h3>
         <p class="case-desc">
           スタッカークレーン増設に伴う動力・制御配線、エアー配管の引き回し、盤内結線を担当。既存設備への影響を最小化する手順書も作成しました。
         </p>
@@ -2215,7 +2243,7 @@
           <span class="case-tag">EV部品</span>
           <span class="case-tag">組立調整</span>
         </div>
-        <h3 class="case-title">EVモーター組立セルの立上げと工程能力の確保</h3>
+        <h3 class="case-title"><span>EVモーター組立セルの立上げと</span><span>工程能力の確保</span></h3>
         <p class="case-desc">
           ローター・ステータ組立セルの治具調整、トルク管理、初期流動管理を担当。工程能力Cpkを目標値に到達させ、量産判定会まで伴走しました。
         </p>
@@ -2259,7 +2287,7 @@
       <span class="text-primary-dark">即戦力エンジニア</span>をご紹介。
     </h2>
     <p class="body-text text-center mb-16 max-w-3xl mx-auto">
-      機械設計・制御設計・回路設計・インフラ設計・プラント設計・生産技術・品質管理・設備保全・自動化構想・生産性改善──製造業10領域のベテランエンジニアが登録しています。<br>
+      機械設計・制御設計・回路設計・プラント設計・生産技術・品質管理・設備保全・自動化構想・生産性改善・ロボットティーチング──製造業10領域のベテランエンジニアが登録しています。<br>
       事前面談で、御社の現場にマッチする人材をご提案します。
     </p>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -2383,31 +2411,7 @@
           <div class="eng-stat"><div class="eng-stat-num">100<span style="font-size:14px;">%</span></div><div class="eng-stat-label">EMC一発合格</div></div>
         </div>
       </div>
-      <!-- ⑥ インフラ設計 -->
-      <div class="engineer-card">
-        <div class="eng-header">
-          <div class="eng-avatar">I</div>
-          <div>
-            <p class="eng-role">インフラ設計エンジニア</p>
-            <p class="eng-meta">千葉県／50代／経験22年</p>
-          </div>
-        </div>
-        <p class="eng-quote">
-          工場電源・動力配線・エアー配管・用役設備の計画から施工管理まで対応。既存設備を止めない段取りが得意で、長期のお取引先が多いです。
-        </p>
-        <div class="eng-skills">
-          <span class="eng-skill">電源計画</span>
-          <span class="eng-skill">動力配線</span>
-          <span class="eng-skill">用役設備</span>
-          <span class="eng-skill">施工管理</span>
-        </div>
-        <div class="eng-stats">
-          <div class="eng-stat"><div class="eng-stat-num">22<span style="font-size:14px;">年</span></div><div class="eng-stat-label">実務経験</div></div>
-          <div class="eng-stat"><div class="eng-stat-num">150<span style="font-size:14px;">件+</span></div><div class="eng-stat-label">改修工事</div></div>
-          <div class="eng-stat"><div class="eng-stat-num">0<span style="font-size:14px;">件</span></div><div class="eng-stat-label">既設停止</div></div>
-        </div>
-      </div>
-      <!-- ⑦ プラント設計 -->
+      <!-- ⑥ プラント設計 -->
       <div class="engineer-card">
         <div class="eng-header">
           <div class="eng-avatar">P</div>
@@ -2431,7 +2435,7 @@
           <div class="eng-stat"><div class="eng-stat-num">15<span style="font-size:14px;">件</span></div><div class="eng-stat-label">GMPバリデ実績</div></div>
         </div>
       </div>
-      <!-- ⑧ 生産技術 -->
+      <!-- ⑦ 生産技術 -->
       <div class="engineer-card">
         <div class="eng-header">
           <div class="eng-avatar">G</div>
@@ -2455,7 +2459,7 @@
           <div class="eng-stat"><div class="eng-stat-num">1.67</div><div class="eng-stat-label">平均Cpk達成</div></div>
         </div>
       </div>
-      <!-- ⑨ 品質管理 -->
+      <!-- ⑧ 品質管理 -->
       <div class="engineer-card">
         <div class="eng-header">
           <div class="eng-avatar">Q</div>
@@ -2479,7 +2483,7 @@
           <div class="eng-stat"><div class="eng-stat-num">60<span style="font-size:14px;">%</span></div><div class="eng-stat-label">不良率低減</div></div>
         </div>
       </div>
-      <!-- ⑩ 設備保全 -->
+      <!-- ⑨ 設備保全 -->
       <div class="engineer-card">
         <div class="eng-header">
           <div class="eng-avatar">H</div>
@@ -2503,7 +2507,7 @@
           <div class="eng-stat"><div class="eng-stat-num">83<span style="font-size:14px;">%</span></div><div class="eng-stat-label">突発停止削減</div></div>
         </div>
       </div>
-      <!-- ⑪ 自動化構想 -->
+      <!-- ⑩ 自動化構想 -->
       <div class="engineer-card">
         <div class="eng-header">
           <div class="eng-avatar">A</div>
@@ -2527,7 +2531,7 @@
           <div class="eng-stat"><div class="eng-stat-num">2.8<span style="font-size:14px;">年</span></div><div class="eng-stat-label">平均ROI回収</div></div>
         </div>
       </div>
-      <!-- ⑫ 生産性改善 -->
+      <!-- ⑪ 生産性改善 -->
       <div class="engineer-card">
         <div class="eng-header">
           <div class="eng-avatar">K</div>
@@ -2758,13 +2762,14 @@
           <option value="機械設計">機械設計</option>
           <option value="制御設計">制御設計</option>
           <option value="回路設計">回路設計</option>
-          <option value="インフラ設計">インフラ設計</option>
           <option value="プラント設計">プラント設計</option>
           <option value="生産技術">生産技術</option>
           <option value="品質管理">品質管理</option>
           <option value="設備保全">設備保全</option>
           <option value="自動化構想">自動化構想</option>
           <option value="生産性改善">生産性改善</option>
+          <option value="ロボットティーチング">ロボットティーチング</option>
+          <option value="複数検討中">複数検討中</option>
           <option value="その他・未定">その他・未定</option>
         </select>
       </div>
@@ -2837,7 +2842,7 @@
           <tr><th style="text-align:left;padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text-dark);font-weight:800;white-space:nowrap;vertical-align:top;">役員</th><td style="padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text);line-height:1.7;">代表取締役　　　芦川泰彰<br>取締役　　　　　岩本敏紀</td></tr>
           <tr><th style="text-align:left;padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text-dark);font-weight:800;white-space:nowrap;vertical-align:top;">設立</th><td style="padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text);line-height:1.7;">2021年1月</td></tr>
           <tr><th style="text-align:left;padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text-dark);font-weight:800;white-space:nowrap;vertical-align:top;">本社所在地</th><td style="padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text);line-height:1.7;">〒102-0083 東京都千代田区麹町三丁目12番5号<br>近代ビル4階</td></tr>
-          <tr><th style="text-align:left;padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text-dark);font-weight:800;white-space:nowrap;vertical-align:top;">事業内容</th><td style="padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text);line-height:1.7;">製造業特化の業務委託エンジニア紹介サービス（機械設計・制御設計・回路設計・インフラ設計・プラント設計・生産技術・品質管理・設備保全・自動化構想・生産性改善）</td></tr>
+          <tr><th style="text-align:left;padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text-dark);font-weight:800;white-space:nowrap;vertical-align:top;">事業内容</th><td style="padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text);line-height:1.7;">製造業特化の技術系エンジニア紹介サービス</td></tr>
           <tr><th style="text-align:left;padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text-dark);font-weight:800;white-space:nowrap;vertical-align:top;">資本金</th><td style="padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text);line-height:1.7;">9,229万円</td></tr>
           <tr><th style="text-align:left;padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text-dark);font-weight:800;white-space:nowrap;vertical-align:top;">URL</th><td style="padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text);line-height:1.7;"><a href="https://corp.robokaru.jp" target="_blank" rel="noopener" style="color:var(--primary-dark);text-decoration:underline;">https://corp.robokaru.jp</a></td></tr>
           <tr><th style="text-align:left;padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text-dark);font-weight:800;white-space:nowrap;vertical-align:top;">許可</th><td style="padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text);line-height:1.7;"><span style="white-space:nowrap;">有料職業紹介事業　13-ユ-317292</span><br><span style="white-space:nowrap;">（厚生労働大臣許可）</span></td></tr>
@@ -2846,7 +2851,7 @@
       </div>
       <div>
         <table style="width:100%;border-collapse:collapse;font-size:15px;">
-          <tr><th style="text-align:left;padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text-dark);font-weight:800;white-space:nowrap;vertical-align:top;">主要取引先</th><td style="padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text);line-height:1.7;">株式会社アイシン・マシンテック<br>曙ブレーキ工業株式会社<br>岡谷鋼機株式会社<br>川崎重工業株式会社<br>株式会社京都製作所<br>三恵技研工業株式会社<br>鈴与商事株式会社<br>株式会社大気社<br>ナブテスコ株式会社<br>日清紡メカトロニクス株式会社<br>平田機工株式会社<br>株式会社フジキカイ<br>株式会社ミスミグループ本社<br>（一部抜粋）</td></tr>
+          <tr><th style="text-align:left;padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text-dark);font-weight:800;white-space:nowrap;vertical-align:top;">主要取引先</th><td style="padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text);line-height:1.9;font-size:14px;white-space:nowrap;"><span>株式会社アイシン・マシンテック</span><br><span>曙ブレーキ工業株式会社</span><br><span>岡谷鋼機株式会社</span><br><span>オムロン株式会社</span><br><span>川崎重工業株式会社</span><br><span>株式会社京都製作所</span><br><span>三恵技研工業株式会社</span><br><span>鈴与商事株式会社</span><br><span>株式会社大気社</span><br><span>ナブテスコ株式会社</span><br><span>日清紡メカトロニクス株式会社</span><br><span>平田機工株式会社</span><br><span>株式会社フジキカイ</span><br><span>株式会社ミスミグループ本社</span><br><span>（一部抜粋）</span></td></tr>
         </table>
       </div>
     </div>
