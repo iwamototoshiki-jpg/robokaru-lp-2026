@@ -1,0 +1,3379 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>ロボカル｜業界経験エンジニアを最短2週間で確保／機械設計・制御設計・生産技術ほか</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --primary: #0EA5E9;
+    --primary-dark: #0284C7;
+    --primary-darker: #0369A1;
+    --primary-light: #7DD3FC;
+    --primary-pale: #E0F2FE;
+    --primary-ghost: #F0F9FF;
+    --text-dark: #0F172A;
+    --text: #334155;
+    --text-muted: #64748B;
+    --border: #E2E8F0;
+    --soft: #E2E8F0;
+    --bg-soft: #F8FAFC;
+  }
+  html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+  section[id] { scroll-margin-top: 96px; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    background: #ffffff;
+    font-size: 19px;
+    line-height: 2.0;
+    font-feature-settings: "palt" 1;
+    min-width: 1280px;
+  }
+  .font-display { letter-spacing: 0.005em; }
+
+  /* ===== Typography (Round 4: breathing room for Japanese) ===== */
+  /* ===== Japanese text-break safety (prevent mid-word breaks) ===== */
+  h1, h2, h3, h4,
+  .h1-hero, .h2-section, .h3-card, .h4-sub,
+  .case-card .case-title,
+  .engineer-card .eng-role,
+  .flow-step h3, .flow-step h4,
+  .stat-label, .stat-unit {
+    word-break: keep-all;
+    line-break: strict;
+    overflow-wrap: break-word;
+  }
+  .h1-hero {
+    font-weight: 900;
+    font-size: clamp(34px, 5.2vw, 62px);
+    line-height: 1.34;
+    letter-spacing: -0.01em;
+    color: var(--text-dark);
+  }
+  .h1-hero .h1-line {
+    display: block;
+    margin-bottom: 0.12em;
+  }
+  .h1-hero .h1-line:last-child { margin-bottom: 0; }
+  .h1-hero .h1-accent {
+    color: var(--primary-dark);
+    padding-right: 0.04em;
+  }
+  .h2-section {
+    font-weight: 900;
+    font-size: clamp(26px, 3.4vw, 42px);
+    line-height: 1.55;
+    letter-spacing: -0.005em;
+    color: var(--text-dark);
+    text-align: center;
+  }
+  .h3-card {
+    font-weight: 800;
+    font-size: clamp(22px, 2vw, 28px);
+    line-height: 1.55;
+    color: var(--text-dark);
+  }
+  .h4-sub {
+    font-weight: 800;
+    font-size: clamp(18px, 1.5vw, 20px);
+    color: var(--text-dark);
+  }
+  .num-price-xl {
+    font-weight: 900;
+    font-size: clamp(96px, 13vw, 160px);
+    line-height: 0.95;
+    color: var(--primary-dark);
+    letter-spacing: -0.04em;
+  }
+  .num-price {
+    font-weight: 900;
+    font-size: clamp(72px, 9vw, 112px);
+    line-height: 1;
+    color: var(--primary-dark);
+    letter-spacing: -0.03em;
+  }
+  .num-xl {
+    font-weight: 900;
+    font-size: clamp(34px, 3.6vw, 50px);
+    line-height: 1;
+    color: var(--primary-dark);
+    letter-spacing: -0.02em;
+    display: block;
+  }
+  .stat-unit {
+    display: block;
+    font-size: clamp(13px, 1.3vw, 18px);
+    font-weight: 900;
+    color: var(--text-dark);
+    margin-top: 6px;
+    letter-spacing: 0.05em;
+  }
+  .body-text {
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 2.05;
+    color: var(--text);
+  }
+  .lead-strong {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.95;
+    color: var(--text-dark);
+  }
+  .tagline {
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    color: var(--primary-dark);
+  }
+  /* PC専用レイアウト - モバイル対応なし */
+
+  /* ===== Colors ===== */
+  .bg-primary { background-color: var(--primary); }
+  .bg-primary-dark { background-color: var(--primary-dark); }
+  .bg-pale { background-color: var(--primary-pale); }
+  .bg-ghost { background-color: var(--primary-ghost); }
+  .bg-soft { background-color: var(--bg-soft); }
+  .text-primary { color: var(--primary); }
+  .text-primary-dark { color: var(--primary-dark); }
+  .text-primary-darker { color: var(--primary-darker); }
+  .text-dark { color: var(--text-dark); }
+  .text-muted { color: var(--text-muted); }
+  .border-soft { border-color: var(--border); }
+
+  /* ===== Buttons (Round 3: even bigger) ===== */
+  .btn-primary {
+    background: var(--primary);
+    color: white;
+    font-weight: 900;
+    font-size: 18px;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px 36px;
+    border-radius: 16px;
+    box-shadow: 0 12px 24px -10px rgba(14,165,233,0.4);
+    white-space: nowrap;
+  }
+  .btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 20px 36px -14px rgba(14,165,233,0.6);
+  }
+  .btn-secondary {
+    background: white;
+    color: var(--primary-dark);
+    border: 3px solid var(--primary);
+    font-weight: 900;
+    font-size: 18px;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 18px 32px;
+    border-radius: 16px;
+    white-space: nowrap;
+  }
+  .btn-secondary:hover {
+    background: var(--primary-ghost);
+  }
+  .btn-mini {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 26px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 15px;
+  }
+
+  /* ===== Hero ===== */
+  .hero-bg {
+    background: linear-gradient(160deg, #ffffff 0%, #F0F9FF 55%, #E0F2FE 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg::before {
+    content: "";
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 60%;
+    height: 160%;
+    background: radial-gradient(circle, rgba(14,165,233,0.14) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-bg::after {
+    content: "";
+    position: absolute;
+    bottom: -40%;
+    left: -20%;
+    width: 70%;
+    height: 140%;
+    background: radial-gradient(circle, rgba(125,211,252,0.18) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  /* ===== Cards ===== */
+  .card-shadow { box-shadow: 0 10px 30px -14px rgba(14,165,233,0.18); }
+
+  /* ===== Trust bar ===== */
+  .trust-bar {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text-dark);
+    box-shadow: 0 8px 20px -10px rgba(14,165,233,0.2);
+  }
+  .trust-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary);
+    box-shadow: 0 0 0 4px var(--primary-pale);
+  }
+
+  /* ===== FV stat block ===== */
+  .stat-block {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 24px 16px;
+    text-align: center;
+    min-height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  .stat-block:hover {
+    border-color: var(--primary-light);
+    transform: translateY(-2px);
+  }
+  .stat-label {
+    font-size: 13px;
+    font-weight: 900;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+    white-space: nowrap;
+  }
+  /* stat-unit now defined above in responsive block */
+
+  /* ===== Service structure ===== */
+  .struct-step {
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 24px;
+    padding: 36px 20px;
+    text-align: center;
+    position: relative;
+    transition: all 0.2s;
+    min-width: 0;
+  }
+  .struct-step:hover {
+    border-color: var(--primary);
+    transform: translateY(-3px);
+  }
+  .struct-num {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: white;
+    font-weight: 900;
+    font-size: 14px;
+    padding: 6px 18px;
+    border-radius: 999px;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+  .struct-icon {
+    width: 88px;
+    height: 88px;
+    border-radius: 22px;
+    background: var(--primary-pale);
+    color: var(--primary-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 16px auto 20px;
+  }
+  .struct-arrow {
+    display: none;
+    color: var(--primary);
+  }
+  @media (min-width: 1024px) {
+    .struct-arrow { display: flex; align-items: center; justify-content: center; }
+  }
+
+  /* ===== Job chip ===== */
+  .job-chip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 16px 6px 14px;
+    border-radius: 14px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+    min-height: 108px;
+  }
+  .job-chip:hover { border-color: var(--primary-light); background: white; }
+  .job-chip-icon {
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 10px;
+    background: var(--primary-pale);
+    color: var(--primary-dark);
+    flex-shrink: 0;
+  }
+  .job-chip-label {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--text-dark);
+    text-align: center;
+    line-height: 1.35;
+    word-break: keep-all;
+    line-break: strict;
+    overflow-wrap: break-word;
+    letter-spacing: -0.01em;
+  }
+  @media (min-width: 640px) {
+    .job-chip-label { font-size: 13px; }
+  }
+
+  /* ===== Benefit ===== */
+  .benefit-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 40px 36px;
+    transition: all 0.2s;
+  }
+  .benefit-card:hover {
+    border-color: var(--primary-light);
+    transform: translateY(-3px);
+    box-shadow: 0 24px 48px -20px rgba(14,165,233,0.28);
+  }
+  .benefit-icon {
+    width: 72px; height: 72px;
+    border-radius: 18px;
+    background: var(--primary-pale);
+    color: var(--primary-dark);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+  }
+  .benefit-before-after {
+    background: var(--bg-soft);
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  /* ===== Pillar ===== */
+  .pillar-card {
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 44px 32px;
+    background: white;
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .pillar-card:hover { border-color: var(--primary-light); transform: translateY(-3px); }
+  .pillar-num {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--primary-light);
+    letter-spacing: 0.05em;
+    line-height: 1;
+  }
+  .pillar-icon {
+    width: 88px; height: 88px;
+    border-radius: 22px;
+    background: var(--primary-pale);
+    color: var(--primary-dark);
+    display: flex; align-items: center; justify-content: center;
+    margin: 14px auto 22px;
+  }
+
+  /* ===== Problem ===== */
+  .problem-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px 32px;
+    position: relative;
+  }
+  .problem-card .h3-card {
+    font-size: 24px;
+    line-height: 1.6;
+    white-space: nowrap;
+  }
+  .problem-card .body-text {
+    white-space: normal;
+  }
+  .problem-persona {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--primary-pale);
+    color: var(--primary-dark);
+    font-size: 13px;
+    font-weight: 900;
+    padding: 8px 16px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+
+  /* ===== Pricing ===== */
+  .pricing-card {
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 26px;
+    padding: 44px 36px;
+    transition: all 0.2s;
+    position: relative;
+  }
+  .pricing-card.featured {
+    border-color: var(--primary);
+    background: var(--primary-ghost);
+    box-shadow: 0 20px 48px -16px rgba(14,165,233,0.25);
+  }
+  .pricing-card.featured::before {
+    content: "よく選ばれています";
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: white;
+    font-size: 13px;
+    font-weight: 900;
+    padding: 8px 22px;
+    border-radius: 999px;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+  .fixed-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--primary);
+    color: white;
+    font-size: 12px;
+    font-weight: 900;
+    padding: 6px 14px;
+    border-radius: 999px;
+    letter-spacing: 0.06em;
+    margin-bottom: 12px;
+  }
+  .price-equal {
+    font-size: 38px;
+    font-weight: 900;
+    color: var(--primary-dark);
+    vertical-align: middle;
+    margin-right: 4px;
+  }
+  .price-currency {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--primary-dark);
+  }
+  .price-tax {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text-muted);
+    margin-top: 8px;
+  }
+  .price-breakdown {
+    display: inline-block;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-top: 14px;
+  }
+
+  /* ===== Before/After compare ===== */
+  .compare-box {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 40px 32px;
+  }
+  .bar-wrap { display: flex; flex-direction: column; gap: 4px; }
+  .bar-label {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--text-muted);
+    padding: 6px 0;
+  }
+  .bar-seg {
+    padding: 14px 18px;
+    font-size: 14px;
+    font-weight: 800;
+    color: white;
+    border-radius: 6px;
+  }
+  .bar-total {
+    background: var(--primary);
+    padding: 20px 24px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 900;
+    font-size: 22px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 240px;
+    line-height: 1.6;
+  }
+
+  /* ===== Scoreboard ===== */
+  .score-card {
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 22px;
+    padding: 36px 20px;
+    transition: all 0.2s;
+  }
+  .score-card.robokaru {
+    border-color: var(--primary);
+    background: var(--primary-ghost);
+    box-shadow: 0 32px 64px -24px rgba(14,165,233,0.35);
+    position: relative;
+  }
+  .score-card.robokaru::before {
+    content: "★ 選ばれている理由";
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: white;
+    font-size: 12px;
+    font-weight: 900;
+    padding: 6px 18px;
+    border-radius: 999px;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+  .score-head {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--text-dark);
+    padding-bottom: 18px;
+    border-bottom: 1px dashed var(--border);
+    margin-bottom: 18px;
+  }
+  .score-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px dashed var(--border);
+  }
+  .score-row:last-child { border-bottom: none; }
+  .score-row-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+    text-align: left;
+  }
+  .score-mark {
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .score-ok { color: var(--primary-dark); background: var(--primary-pale); }
+  .score-mid { color: #94A3B8; background: #F1F5F9; }
+  .score-ng { color: #CBD5E1; background: #F8FAFC; }
+  .score-note {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--text-muted);
+    text-align: right;
+    white-space: nowrap;
+    overflow: visible;
+  }
+
+  /* ===== Flow ===== */
+  .flow-step {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 32px 20px 26px;
+    text-align: center;
+    position: relative;
+    min-width: 0;
+  }
+  .flow-step h3 {
+    font-size: clamp(18px, 1.5vw, 22px);
+    word-break: keep-all;
+    line-break: strict;
+    overflow-wrap: break-word;
+  }
+  .flow-day {
+    width: 84px; height: 84px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    margin: -72px auto 18px;
+    box-shadow: 0 12px 28px -10px rgba(14,165,233,0.55);
+  }
+  .flow-day-num { font-size: 28px; font-weight: 900; line-height: 1; }
+  .flow-day-lbl { font-size: 10px; font-weight: 900; letter-spacing: 0.1em; margin-top: 2px; }
+  .flow-icon {
+    width: 64px; height: 64px;
+    border-radius: 16px;
+    background: var(--primary-pale);
+    color: var(--primary-dark);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 18px;
+  }
+  .flow-arrow { display: none; }
+  @media (min-width: 1024px) {
+    .flow-arrow { display: flex; align-items: center; justify-content: center; color: var(--primary-light); }
+  }
+
+  /* ===== FAQ ===== */
+  .faq-item {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 28px 32px;
+    margin-bottom: 16px;
+  }
+  .faq-q {
+    font-size: 19px;
+    font-weight: 900;
+    color: var(--text-dark);
+    display: flex;
+    gap: 14px;
+    line-height: 1.5;
+  }
+  .faq-q-mark {
+    color: var(--primary);
+    font-weight: 900;
+    font-size: 24px;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .faq-a {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--text);
+    margin-top: 14px;
+    padding-left: 38px;
+  }
+
+  /* ===== CTA ===== */
+  .cta-bg {
+    background: linear-gradient(135deg, var(--primary-darker) 0%, var(--primary) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(255,255,255,0.18) 0%, transparent 60%);
+  }
+
+  /* ===== Floating Side CTA (追従ボタン) ===== */
+  .side-fab {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 100;
+    width: 220px;
+    background: #FFFFE4;
+    border: 1.5px solid #E8E2C4;
+    border-radius: 16px;
+    padding: 14px 12px 12px;
+    box-shadow: 0 18px 36px -12px rgba(0,0,0,0.22);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(14px);
+    transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+  }
+  .side-fab.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .side-fab .sf-title {
+    font-size: 11px;
+    font-weight: 800;
+    color: #1F2A37;
+    text-align: center;
+    line-height: 1.5;
+    margin: 0 0 10px;
+    letter-spacing: 0.02em;
+  }
+  .side-fab a.sf-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    padding: 10px 10px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+  }
+  .side-fab a.sf-btn:hover { transform: translateY(-1px); filter: brightness(1.05); }
+  .side-fab a.sf-btn:last-of-type { margin-bottom: 0; }
+  .side-fab .sf-tel { background: #DB3245; box-shadow: 0 6px 14px -6px rgba(219,50,69,0.5); }
+  .side-fab .sf-tel .sf-num { font-size: 16px; font-weight: 900; color: white; line-height: 1.05; letter-spacing: 0.02em; }
+  .side-fab .sf-tel .sf-sub { font-size: 9px; color: white; line-height: 1.3; opacity: 0.95; margin-top: 2px; }
+  .side-fab .sf-mail { background: #EA7C14; justify-content: center; box-shadow: 0 6px 14px -6px rgba(234,124,20,0.5); }
+  .side-fab .sf-mail p { font-size: 13px; font-weight: 900; color: white; line-height: 1.25; margin: 0; text-align: center; }
+  .side-fab .sf-dl { background: #E4EDFA; border: 1.5px solid #1543AA; justify-content: center; box-shadow: 0 6px 14px -6px rgba(21,67,170,0.3); }
+  .side-fab .sf-dl p { font-size: 13px; font-weight: 900; color: #1543AA; line-height: 1.25; margin: 0; text-align: center; }
+  .side-fab .sf-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #0EA5E9;
+    color: white;
+    margin: 10px auto 0;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.15s, background 0.15s;
+  }
+  .side-fab .sf-top:hover { transform: translateY(-2px); background: #0284c7; }
+
+  /* ===== Sections ===== */
+  /* ---- Logo Slider (partner marquee) ---- */
+  .logo-marquee {
+    position: relative;
+    overflow: hidden;
+    padding: 28px 0;
+    background: #FFFFFF;
+    border-top: 1px solid var(--soft);
+    border-bottom: 1px solid var(--soft);
+    mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+  }
+  .logo-track {
+    display: flex;
+    gap: 32px;
+    width: max-content;
+    animation: logo-scroll 50s linear infinite;
+    align-items: center;
+  }
+  .logo-marquee:hover .logo-track { animation-play-state: paused; }
+  @keyframes logo-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .logo-item {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 96px;
+    min-width: 200px;
+    padding: 16px 28px;
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 6px 18px -12px rgba(14,165,233,0.22);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .logo-item:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-light);
+    box-shadow: 0 14px 28px -14px rgba(14,165,233,0.38);
+  }
+  .logo-item img {
+    max-height: 60px;
+    max-width: 180px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: none;
+    opacity: 1;
+    display: block;
+  }
+  /* ---- Case Study cards ---- */
+  .case-card {
+    background: #FFFFFF;
+    border: 1px solid var(--soft);
+    border-radius: 20px;
+    padding: 36px 32px 32px;
+    box-shadow: 0 10px 30px -14px rgba(14,165,233,0.18);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .case-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -16px rgba(14,165,233,0.3);
+  }
+  .case-card .case-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+  .case-card .case-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    color: var(--primary-darker);
+    background: #E0F2FE;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid #BAE6FD;
+  }
+  .case-card .case-title {
+    font-size: 19px;
+    font-weight: 900;
+    color: var(--text-dark);
+    line-height: 1.55;
+    margin-bottom: 18px;
+    letter-spacing: -0.005em;
+    word-break: keep-all;
+    line-break: strict;
+    overflow-wrap: break-word;
+  }
+  .case-card .case-desc {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.95;
+    margin-bottom: 20px;
+    flex-grow: 1;
+  }
+  .case-card .case-meta {
+    border-top: 1px solid var(--soft);
+    padding-top: 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 18px;
+    font-size: 13px;
+  }
+  .case-card .case-meta dt {
+    color: var(--text-muted);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .case-card .case-meta dd {
+    color: var(--text-dark);
+    font-weight: 900;
+    margin: 0;
+  }
+  .case-ba {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 10px;
+    align-items: stretch;
+  }
+  .case-ba-col {
+    background: #F8FAFC;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 14px;
+    text-align: center;
+  }
+  .case-ba-col.after {
+    background: #F0F9FF;
+    border-color: #BAE6FD;
+  }
+  .case-ba-label {
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .case-ba-col.after .case-ba-label { color: var(--primary-dark); }
+  .case-ba-num {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--text-dark);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .case-ba-col.after .case-ba-num { color: var(--primary-dark); }
+  .case-ba-unit {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--text-muted);
+  }
+  .case-ba-col.after .case-ba-unit { color: var(--primary-dark); }
+  .case-ba-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-weight: 900;
+    font-size: 22px;
+  }
+  .case-card .case-result {
+    margin-top: 16px;
+    background: #F0F9FF;
+    border-left: 4px solid var(--primary-dark);
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--primary-darker);
+    line-height: 1.7;
+  }
+  /* ---- Engineer card ---- */
+  .engineer-card {
+    background: #FFFFFF;
+    border: 1px solid var(--soft);
+    border-radius: 20px;
+    padding: 36px 32px 32px;
+    box-shadow: 0 10px 30px -14px rgba(14,165,233,0.18);
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+  .engineer-card:hover { transform: translateY(-4px); }
+  .engineer-card .eng-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 4px;
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px dashed var(--soft);
+  }
+  .engineer-card .eng-stat {
+    text-align: center;
+  }
+  .engineer-card .eng-stat-num {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--primary-dark);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .engineer-card .eng-stat-label {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--text-muted);
+    margin-top: 4px;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+  .engineer-card .eng-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 18px;
+    border-bottom: 1px dashed var(--soft);
+  }
+  .engineer-card .eng-avatar {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #BAE6FD 0%, var(--primary-dark) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 26px;
+    font-weight: 900;
+    flex-shrink: 0;
+    box-shadow: 0 6px 16px -6px rgba(2,132,199,0.5);
+  }
+  .engineer-card .eng-role {
+    font-size: 15px;
+    font-weight: 900;
+    color: var(--text-dark);
+    line-height: 1.4;
+    margin-bottom: 4px;
+    word-break: keep-all;
+    line-break: strict;
+    overflow-wrap: break-word;
+  }
+  .engineer-card .eng-meta {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 700;
+  }
+  .engineer-card .eng-quote {
+    font-size: 14px;
+    color: var(--text-dark);
+    line-height: 1.85;
+    position: relative;
+    padding-left: 22px;
+  }
+  .engineer-card .eng-quote::before {
+    content: "\201C";
+    position: absolute;
+    left: 0;
+    top: -8px;
+    font-size: 40px;
+    color: var(--primary-dark);
+    font-family: Georgia, serif;
+    line-height: 1;
+    opacity: 0.5;
+  }
+  .engineer-card .eng-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 18px;
+  }
+  .engineer-card .eng-skill {
+    font-size: 11px;
+    font-weight: 900;
+    color: var(--primary-darker);
+    background: #F0F9FF;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid #E0F2FE;
+  }
+  /* ---- Company info (footer) ---- */
+  .company-info {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.9;
+  }
+  .company-info dt {
+    font-weight: 900;
+    color: var(--text-dark);
+    margin-top: 8px;
+  }
+  .company-info dd { margin: 0 0 4px 0; }
+  .section-pad { padding: 140px 0 90px; }
+  /* section-pad - PC固定 */
+
+  /* =================================================================
+     DESIGN REFINEMENT LAYER (2026-04-20)
+     目的: 情報量はそのままに「スッキリ見えるLP」へ統一
+     触れない物: 構成 / 原稿 / CTA / リンク / アンカー
+     触る物   : 余白 / 文字サイズ / 行間 / 階層 / 角丸 / 影 / 色の粒
+     ================================================================= */
+
+  /* --- 1. セクション余白統一(上下リズム) ----------------------- */
+  /* 元: 140px / 90px の非対称 → 上下のリズムを整え、呼吸を生む   */
+  .section-pad { padding: 112px 0 112px !important; }
+  section#top.section-pad { padding: 88px 0 72px !important; }     /* FVは上詰め */
+  section#partners.section-pad { padding: 56px 0 56px !important; } /* ロゴは薄く */
+  section#news.section-pad { padding: 88px 0 88px !important; }
+
+  /* --- 2. コンテナ最大幅を読みやすさ優先で調整 ------------------ */
+  /* 文字主体セクションは 1120px、カード主体は 1200px に寄せる     */
+  .max-w-7xl { max-width: 1200px !important; }
+  section#faq .max-w-7xl,
+  section#news .max-w-7xl,
+  section#company .max-w-7xl { max-width: 1080px !important; }
+
+  /* --- 3. タグライン(セクションラベル)統一 ---------------------- */
+  /* 基本: フォント/色/letter-spacing のみ統一                         */
+  .tagline {
+    font-size: 13px !important;
+    letter-spacing: 0.22em !important;
+    font-weight: 900;
+    color: var(--primary-dark);
+  }
+  /* <p class="tagline ..."> の場合のみ、左右に装飾ダッシュを付け、   */
+  /* 中央配置にする(<span>形式のpill型タグには装飾を付けない)         */
+  p.tagline {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  p.tagline::before,
+  p.tagline::after {
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 2px;
+    background: var(--primary);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  /* CONTACTセクション(濃青背景)のタグラインは白色に合わせる         */
+  section#cta p.tagline { color: #fff !important; opacity: 0.9; }
+  section#cta p.tagline::before,
+  section#cta p.tagline::after { background: rgba(255,255,255,0.6); }
+  /* 左寄せが必要な tagline(あれば)のための逃げ道 */
+  p.tagline.tagline-left { justify-content: flex-start; }
+  /* FVのpill型「製造業特化」タグはそのまま inline-block として維持  */
+  span.tagline { display: inline-block !important; }
+
+  /* --- 4. 見出し階層をより読みやすく --------------------------- */
+  .h1-hero {
+    font-size: clamp(40px, 4.6vw, 58px) !important;
+    line-height: 1.38 !important;
+    letter-spacing: -0.012em !important;
+  }
+  .h2-section {
+    font-size: clamp(30px, 3vw, 40px) !important;
+    line-height: 1.5 !important;
+    letter-spacing: -0.008em !important;
+    margin-bottom: 8px;
+  }
+  .h3-card {
+    font-size: clamp(20px, 1.7vw, 24px) !important;
+    line-height: 1.55 !important;
+  }
+  .h4-sub {
+    font-size: 17px !important;
+    line-height: 1.7 !important;
+  }
+
+  /* --- 5. 本文の可読性(行間と色のコントラスト) ----------------- */
+  body { font-size: 17px !important; line-height: 1.95 !important; }
+  .body-text { font-size: 17px !important; line-height: 1.95 !important; }
+  .lead-strong { font-size: 20px !important; line-height: 1.9 !important; }
+  p { color: #334155; }
+
+  /* --- 6. 角丸・影を統一(デザイントークン化) -------------------- */
+  :root {
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 20px;
+    --radius-xl: 24px;
+    --shadow-sm: 0 2px 8px -2px rgba(15,23,42,0.06);
+    --shadow-md: 0 8px 20px -10px rgba(14,165,233,0.18);
+    --shadow-lg: 0 18px 40px -18px rgba(14,165,233,0.26);
+  }
+  .card-shadow { box-shadow: var(--shadow-md) !important; }
+  .stat-block,
+  .struct-step,
+  .engineer-card,
+  .case-card {
+    border-radius: var(--radius-lg) !important;
+    box-shadow: var(--shadow-md) !important;
+    border: 1px solid #E6EEF5 !important;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease !important;
+  }
+  .stat-block:hover,
+  .struct-step:hover,
+  .engineer-card:hover,
+  .case-card:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: var(--shadow-lg) !important;
+    border-color: #BAE6FD !important;
+  }
+
+  /* --- 7. CTAボタンの視認性アップ ------------------------------ */
+  .btn-primary {
+    font-size: 18px !important;
+    padding: 22px 40px !important;
+    border-radius: var(--radius-md) !important;
+    letter-spacing: 0.02em;
+    box-shadow: 0 14px 28px -10px rgba(14,165,233,0.45) !important;
+  }
+  .btn-primary:hover {
+    box-shadow: 0 22px 40px -14px rgba(14,165,233,0.65) !important;
+  }
+  .btn-secondary {
+    padding: 20px 36px !important;
+    border-radius: var(--radius-md) !important;
+    border-width: 2px !important;
+  }
+
+  /* --- 8. ヘッダーの軽量化と余白調整 --------------------------- */
+  header { border-bottom: 1px solid #EEF2F7 !important; }
+  header .h-24 { height: 84px !important; }
+
+  /* --- 9. セクション間の"区切りがない"問題を解消 --------------- */
+  /* 白->グレー->白 の自然なリズムを作り、境界を滑らかに          */
+  section + section { position: relative; }
+
+  /* --- 10. PROBLEM/FEATURE カード統一(背景白、境界線ソフト) ---- */
+  .card-shadow,
+  [class*="rounded-"][class*="bg-white"] {
+    /* 既存のTailwind rounded-* を邪魔せずに影だけ統一 */
+  }
+  /* PROBLEM ペルソナバッジの文字はみ出し(「プロジェクトマネージャー」等の
+     長いラベルがバッジから改行してしまう問題)を修正                   */
+  .problem-persona {
+    white-space: nowrap !important;
+    max-width: 100%;
+    font-size: 12px !important;
+    padding: 7px 14px !important;
+    line-height: 1.2 !important;
+  }
+  /* 「プロジェクトマネージャー」など長文は自動で縮小                   */
+  .problem-card .problem-persona {
+    font-size: clamp(10.5px, 1vw, 13px) !important;
+  }
+  /* problem-card内のタイトルはデフォルト nowrap だが、ここではwhite-space
+     noWrap は <br> があるので正常。body-text の white-space も念のため  */
+  .problem-card .h3-card { white-space: normal !important; }
+  .problem-card { padding: 32px 28px !important; }
+
+  /* --- 11. CASE CARD内のBEFORE/AFTER配置を完全統一 ------------- */
+  /* カード幅が狭い時でも崩れない固定レイアウト(文字数が違っても      */
+  /* 同じサイズ・同じ高さに見えるようにする)                          */
+  .case-ba {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin-top: 20px !important;
+    display: grid !important;
+    grid-template-columns: 1fr 28px 1fr !important;
+    gap: 8px !important;
+    align-items: stretch;
+  }
+  .case-ba-col {
+    background: #F8FBFE !important;
+    border: 1px solid #E6EEF5 !important;
+    border-radius: 14px !important;
+    padding: 14px 6px !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 118px !important;
+  }
+  .case-ba-col.after {
+    background: #F0F9FF !important;
+    border-color: #BAE6FD !important;
+  }
+  .case-ba-label {
+    font-size: 10px !important;
+    letter-spacing: 0.18em !important;
+    margin-bottom: 6px !important;
+    line-height: 1 !important;
+  }
+  .case-ba-num {
+    font-size: 26px !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.02em !important;
+    white-space: nowrap !important;   /* 「2ヶ月」を1行で固定 */
+    margin-bottom: 4px !important;
+  }
+  .case-ba-unit {
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+    min-height: 2.7em;                 /* 1行/2行でも高さ同じに */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2px;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+  .case-ba-arrow {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary) !important;
+    font-size: 18px !important;
+    font-weight: 900;
+  }
+
+  /* --- 12. ENGINEER CARD 内部余白を詰める ---------------------- */
+  .engineer-card { padding: 32px 28px 28px !important; }
+  .engineer-card .eng-header { margin-bottom: 18px !important; padding-bottom: 16px !important; }
+  .engineer-card .eng-avatar {
+    width: 64px !important;
+    height: 64px !important;
+    font-size: 22px !important;
+  }
+  .engineer-card .eng-role { font-size: 16px !important; }
+  .engineer-card .eng-quote {
+    background: #F8FBFE;
+    padding: 14px 14px 14px 32px;
+    border-radius: 12px;
+    border-left: 3px solid var(--primary-light);
+    font-size: 13.5px !important;
+    line-height: 1.8 !important;
+  }
+  .engineer-card .eng-quote::before { top: 4px; left: 10px; font-size: 32px; }
+  .engineer-card .eng-skill {
+    background: #ECF6FE !important;
+    border-color: #D7ECFA !important;
+  }
+
+  /* --- 13. FV(ファーストビュー)の情報密度を下げる -------------- */
+  .hero-bg .tagline { font-size: 12px !important; letter-spacing: 0.24em !important; }
+  section#top .h1-hero { margin-top: 10px; margin-bottom: 24px; }
+
+  /* --- 14. STAT BLOCK を端正に -------------------------------- */
+  .stat-block {
+    min-height: 160px !important;
+    padding: 22px 14px !important;
+    background: #FFFFFF;
+  }
+  .stat-label {
+    font-size: 12px !important;
+    letter-spacing: 0.12em !important;
+    margin-bottom: 10px !important;
+  }
+  .num-xl { font-size: clamp(32px, 3.2vw, 44px) !important; }
+
+  /* --- 15. PRICING テーブル/カード風の要素を整える ------------- */
+  #pricing .card-shadow { border-radius: var(--radius-xl) !important; }
+
+  /* --- 16. FAQ アコーディオン(details) ------------------------- */
+  #faq details {
+    background: #FFFFFF;
+    border: 1px solid #E6EEF5;
+    border-radius: var(--radius-md);
+    padding: 4px 8px;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s;
+  }
+  #faq details[open] { box-shadow: var(--shadow-md); border-color: #BAE6FD; }
+  #faq summary { cursor: pointer; padding: 18px 20px; font-weight: 800; }
+
+  /* --- 17. 運営会社テーブルをスッキリ -------------------------- */
+  .company-info {
+    font-size: 14px !important;
+    line-height: 1.9 !important;
+  }
+  .company-info dt { margin-top: 14px !important; font-size: 13px !important; color: var(--primary-darker); }
+  .company-info dd { margin-bottom: 6px !important; }
+
+  /* --- 18. お知らせリスト -------------------------------------- */
+  #news a, #news li { border-radius: var(--radius-sm); }
+  #news a { transition: background 0.2s; }
+  #news a:hover { background: #F8FBFE; }
+
+  /* --- 19. 文字色の粒を整える(灰色の揺らぎを統一) -------------- */
+  .text-slate-500 { color: #64748B !important; }
+  .text-slate-600 { color: #475569 !important; }
+  .text-slate-700 { color: #334155 !important; }
+
+  /* --- 20. パートナー(導入企業)ロゴを薄グレー背景で統一 -------- */
+  #partners { background: #F8FAFC !important; }
+  #partners img { filter: grayscale(20%); opacity: 0.88; transition: filter 0.2s, opacity 0.2s; }
+  #partners img:hover { filter: none; opacity: 1; }
+
+  /* --- 21. 見出しの下に細い下線アクセント(h2-section用) -------- */
+  /* タグラインとの視覚的なつながりを出す                         */
+  .h2-section + p,
+  .h2-section + div { margin-top: 10px; }
+
+  /* --- 22. リンク色の統一 -------------------------------------- */
+  a { color: inherit; }
+  .text-primary-dark { color: var(--primary-dark) !important; }
+
+  /* --- 23. 区切りバー(各セクション先頭のタグライン周り) -------- */
+  section p.tagline { margin-bottom: 14px; }
+
+  /* --- 24. スクロールバーを細く(Webkit) ------------------------ */
+  ::-webkit-scrollbar { width: 12px; height: 12px; }
+  ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 999px; border: 3px solid #F8FAFC; }
+  ::-webkit-scrollbar-track { background: #F8FAFC; }
+
+  /* --- 25. 選択時のハイライト ---------------------------------- */
+  ::selection { background: var(--primary-pale); color: var(--primary-darker); }
+</style>
+</head>
+<body>
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-soft">
+  <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between gap-6">
+    <a href="#top" class="flex items-center gap-3 shrink-0">
+      <img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/logo.svg" alt="株式会社ロボカル" style="height:52px; width:auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+      <span class="font-display font-black text-2xl tracking-tight text-primary-dark" style="display:none;">ROBOKARU</span>
+    </a>
+    <div class="flex items-center gap-3 shrink-0">
+      <!-- 電話 (pink/red) -->
+      <a href="tel:0345006960" style="background:#DB3245;border-radius:12px;padding:12px 22px;display:flex;align-items:center;gap:10px;text-decoration:none;box-shadow:0 6px 14px -8px rgba(219,50,69,0.55);transition:transform 0.15s, box-shadow 0.15s;white-space:nowrap;" onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform='none'">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" style="flex-shrink:0;"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.8 12.8 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.8 12.8 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        <div style="text-align:center;line-height:1.1;">
+          <p style="font-size:18px;font-weight:900;color:white;margin:0;letter-spacing:0.02em;">03-4500-6960</p>
+          <p style="font-size:11px;color:white;margin:3px 0 0;opacity:0.95;font-weight:700;">（平日・土曜日 9時〜18時）</p>
+        </div>
+      </a>
+      <!-- メールお問い合わせ (orange) -->
+      <a href="#contact-form" style="background:#EA7C14;border-radius:12px;padding:14px 22px;display:flex;align-items:center;gap:10px;text-decoration:none;box-shadow:0 6px 14px -8px rgba(234,124,20,0.55);transition:transform 0.15s, box-shadow 0.15s;white-space:nowrap;" onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform='none'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" style="flex-shrink:0;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span style="font-size:15px;font-weight:900;color:white;">メールお問い合わせ</span>
+      </a>
+      <!-- 資料ダウンロード (blue outline on white) -->
+      <a href="https://robokaru-biz.com/download/" target="_blank" rel="noopener" style="background:white;border:1.5px solid #1543AA;border-radius:12px;padding:13px 22px;display:flex;align-items:center;gap:10px;text-decoration:none;box-shadow:0 6px 14px -8px rgba(21,67,170,0.25);transition:transform 0.15s, box-shadow 0.15s;white-space:nowrap;" onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform='none'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1543AA" stroke-width="2.2" style="flex-shrink:0;"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+        <span style="font-size:15px;font-weight:900;color:#1543AA;">資料ダウンロード</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- FV -->
+<section id="top" class="hero-bg section-pad relative">
+  <div class="max-w-7xl mx-auto px-6 relative">
+    <div class="max-w-5xl mx-auto text-center relative z-10">
+      <!-- タグライン: 製造業特化 -->
+      <div class="mb-5">
+        <span class="inline-block tagline bg-white border border-soft rounded-full px-5 py-2">
+          製造業特化
+        </span>
+      </div>
+
+      <!-- 対応10領域タブ（FV先端） -->
+      <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:36px;max-width:980px;margin-left:auto;margin-right:auto;">
+        <span style="display:inline-flex;align-items:center;gap:5px;background:var(--primary-pale);color:var(--primary-dark);font-size:14px;font-weight:800;padding:8px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 2px 6px -3px rgba(14,165,233,.25);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg>機械設計
+        </span>
+        <span style="display:inline-flex;align-items:center;gap:5px;background:var(--primary-pale);color:var(--primary-dark);font-size:14px;font-weight:800;padding:8px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 2px 6px -3px rgba(14,165,233,.25);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>制御設計
+        </span>
+        <span style="display:inline-flex;align-items:center;gap:5px;background:var(--primary-pale);color:var(--primary-dark);font-size:14px;font-weight:800;padding:8px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 2px 6px -3px rgba(14,165,233,.25);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 16c0 3 2 5 5 5M15 3c3 0 5 2 5 5M4 8c0-3 2-5 5-5M15 21c3 0 5-2 5-5"/><circle cx="12" cy="12" r="3"/></svg>回路設計
+        </span>
+        <span style="display:inline-flex;align-items:center;gap:5px;background:var(--primary-pale);color:var(--primary-dark);font-size:14px;font-weight:800;padding:8px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 2px 6px -3px rgba(14,165,233,.25);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 20h20M6 20V10M12 20V4M18 20v-8"/></svg>インフラ設計
+        </span>
+        <span style="display:inline-flex;align-items:center;gap:5px;background:var(--primary-pale);color:var(--primary-dark);font-size:14px;font-weight:800;padding:8px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 2px 6px -3px rgba(14,165,233,.25);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 21V7l9-5 9 5v14M9 21v-6h6v6"/></svg>プラント設計
+        </span>
+        <span style="display:inline-flex;align-items:center;gap:5px;background:var(--primary-pale);color:var(--primary-dark);font-size:14px;font-weight:800;padding:8px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 2px 6px -3px rgba(14,165,233,.25);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 20h20M5 20V10l7-6 7 6v10"/><path d="M9 20v-4h6v4"/></svg>生産技術
+        </span>
+        <span style="display:inline-flex;align-items:center;gap:5px;background:var(--primary-pale);color:var(--primary-dark);font-size:14px;font-weight:800;padding:8px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 2px 6px -3px rgba(14,165,233,.25);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>品質管理
+        </span>
+        <span style="display:inline-flex;align-items:center;gap:5px;background:var(--primary-pale);color:var(--primary-dark);font-size:14px;font-weight:800;padding:8px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 2px 6px -3px rgba(14,165,233,.25);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>設備保全
+        </span>
+        <span style="display:inline-flex;align-items:center;gap:5px;background:var(--primary-pale);color:var(--primary-dark);font-size:14px;font-weight:800;padding:8px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 2px 6px -3px rgba(14,165,233,.25);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>自動化構想
+        </span>
+        <span style="display:inline-flex;align-items:center;gap:5px;background:var(--primary-pale);color:var(--primary-dark);font-size:14px;font-weight:800;padding:8px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 2px 6px -3px rgba(14,165,233,.25);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 17l6-6 4 4 8-8"/><polyline points="14 7 21 7 21 14"/></svg>生産性改善
+        </span>
+      </div>
+
+      <!-- H1 -->
+      <h1 class="h1-hero font-display mb-8" style="font-size:clamp(32px, 4.4vw, 58px); line-height:1.3;">
+        <span class="h1-line" style="white-space:nowrap;">業界経験エンジニアを</span>
+        <span class="h1-line" style="white-space:nowrap;"><span class="h1-accent">最短2週間</span>で確保。</span>
+      </h1>
+
+      <!-- サブコピー（1文に集約） -->
+      <p class="body-text mb-10 mx-auto" style="font-size:18px; line-height:1.9; max-width:720px;">
+        製造業10領域の即戦力を、<strong class="text-primary-dark">月額60万円/月のシンプル定額</strong>で。
+      </p>
+
+      <!-- CTA -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+        <a href="#contact-form" class="btn-primary" style="white-space: nowrap;">
+          お問い合わせ
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://robokaru-biz.com/download/" target="_blank" rel="noopener" class="btn-secondary" style="white-space: nowrap;">
+          資料請求
+        </a>
+      </div>
+
+      <!-- 特徴チップ（簡潔に3つ） -->
+      <div class="mx-auto" style="display:inline-flex;align-items:center;gap:0;background:white;border:1px solid var(--border);border-radius:999px;padding:8px 0;box-shadow:0 4px 12px -6px rgba(14,165,233,0.15);flex-wrap:nowrap;">
+          <span style="display:inline-flex;align-items:center;gap:5px;padding:0 16px;font-size:12px;font-weight:800;color:var(--text-dark);white-space:nowrap;"><span style="width:6px;height:6px;border-radius:50%;background:var(--primary);flex-shrink:0;"></span>1ヶ月単位で発注</span>
+          <span style="color:var(--border);font-size:12px;">｜</span>
+          <span style="display:inline-flex;align-items:center;gap:5px;padding:0 16px;font-size:12px;font-weight:800;color:var(--text-dark);white-space:nowrap;"><span style="width:6px;height:6px;border-radius:50%;background:var(--primary);flex-shrink:0;"></span>稼働前に面談</span>
+          <span style="color:var(--border);font-size:12px;">｜</span>
+          <span style="display:inline-flex;align-items:center;gap:5px;padding:0 16px;font-size:12px;font-weight:800;color:var(--text-dark);white-space:nowrap;"><span style="width:6px;height:6px;border-radius:50%;background:var(--primary);flex-shrink:0;"></span>全国出張対応</span>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- PARTNER LOGOS (Marquee) -->
+<section id="partners" class="bg-white" style="padding: 60px 0 40px;">
+  <div class="max-w-6xl mx-auto px-6 mb-8">
+    <p class="tagline text-center mb-3" style="color:var(--primary-dark);">CLIENTS</p>
+    <h2 class="text-center" style="font-size:clamp(22px, 3vw, 32px); font-weight:900; color:var(--text-dark); letter-spacing:-0.01em; line-height:1.45;">
+      中小企業も大手企業も含めて、<span class="text-primary-dark">多くの企業様</span>にご利用いただいています
+    </h2>
+  </div>
+  <div class="logo-marquee">
+    <div class="logo-track">
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-kawasaki.png" alt="川崎重工業株式会社" loading="lazy"></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-nabtesco.png" alt="ナブテスコ株式会社" loading="lazy"></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-misumi.png" alt="株式会社ミスミグループ本社" loading="lazy"></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-akebono.png" alt="曙ブレーキ工業株式会社" loading="lazy"></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-nisshinbo.png" alt="日清紡メカトロニクス株式会社" loading="lazy"></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-taikisha.png" alt="株式会社大気社" loading="lazy"></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-sankei.png" alt="三恵技研工業株式会社" loading="lazy"></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-kyotoss.png" alt="株式会社京都製作所" loading="lazy"></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-aska.png" alt="アスカ株式会社" loading="lazy"></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-hirata.png" alt="平田機工株式会社" loading="lazy"></div>
+      <!-- duplicate for seamless loop -->
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-kawasaki.png" alt="川崎重工業株式会社" loading="lazy"></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-nabtesco.png" alt="ナブテスコ株式会社" loading="lazy"></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-misumi.png" alt="株式会社ミスミグループ本社" loading="lazy"></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-akebono.png" alt="曙ブレーキ工業株式会社" loading="lazy"></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-nisshinbo.png" alt="日清紡メカトロニクス株式会社" loading="lazy"></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-taikisha.png" alt="株式会社大気社" loading="lazy"></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-sankei.png" alt="三恵技研工業株式会社" loading="lazy"></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-kyotoss.png" alt="株式会社京都製作所" loading="lazy"></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-aska.png" alt="アスカ株式会社" loading="lazy"></div>
+      <div class="logo-item"><img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/top/imp-hirata.png" alt="平田機工株式会社" loading="lazy"></div>
+    </div>
+  </div>
+  <p class="text-center mt-6" style="font-size:13px; color:var(--text-muted); font-weight:700;">※ 一部抜粋・敬称略／掲載順不同</p>
+  <div class="max-w-5xl mx-auto px-6 mt-8">
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;">
+      <span style="font-size:12px;font-weight:700;color:var(--text-muted);background:var(--bg-soft);border:1px solid var(--border);padding:5px 14px;border-radius:999px;">自動車・自動車部品</span>
+      <span style="font-size:12px;font-weight:700;color:var(--text-muted);background:var(--bg-soft);border:1px solid var(--border);padding:5px 14px;border-radius:999px;">工作機械</span>
+      <span style="font-size:12px;font-weight:700;color:var(--text-muted);background:var(--bg-soft);border:1px solid var(--border);padding:5px 14px;border-radius:999px;">半導体装置</span>
+      <span style="font-size:12px;font-weight:700;color:var(--text-muted);background:var(--bg-soft);border:1px solid var(--border);padding:5px 14px;border-radius:999px;">精密機器</span>
+      <span style="font-size:12px;font-weight:700;color:var(--text-muted);background:var(--bg-soft);border:1px solid var(--border);padding:5px 14px;border-radius:999px;">医薬品</span>
+      <span style="font-size:12px;font-weight:700;color:var(--text-muted);background:var(--bg-soft);border:1px solid var(--border);padding:5px 14px;border-radius:999px;">食品機械</span>
+      <span style="font-size:12px;font-weight:700;color:var(--text-muted);background:var(--bg-soft);border:1px solid var(--border);padding:5px 14px;border-radius:999px;">物流装置</span>
+      <span style="font-size:12px;font-weight:700;color:var(--text-muted);background:var(--bg-soft);border:1px solid var(--border);padding:5px 14px;border-radius:999px;">EV・モーター</span>
+      <span style="font-size:12px;font-weight:700;color:var(--text-muted);background:var(--bg-soft);border:1px solid var(--border);padding:5px 14px;border-radius:999px;">家電</span>
+    </div>
+  </div>
+</section>
+<!-- PROBLEM -->
+<section class="section-pad bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <p class="tagline text-center mb-5">PROBLEM</p>
+    <h2 class="h2-section mb-16">
+      この状態、<span class="text-primary-dark">放置していませんか？</span>
+    </h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="problem-card">
+        <div class="problem-persona">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          工場長
+        </div>
+        <h3 class="h3-card mb-4">来週から人が欲しい。<br>採用は間に合わない。</h3>
+        <p class="body-text" style="font-size:16px;">ライン立ち上げ・納期前の増産で"今すぐ"の人手が必要。採用は数ヶ月、単発外注も条件交渉に時間がかかる。</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-persona">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 10h8M8 14h5"/></svg>
+          経理・購買
+        </div>
+        <h3 class="h3-card mb-4">見積が複雑で、<br>稟議が通りづらい。</h3>
+        <p class="body-text" style="font-size:16px;">時間単価＋諸経費＋変動費…最終金額が読めず、予算化も説明も難しい。稟議書の書き直しが続く。</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-persona">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          生産技術
+        </div>
+        <h3 class="h3-card mb-4">請求書が想定と違う。<br>毎月モヤモヤ。</h3>
+        <p class="body-text" style="font-size:16px;">残業・出張・宿泊…"追加請求"が毎月バラバラで、経理からの問い合わせが絶えない。予実管理もズレる。</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-persona">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          プロジェクトマネージャー
+        </div>
+        <h3 class="h3-card mb-4">スキル要件に合う人が<br>すぐに見つからない。</h3>
+        <p class="body-text" style="font-size:16px;">PLC・ロボット・電気設計など、専門性の高い人材ほど市場に出ていない。探している間にプロジェクトが遅延する。</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-persona">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg>
+          経営層
+        </div>
+        <h3 class="h3-card mb-4">固定費を増やさずに<br>柔軟に人員調整したい。</h3>
+        <p class="body-text" style="font-size:16px;">受注の波に合わせてリソースを変動させたい。正社員採用はリスクが大きく、派遣は条件が合わない。</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-persona">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.48 0 4.73 1.01 6.36 2.64"/></svg>
+          人事・採用担当
+        </div>
+        <h3 class="h3-card mb-4">採用コストと時間が<br>かかりすぎる。</h3>
+        <p class="body-text" style="font-size:16px;">求人媒体・エージェント費用に加え、面接調整や書類選考の工数が膨大。採用しても早期離職のリスクがある。</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ① TIME COMPARISON: 人材確保の時間比較 -->
+<section class="section-pad bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <p class="tagline text-center mb-5">TIME COMPARISON</p>
+    <h2 class="h2-section mb-6">
+      人材確保に、<span class="text-primary-dark">何日</span>かけていますか？
+    </h2>
+    <p class="body-text text-center mb-16 max-w-3xl mx-auto">
+      採用・外注先探し・社内調整──従来の方法では数週間〜数ヶ月。<br>
+      <strong class="text-dark">ロボカルなら、最短2週間で現場に即戦力が立ちます。</strong>
+    </p>
+    <div class="grid md:grid-cols-2 gap-12 items-center max-w-4xl mx-auto">
+      <!-- 従来 -->
+      <div style="background:linear-gradient(135deg,#FEF2F2,#FFF7ED);border-radius:20px;padding:40px 32px;border:1px solid #FECACA;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;">
+          <div style="width:44px;height:44px;border-radius:12px;background:#FEE2E2;display:flex;align-items:center;justify-content:center;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <span style="font-weight:800;font-size:18px;color:#991B1B;">従来の人材確保</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="background:#FEE2E2;color:#DC2626;font-weight:800;font-size:13px;padding:4px 10px;border-radius:6px;white-space:nowrap;">2〜4週間</span>
+            <span style="font-size:15px;color:#64748B;font-weight:600;">求人掲載〜書類選考</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="background:#FEE2E2;color:#DC2626;font-weight:800;font-size:13px;padding:4px 10px;border-radius:6px;white-space:nowrap;">2〜6週間</span>
+            <span style="font-size:15px;color:#64748B;font-weight:600;">面接〜条件交渉〜内定</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="background:#FEE2E2;color:#DC2626;font-weight:800;font-size:13px;padding:4px 10px;border-radius:6px;white-space:nowrap;">1〜3ヶ月</span>
+            <span style="font-size:15px;color:#64748B;font-weight:600;">入社待ち〜引き継ぎ</span>
+          </div>
+          <div style="margin-top:12px;padding-top:16px;border-top:2px dashed #FECACA;text-align:center;">
+            <span style="font-weight:900;font-size:28px;color:#DC2626;">合計 2〜5ヶ月</span>
+          </div>
+        </div>
+      </div>
+      <!-- ロボカル -->
+      <div style="background:linear-gradient(135deg,#E0F2FE,#F0F9FF);border-radius:20px;padding:40px 32px;border:2px solid #0EA5E9;box-shadow:0 8px 32px rgba(14,165,233,0.12);">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;">
+          <div style="width:44px;height:44px;border-radius:12px;background:#BAE6FD;display:flex;align-items:center;justify-content:center;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0284C7" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <span style="font-weight:800;font-size:18px;color:#0369A1;">ロボカルの場合</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="background:#BAE6FD;color:#0369A1;font-weight:800;font-size:13px;padding:4px 10px;border-radius:6px;white-space:nowrap;">当 日</span>
+            <span style="font-size:15px;color:#334155;font-weight:600;">ご相談・ヒアリング</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="background:#BAE6FD;color:#0369A1;font-weight:800;font-size:13px;padding:4px 10px;border-radius:6px;white-space:nowrap;">3営業日〜</span>
+            <span style="font-size:15px;color:#334155;font-weight:600;">見積確定・人材選定・事前面談</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="background:#BAE6FD;color:#0369A1;font-weight:800;font-size:13px;padding:4px 10px;border-radius:6px;white-space:nowrap;">2週間</span>
+            <span style="font-size:15px;color:#334155;font-weight:600;">現場稼働スタート</span>
+          </div>
+          <div style="margin-top:12px;padding-top:16px;border-top:2px dashed #7DD3FC;text-align:center;">
+            <span style="font-weight:900;font-size:28px;color:#0284C7;">最短 2週間</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-16">
+      <a href="#cta" class="btn-primary">まずは相談してみる
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+<!-- 3 PROMISES -->
+<section class="section-pad bg-soft">
+  <div class="max-w-6xl mx-auto px-6">
+    <p class="tagline text-center mb-5">3 PROMISES</p>
+    <h2 class="h2-section mb-16">
+      ロボカルの<span class="text-primary-dark">3つの約束</span>
+    </h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="pillar-card">
+        <div class="pillar-num">01</div>
+        <div class="pillar-icon">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.9M16 3.1a4 4 0 010 7.8"/></svg>
+        </div>
+        <h3 class="h3-card mb-3">必ず、事前面談。</h3>
+        <p class="body-text" style="font-size:16px;">"誰が来るか分からない"不安ゼロ。稼働前に現場担当者と直接面談します。</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">02</div>
+        <div class="pillar-icon">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3 class="h3-card mb-3">発注は、1ヶ月単位。</h3>
+        <p class="body-text" style="font-size:16px;">月額60万円/月のシンプル定額。1ヶ月単位で発注できるから、必要な期間だけ、柔軟に現場の体制を整えられます。</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">03</div>
+        <div class="pillar-icon">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg>
+        </div>
+        <h3 class="h3-card mb-3">料金は、事前確定。</h3>
+        <p class="body-text" style="font-size:16px;">基本料金＋選択オプションを見積時に確定。見積＝請求だから、予算化・社内調整・請求確認がすべてラクになります。</p>
+      </div>
+    </div>
+    <div class="text-center mt-16">
+      <a href="#cta" class="btn-primary">まずは相談してみる
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+<!-- PRICING -->
+<section id="pricing" class="section-pad bg-soft">
+  <div class="max-w-6xl mx-auto px-6">
+    <p class="tagline text-center mb-5">PRICING</p>
+    <h2 class="h2-section mb-6">
+      <span class="text-primary-dark">月額定額</span>の、<br>
+      シンプルな料金設計。
+    </h2>
+    <p class="body-text text-center mb-6 max-w-3xl mx-auto">
+      標準月額<strong class="text-dark">60万円/月</strong>のシンプル定額制。<br>
+      発注は<strong class="text-dark">1ヶ月単位</strong>。必要な期間だけ、必要な分だけご利用いただけます。
+    </p>
+    <div class="flex justify-center mb-16">
+      <div class="trust-bar" style="font-size:15px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="color:var(--primary-dark);"><polyline points="20 6 9 17 4 12"/></svg>
+        <span>明朗会計の約束：見積書＝請求書</span>
+      </div>
+    </div>
+
+    <h3 class="text-center mb-10" style="font-size:26px; font-weight:900; color:var(--text-dark);">標準月額：<span class="text-primary-dark">1ヶ月単位</span>のシンプル定額</h3>
+
+    <!-- 月額定額カード（1枚ワイド） -->
+    <div class="mb-16" style="padding-top:20px;">
+      <div class="pricing-card featured" style="max-width:720px;margin:0 auto;padding:48px 40px;text-align:center;">
+        <span class="fixed-badge">標準月額・エンジニア1名</span>
+        <p class="text-sm font-black text-muted tracking-widest mt-2 mb-2">STANDARD MONTHLY</p>
+        <h3 class="text-2xl font-black text-dark mb-6">月額定額プラン</h3>
+        <div class="mb-4">
+          <span class="price-equal">＝</span><span class="num-price">60</span><span class="price-currency">万円/月</span>
+          <p class="price-tax">（税別・エンジニア1名・月稼働）</p>
+        </div>
+        <div><span class="price-breakdown">発注単位：1ヶ月／2ヶ月・3ヶ月・6ヶ月など任意の月数で発注可</span></div>
+        <ul class="space-y-3 text-base mt-6 text-left" style="max-width:520px;margin:24px auto 0;">
+          <li class="flex items-start gap-2"><span class="text-primary-dark font-black">✓</span> 事前面談・稼働管理・稼働レポート込み</li>
+          <li class="flex items-start gap-2"><span class="text-primary-dark font-black">✓</span> 1ヶ月単位の発注で、柔軟に延長・終了が可能</li>
+          <li class="flex items-start gap-2"><span class="text-primary-dark font-black">✓</span> 2.5ヶ月などの半端な発注単位はなし。シンプルに「月」単位で発注いただけます</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Before / After -->
+    <div class="compare-box mb-20 card-shadow">
+      <h3 class="text-center mb-8" style="font-size:24px; font-weight:900; color:var(--text-dark);"><span class="text-primary-dark">「明朗な料金設計」</span>の中身を、比べてみてください。</h3>
+      <div class="grid md:grid-cols-2 gap-8 items-stretch">
+        <div>
+          <p class="text-center text-sm font-black text-muted tracking-widest mb-4">従来の人材サービス</p>
+          <div class="bar-wrap">
+            <div class="bar-label">基本料金</div>
+            <div class="bar-seg" style="background:#94A3B8;">¥??????</div>
+            <div class="bar-label">＋ 時間単価（残業変動）</div>
+            <div class="bar-seg" style="background:#B6C2CF;">¥??????</div>
+            <div class="bar-label">＋ 管理費</div>
+            <div class="bar-seg" style="background:#CBD5E1;">¥????</div>
+            <div class="bar-label">＋ 出張費・交通費</div>
+            <div class="bar-seg" style="background:#94A3B8;">¥????</div>
+            <div class="bar-label">＋ 諸経費</div>
+            <div class="bar-seg" style="background:#B6C2CF;">¥????</div>
+          </div>
+          <p class="text-center text-sm font-black text-muted mt-5">毎月バラバラ、確認に時間がかかる</p>
+        </div>
+        <div>
+          <p class="text-center text-sm font-black text-primary-darker tracking-widest mb-4">ロボカル（月額定額）</p>
+          <div class="bar-total">
+            月額60万円/月＋選択オプション<br>
+            ＝ 見積時に全額確定
+          </div>
+          <p class="text-center text-sm font-black text-primary-darker mt-5">見積書＝請求書。後から変わりません</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Option Pricing -->
+    <h3 class="text-center mb-4" style="font-size:26px; font-weight:900; color:var(--text-dark);">オプション料金<span class="text-primary-dark">（選択式）</span></h3>
+    <p class="body-text text-center mb-12 max-w-3xl mx-auto" style="font-size:16px;">
+      必要な分だけ追加する選択式。すべて<strong class="text-dark">見積時に確定</strong>するため、想定外の請求は発生しません。
+    </p>
+    <div class="grid md:grid-cols-3 gap-6 mb-10">
+      <!-- 経験年数オプション -->
+      <div class="bg-white border border-soft rounded-2xl p-6 card-shadow">
+        <div class="flex items-center gap-2 mb-4">
+          <div style="width:36px;height:36px;border-radius:10px;background:var(--primary-pale);display:flex;align-items:center;justify-content:center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary-dark)" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+          </div>
+          <h4 class="text-base font-black text-dark">経験年数20年以上</h4>
+        </div>
+        <div class="flex items-baseline gap-2 mb-2">
+          <span class="font-black text-primary-dark" style="font-size:32px;">＋20</span>
+          <span class="font-black text-dark" style="font-size:15px;">万円/月</span>
+        </div>
+        <p class="text-xs text-muted" style="line-height:1.8;">ベテラン・エキスパートをご指名の場合に。製造業で20年以上の実務経験を持つエンジニアをアサインします。</p>
+      </div>
+      <!-- SV・管理者オプション -->
+      <div class="bg-white border border-soft rounded-2xl p-6 card-shadow">
+        <div class="flex items-center gap-2 mb-4">
+          <div style="width:36px;height:36px;border-radius:10px;background:var(--primary-pale);display:flex;align-items:center;justify-content:center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary-dark)" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 11l-3 3-2-2"/></svg>
+          </div>
+          <h4 class="text-base font-black text-dark">SV・管理者ポジション</h4>
+        </div>
+        <div class="flex items-baseline gap-2 mb-2">
+          <span class="font-black text-primary-dark" style="font-size:32px;">＋10</span>
+          <span class="font-black text-dark" style="font-size:15px;">万円/月</span>
+        </div>
+        <p class="text-xs text-muted" style="line-height:1.8;">現場責任者・スーパーバイザー・管理者ポジションとしての参画。現場マネジメントまで一貫して対応します。</p>
+      </div>
+      <!-- 海外オプション -->
+      <div class="bg-white border border-soft rounded-2xl p-6 card-shadow">
+        <div class="flex items-center gap-2 mb-4">
+          <div style="width:36px;height:36px;border-radius:10px;background:var(--primary-pale);display:flex;align-items:center;justify-content:center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary-dark)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z"/></svg>
+          </div>
+          <h4 class="text-base font-black text-dark">海外案件対応</h4>
+        </div>
+        <div class="flex items-baseline gap-2 mb-2">
+          <span class="font-black text-primary-dark" style="font-size:32px;">＋30</span>
+          <span class="font-black text-dark" style="font-size:15px;">万円/月</span>
+        </div>
+        <p class="text-xs text-muted" style="line-height:1.8;">海外工場でのSV・立ち上げ・駐在対応。パスポート・ビザ手配含めた現地対応までサポートします。</p>
+      </div>
+    </div>
+    <!-- 交通費・宿泊費 注記 -->
+    <div class="bg-white border border-soft rounded-2xl p-6 card-shadow mb-16" style="max-width:820px;margin:0 auto;">
+      <div class="flex items-start gap-3">
+        <div style="width:40px;height:40px;border-radius:10px;background:var(--primary-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary-dark)" stroke-width="2"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-3.9-3.1-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </div>
+        <div>
+          <h4 class="text-base font-black text-dark mb-1">宿泊・交通費について</h4>
+          <p class="text-sm text-muted" style="line-height:1.9;">宿泊・交通費は<strong class="text-dark">勤務地により別途お見積</strong>致します。遠方出張・常駐案件も対応可。事前にパッケージ見積でご提示します。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- How it works -->
+    <div class="bg-white border-2 border-primary-light rounded-2xl p-8 card-shadow mb-16 text-center" style="border-color:var(--primary-light);">
+      <h4 class="text-lg font-black text-dark mb-3">料金の確定フロー</h4>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-base">
+        <span class="bg-primary-pale text-primary-dark font-black px-4 py-2 rounded-xl" style="background:var(--primary-pale);color:var(--primary-dark);">❶ 職種・期間・人数を伝える</span>
+        <span class="text-muted font-black">→</span>
+        <span class="bg-primary-pale text-primary-dark font-black px-4 py-2 rounded-xl" style="background:var(--primary-pale);color:var(--primary-dark);">❷ 必要なオプションを選択</span>
+        <span class="text-muted font-black">→</span>
+        <span class="bg-primary-pale text-primary-dark font-black px-4 py-2 rounded-xl" style="background:var(--primary-pale);color:var(--primary-dark);">❸ 見積で確定＝請求額</span>
+      </div>
+      <p class="text-sm text-muted mt-4 font-bold">見積書に記載された金額が、そのまま請求額になります。後から変わることはありません。</p>
+    </div>
+
+    <!-- Cases -->
+    <h3 class="text-center mb-8" style="font-size:24px; font-weight:900; color:var(--text-dark);">料金<span class="text-primary-dark">ケーススタディ</span></h3>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-white border border-soft rounded-2xl p-8 card-shadow">
+        <p class="text-xs font-black text-muted tracking-widest mb-2">CASE A ・ 標準プラン</p>
+        <h4 class="text-xl font-black text-dark mb-4">機械設計エンジニア 1名・3ヶ月</h4>
+        <div class="flex items-baseline gap-2 mb-2">
+          <span class="text-5xl font-black text-primary-dark">180</span>
+          <span class="text-lg font-black text-dark">万円（税別・3ヶ月合計）</span>
+        </div>
+        <p class="text-sm text-muted font-bold">月額60万円 × 3ヶ月。オプション不要なら追加費用なし。</p>
+      </div>
+      <div class="bg-white border border-soft rounded-2xl p-8 card-shadow">
+        <p class="text-xs font-black text-muted tracking-widest mb-2">CASE B ・ ベテラン指名</p>
+        <h4 class="text-xl font-black text-dark mb-4">PLC制御設計 1名・6ヶ月（経験20年以上）</h4>
+        <div class="flex items-baseline gap-2 mb-2">
+          <span class="text-5xl font-black text-primary-dark">480</span>
+          <span class="text-lg font-black text-dark">万円（税別・6ヶ月合計）</span>
+        </div>
+        <p class="text-sm text-muted font-bold">月額60万＋経験20年OP 20万 = 80万/月 × 6ヶ月。</p>
+      </div>
+      <div class="bg-white border border-soft rounded-2xl p-8 card-shadow">
+        <p class="text-xs font-black text-muted tracking-widest mb-2">CASE C ・ SV・現場責任者</p>
+        <h4 class="text-xl font-black text-dark mb-4">ライン立ち上げSV 1名・4ヶ月</h4>
+        <div class="flex items-baseline gap-2 mb-2">
+          <span class="text-5xl font-black text-primary-dark">280</span>
+          <span class="text-lg font-black text-dark">万円（税別・4ヶ月合計）</span>
+        </div>
+        <p class="text-sm text-muted font-bold">月額60万＋SV OP 10万 = 70万/月 × 4ヶ月。</p>
+      </div>
+      <div class="bg-white border border-soft rounded-2xl p-8 card-shadow">
+        <p class="text-xs font-black text-muted tracking-widest mb-2">CASE D ・ 海外立ち上げ</p>
+        <h4 class="text-xl font-black text-dark mb-4">海外工場立ち上げSV 1名・6ヶ月</h4>
+        <div class="flex items-baseline gap-2 mb-2">
+          <span class="text-5xl font-black text-primary-dark">720</span>
+          <span class="text-lg font-black text-dark">万円〜（税別・見積確定額）</span>
+        </div>
+        <p class="text-sm text-muted font-bold">月額60万＋経験20年OP 20万＋SV OP 10万＋海外OP 30万 = 120万/月 × 6ヶ月（渡航費・宿泊費別）</p>
+      </div>
+      <div class="bg-white border border-soft rounded-2xl p-8 card-shadow">
+        <p class="text-xs font-black text-muted tracking-widest mb-2">CASE E ・ 短期・複数名</p>
+        <h4 class="text-xl font-black text-dark mb-4">ロボットティーチング 2名・2ヶ月</h4>
+        <div class="flex items-baseline gap-2 mb-2">
+          <span class="text-5xl font-black text-primary-dark">240</span>
+          <span class="text-lg font-black text-dark">万円（税別・2ヶ月合計）</span>
+        </div>
+        <p class="text-sm text-muted font-bold">月額60万円 × 2名 × 2ヶ月。増産・繁忙期の短期補強に。</p>
+      </div>
+      <div class="bg-white border border-soft rounded-2xl p-8 card-shadow" style="background:var(--primary-pale);border-color:var(--primary-light);">
+        <p class="text-xs font-black text-primary-dark tracking-widest mb-2">YOUR CASE</p>
+        <h4 class="text-xl font-black text-dark mb-4">貴社の条件で<br>お見積いたします</h4>
+        <p class="text-sm text-dark font-bold mb-4" style="line-height:1.9;">職種・期間・人数・オプション構成を伺い、見積時に金額を確定します。</p>
+        <a href="#cta" class="inline-flex items-center gap-2 text-primary-dark font-black" style="font-size:15px;">見積を依頼する →</a>
+      </div>
+    </div>
+    <div class="text-center mt-16">
+      <a href="#cta" class="btn-primary">まずは相談してみる
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="cases" class="section-pad bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <p class="tagline text-center mb-5">CASE STUDY</p>
+    <h2 class="h2-section mb-6">
+      <span class="text-primary-dark">多様な現場</span>で、<br>
+      即戦力として稼働しています。
+    </h2>
+    <p class="body-text text-center mb-16 max-w-3xl mx-auto">
+      精密機器・工作機械・家電・医薬品・自動車など、幅広い業界のライン立ち上げ・改造・保全を支援。<br>
+      短納期でも、現場に入ってすぐ成果を出します。
+    </p>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="case-card">
+        <div class="case-tags">
+          <span class="case-tag">精密機器</span>
+          <span class="case-tag">機械設計</span>
+        </div>
+        <h3 class="case-title">SOLIDWORKSで精密部品の設計と部品表作成を担当</h3>
+        <p class="case-desc">
+          精密光学部品の構想設計〜詳細設計、3D組立モデル、部品表作成まで一貫対応。金属加工の公差設計を前提に、組立基準と検査観点を図面へ反映しました。
+        </p>
+        <div class="case-ba">
+          <div class="case-ba-col before">
+            <div class="case-ba-label">BEFORE</div>
+            <div class="case-ba-num">3回</div>
+            <div class="case-ba-unit">試作繰返し</div>
+          </div>
+          <div class="case-ba-arrow">→</div>
+          <div class="case-ba-col after">
+            <div class="case-ba-label">AFTER</div>
+            <div class="case-ba-num">1発</div>
+            <div class="case-ba-unit">手戻りゼロ</div>
+          </div>
+        </div>
+        <dl class="case-meta">
+          <dt>依頼企業</dt><dd>精密機器メーカー（神奈川県）</dd>
+          <dt>稼働期間</dt><dd>1ヶ月</dd>
+          <dt>稼働形態</dt><dd>業務委託（請負）</dd>
+          <dt>使用ツール</dt><dd>SOLIDWORKS 2021／PDM連携</dd>
+        </dl>
+        <div class="case-result">
+          ✓ 試作一発OK、設計手戻り工数を約66%削減
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-tags">
+          <span class="case-tag">工作機械</span>
+          <span class="case-tag">海外SV</span>
+        </div>
+        <h3 class="case-title">欧州工作機械のPLC改造＋デバッグを短納期で完了</h3>
+        <p class="case-desc">
+          ライン改造に伴うPLCロジック変更、デバッグ、現地調整を担当。工程間の信号タイミングを再調整し、HMIアラームと対処手順まで更新しました。
+        </p>
+        <div class="case-ba">
+          <div class="case-ba-col before">
+            <div class="case-ba-label">BEFORE</div>
+            <div class="case-ba-num">2ヶ月</div>
+            <div class="case-ba-unit">想定納期</div>
+          </div>
+          <div class="case-ba-arrow">→</div>
+          <div class="case-ba-col after">
+            <div class="case-ba-label">AFTER</div>
+            <div class="case-ba-num">1ヶ月</div>
+            <div class="case-ba-unit">半分で完了</div>
+          </div>
+        </div>
+        <dl class="case-meta">
+          <dt>依頼企業</dt><dd>工作機械メーカー（ドイツ）</dd>
+          <dt>稼働期間</dt><dd>1ヶ月</dd>
+          <dt>稼働形態</dt><dd>業務委託（請負）</dd>
+          <dt>使用ツール</dt><dd>SIMATIC S7／TIA Portal／WinCC</dd>
+        </dl>
+        <div class="case-result">
+          ✓ 改造後の再停止ゼロ／納期を約50%短縮
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-tags">
+          <span class="case-tag">家電</span>
+          <span class="case-tag">ロボット</span>
+        </div>
+        <h3 class="case-title">東南アジアでABB組立ロボット12台を立ち上げ</h3>
+        <p class="case-desc">
+          海外工場の組立ラインでABBロボットの教示、RobotStudioでの動作最適化、現地SVを実施。複数セルの立上げ順序とチェックリストも整備しました。
+        </p>
+        <div class="case-ba">
+          <div class="case-ba-col before">
+            <div class="case-ba-label">BEFORE</div>
+            <div class="case-ba-num">遅延</div>
+            <div class="case-ba-unit">量産開始不可</div>
+          </div>
+          <div class="case-ba-arrow">→</div>
+          <div class="case-ba-col after">
+            <div class="case-ba-label">AFTER</div>
+            <div class="case-ba-num">12台</div>
+            <div class="case-ba-unit">計画通り稼働</div>
+          </div>
+        </div>
+        <dl class="case-meta">
+          <dt>依頼企業</dt><dd>家電メーカー（タイ）</dd>
+          <dt>稼働期間</dt><dd>6ヶ月</dd>
+          <dt>稼働形態</dt><dd>業務委託（準委任）</dd>
+          <dt>使用ツール</dt><dd>ABB RobotStudio／RAPID</dd>
+        </dl>
+        <div class="case-result">
+          ✓ 立上げ遅延を回避／予定通り量産開始
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-tags">
+          <span class="case-tag">自動車部品</span>
+          <span class="case-tag">据付調整</span>
+        </div>
+        <h3 class="case-title">Tier1サプライヤーのプレスライン据付調整を短期完遂</h3>
+        <p class="case-desc">
+          大型プレス機の据付精度出し、安全カバー・センサーの配線、インターロックの動作確認まで担当。休日稼働を組み合わせ、生産影響ゼロで完了しました。
+        </p>
+        <div class="case-ba">
+          <div class="case-ba-col before">
+            <div class="case-ba-label">BEFORE</div>
+            <div class="case-ba-num">2ヶ月</div>
+            <div class="case-ba-unit">計画停止</div>
+          </div>
+          <div class="case-ba-arrow">→</div>
+          <div class="case-ba-col after">
+            <div class="case-ba-label">AFTER</div>
+            <div class="case-ba-num">1ヶ月</div>
+            <div class="case-ba-unit">短縮で完遂</div>
+          </div>
+        </div>
+        <dl class="case-meta">
+          <dt>依頼企業</dt><dd>自動車部品メーカー（愛知県）</dd>
+          <dt>稼働期間</dt><dd>1ヶ月</dd>
+          <dt>稼働形態</dt><dd>業務委託（請負）</dd>
+          <dt>使用ツール</dt><dd>レーザー墨出し器／芯出し治具</dd>
+        </dl>
+        <div class="case-result">
+          ✓ 生産停止を半減、ライン復旧を前倒しで完了
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-tags">
+          <span class="case-tag">医薬品</span>
+          <span class="case-tag">制御設計</span>
+        </div>
+        <h3 class="case-title">無菌充填ラインの制御ロジック改修とバリデーション支援</h3>
+        <p class="case-desc">
+          GMP要求に基づく制御ロジックの見直し、シーケンス改修、IQ/OQ/PQドキュメントの作成までを支援。変更管理と監査対応の痕跡も整備しました。
+        </p>
+        <div class="case-ba">
+          <div class="case-ba-col before">
+            <div class="case-ba-label">BEFORE</div>
+            <div class="case-ba-num">4件</div>
+            <div class="case-ba-unit">月間アラーム</div>
+          </div>
+          <div class="case-ba-arrow">→</div>
+          <div class="case-ba-col after">
+            <div class="case-ba-label">AFTER</div>
+            <div class="case-ba-num">0件</div>
+            <div class="case-ba-unit">3ヶ月連続</div>
+          </div>
+        </div>
+        <dl class="case-meta">
+          <dt>依頼企業</dt><dd>製薬メーカー（富山県）</dd>
+          <dt>稼働期間</dt><dd>2ヶ月</dd>
+          <dt>稼働形態</dt><dd>業務委託（準委任）</dd>
+          <dt>使用ツール</dt><dd>三菱PLC／GX Works3</dd>
+        </dl>
+        <div class="case-result">
+          ✓ 無停止稼働継続／バリデーション書類を一括整備
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-tags">
+          <span class="case-tag">半導体装置</span>
+          <span class="case-tag">立上げ</span>
+        </div>
+        <h3 class="case-title">半導体製造装置の立上げと装置間通信の安定化</h3>
+        <p class="case-desc">
+          クリーンルーム内の装置据付、搬送ロボット通信の調整、SECS/GEM接続の動作確認を担当。装置間の取合いを一本化し、稼働率を底上げしました。
+        </p>
+        <div class="case-ba">
+          <div class="case-ba-col before">
+            <div class="case-ba-label">BEFORE</div>
+            <div class="case-ba-num">78%</div>
+            <div class="case-ba-unit">装置稼働率</div>
+          </div>
+          <div class="case-ba-arrow">→</div>
+          <div class="case-ba-col after">
+            <div class="case-ba-label">AFTER</div>
+            <div class="case-ba-num">95%</div>
+            <div class="case-ba-unit">立上げ後</div>
+          </div>
+        </div>
+        <dl class="case-meta">
+          <dt>依頼企業</dt><dd>半導体装置メーカー（熊本県）</dd>
+          <dt>稼働期間</dt><dd>1ヶ月</dd>
+          <dt>稼働形態</dt><dd>業務委託（準委任）</dd>
+          <dt>使用ツール</dt><dd>オムロンPLC／SECS/GEM</dd>
+        </dl>
+        <div class="case-result">
+          ✓ 稼働率17pt改善／通信トラブルを解消
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-tags">
+          <span class="case-tag">食品機械</span>
+          <span class="case-tag">保全メンテ</span>
+        </div>
+        <h3 class="case-title">包装ラインの予防保全プログラム構築と稼働率改善</h3>
+        <p class="case-desc">
+          予兆検知項目の洗い出し、日常点検フォーマット、消耗品交換スケジュールを現場と一緒に整備。ライン停止を計画停止に変える仕組みをつくりました。
+        </p>
+        <div class="case-ba">
+          <div class="case-ba-col before">
+            <div class="case-ba-label">BEFORE</div>
+            <div class="case-ba-num">12回</div>
+            <div class="case-ba-unit">月間停止</div>
+          </div>
+          <div class="case-ba-arrow">→</div>
+          <div class="case-ba-col after">
+            <div class="case-ba-label">AFTER</div>
+            <div class="case-ba-num">2回</div>
+            <div class="case-ba-unit">計画停止のみ</div>
+          </div>
+        </div>
+        <dl class="case-meta">
+          <dt>依頼企業</dt><dd>食品メーカー（静岡県）</dd>
+          <dt>稼働期間</dt><dd>2ヶ月</dd>
+          <dt>稼働形態</dt><dd>業務委託（準委任）</dd>
+          <dt>使用ツール</dt><dd>CMMS／振動診断</dd>
+        </dl>
+        <div class="case-result">
+          ✓ 突発停止を83%削減／保全工数も平準化
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-tags">
+          <span class="case-tag">物流装置</span>
+          <span class="case-tag">配線配管</span>
+        </div>
+        <h3 class="case-title">自動倉庫の配線・配管工事を短工期で完遂</h3>
+        <p class="case-desc">
+          スタッカークレーン増設に伴う動力・制御配線、エアー配管の引き回し、盤内結線を担当。既存設備への影響を最小化する手順書も作成しました。
+        </p>
+        <div class="case-ba">
+          <div class="case-ba-col before">
+            <div class="case-ba-label">BEFORE</div>
+            <div class="case-ba-num">2ヶ月</div>
+            <div class="case-ba-unit">想定工期</div>
+          </div>
+          <div class="case-ba-arrow">→</div>
+          <div class="case-ba-col after">
+            <div class="case-ba-label">AFTER</div>
+            <div class="case-ba-num">1ヶ月</div>
+            <div class="case-ba-unit">夜間稼働併用</div>
+          </div>
+        </div>
+        <dl class="case-meta">
+          <dt>依頼企業</dt><dd>物流機器メーカー（千葉県）</dd>
+          <dt>稼働期間</dt><dd>1ヶ月</dd>
+          <dt>稼働形態</dt><dd>業務委託（請負）</dd>
+          <dt>使用ツール</dt><dd>CAD配線図／通電試験治具</dd>
+        </dl>
+        <div class="case-result">
+          ✓ 工期を約43%短縮／既存設備の停止ゼロ
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-tags">
+          <span class="case-tag">EV部品</span>
+          <span class="case-tag">組立調整</span>
+        </div>
+        <h3 class="case-title">EVモーター組立セルの立上げと工程能力の確保</h3>
+        <p class="case-desc">
+          ローター・ステータ組立セルの治具調整、トルク管理、初期流動管理を担当。工程能力Cpkを目標値に到達させ、量産判定会まで伴走しました。
+        </p>
+        <div class="case-ba">
+          <div class="case-ba-col before">
+            <div class="case-ba-label">BEFORE</div>
+            <div class="case-ba-num">0.92</div>
+            <div class="case-ba-unit">Cpk（試作）</div>
+          </div>
+          <div class="case-ba-arrow">→</div>
+          <div class="case-ba-col after">
+            <div class="case-ba-label">AFTER</div>
+            <div class="case-ba-num">1.67</div>
+            <div class="case-ba-unit">量産判定OK</div>
+          </div>
+        </div>
+        <dl class="case-meta">
+          <dt>依頼企業</dt><dd>EV部品メーカー（広島県）</dd>
+          <dt>稼働期間</dt><dd>2ヶ月</dd>
+          <dt>稼働形態</dt><dd>業務委託（準委任）</dd>
+          <dt>使用ツール</dt><dd>トルクレンチ／SPC解析</dd>
+        </dl>
+        <div class="case-result">
+          ✓ Cpk目標をクリア／量産開始判定を一発通過
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-16">
+      <a href="#cta" class="btn-primary">まずは相談してみる
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+<!-- ENGINEERS -->
+<section id="engineers" class="section-pad bg-white">
+  <div style="max-width:1120px;" class="mx-auto px-6">
+    <p class="tagline text-center mb-5">ENGINEERS</p>
+    <h2 class="h2-section mb-6">
+      現場で活躍する、<br>
+      <span class="text-primary-dark">即戦力エンジニア</span>をご紹介。
+    </h2>
+    <p class="body-text text-center mb-16 max-w-3xl mx-auto">
+      機械設計・制御設計・回路設計・インフラ設計・プラント設計・生産技術・品質管理・設備保全・自動化構想・生産性改善──製造業10領域のベテランエンジニアが登録しています。<br>
+      事前面談で、御社の現場にマッチする人材をご提案します。
+    </p>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- ① 機械設計 -->
+      <div class="engineer-card">
+        <div class="eng-header">
+          <div class="eng-avatar">M</div>
+          <div>
+            <p class="eng-role">機械設計エンジニア</p>
+            <p class="eng-meta">神奈川県／40代／経験20年</p>
+          </div>
+        </div>
+        <p class="eng-quote">
+          精密機器・搬送装置の構想設計から詳細設計、部品表作成まで一貫対応しています。公差設計と組立基準を意識することで、試作の手戻りを最小化するのが得意です。
+        </p>
+        <div class="eng-skills">
+          <span class="eng-skill">SOLIDWORKS</span>
+          <span class="eng-skill">3D組立設計</span>
+          <span class="eng-skill">精密部品</span>
+          <span class="eng-skill">PDM</span>
+        </div>
+        <div class="eng-stats">
+          <div class="eng-stat"><div class="eng-stat-num">20<span style="font-size:14px;">年</span></div><div class="eng-stat-label">実務経験</div></div>
+          <div class="eng-stat"><div class="eng-stat-num">80<span style="font-size:14px;">件+</span></div><div class="eng-stat-label">設計案件実績</div></div>
+          <div class="eng-stat"><div class="eng-stat-num">98<span style="font-size:14px;">%</span></div><div class="eng-stat-label">継続指名率</div></div>
+        </div>
+      </div>
+      <!-- ② 機械設計（装置系） -->
+      <div class="engineer-card">
+        <div class="eng-header">
+          <div class="eng-avatar">M</div>
+          <div>
+            <p class="eng-role">機械設計エンジニア</p>
+            <p class="eng-meta">大阪府／40代／経験17年</p>
+          </div>
+        </div>
+        <p class="eng-quote">
+          工作機械・半導体装置の機構設計を中心に、カバー・搬送・冶具設計まで幅広く対応。量産装置のコストダウン設計・標準化にも強みがあります。
+        </p>
+        <div class="eng-skills">
+          <span class="eng-skill">Inventor</span>
+          <span class="eng-skill">AutoCAD</span>
+          <span class="eng-skill">機構設計</span>
+          <span class="eng-skill">コストダウン</span>
+        </div>
+        <div class="eng-stats">
+          <div class="eng-stat"><div class="eng-stat-num">17<span style="font-size:14px;">年</span></div><div class="eng-stat-label">実務経験</div></div>
+          <div class="eng-stat"><div class="eng-stat-num">55<span style="font-size:14px;">件+</span></div><div class="eng-stat-label">装置設計</div></div>
+          <div class="eng-stat"><div class="eng-stat-num">30<span style="font-size:14px;">%</span></div><div class="eng-stat-label">部品コスト削減</div></div>
+        </div>
+      </div>
+      <!-- ③ 制御設計 -->
+      <div class="engineer-card">
+        <div class="eng-header">
+          <div class="eng-avatar">C</div>
+          <div>
+            <p class="eng-role">制御設計エンジニア</p>
+            <p class="eng-meta">兵庫県／50代／経験25年</p>
+          </div>
+        </div>
+        <p class="eng-quote">
+          PLCロジック設計・HMI画面設計・立上げデバッグまで一気通貫で対応。設計はリモート、デバッグは現地という効率的な働き方で短納期案件を回しています。
+        </p>
+        <div class="eng-skills">
+          <span class="eng-skill">SIMATIC S7</span>
+          <span class="eng-skill">三菱PLC</span>
+          <span class="eng-skill">デバッグ</span>
+          <span class="eng-skill">立ち上げ</span>
+        </div>
+        <div class="eng-stats">
+          <div class="eng-stat"><div class="eng-stat-num">25<span style="font-size:14px;">年</span></div><div class="eng-stat-label">実務経験</div></div>
+          <div class="eng-stat"><div class="eng-stat-num">50<span style="font-size:14px;">件+</span></div><div class="eng-stat-label">立上げ実績</div></div>
+          <div class="eng-stat"><div class="eng-stat-num">0<span style="font-size:14px;">件</span></div><div class="eng-stat-label">稼働後停止</div></div>
+        </div>
+      </div>
+      <!-- ④ 制御設計（ロボット） -->
+      <div class="engineer-card">
+        <div class="eng-header">
+          <div class="eng-avatar">C</div>
+          <div>
+            <p class="eng-role">制御設計エンジニア</p>
+            <p class="eng-meta">愛知県／40代／経験15年</p>
+          </div>
+        </div>
+        <p class="eng-quote">
+          産業用ロボット（ABB・Kawasaki）のティーチングとオフラインシミュレーションが専門。海外工場の立上げSVも含め、言語の壁を超えて現場を回してきました。
+        </p>
+        <div class="eng-skills">
+          <span class="eng-skill">ABB RobotStudio</span>
+          <span class="eng-skill">Kawasaki K-ROSET</span>
+          <span class="eng-skill">海外SV</span>
+          <span class="eng-skill">OLP</span>
+        </div>
+        <div class="eng-stats">
+          <div class="eng-stat"><div class="eng-stat-num">15<span style="font-size:14px;">年</span></div><div class="eng-stat-label">実務経験</div></div>
+          <div class="eng-stat"><div class="eng-stat-num">120<span style="font-size:14px;">台+</span></div><div class="eng-stat-label">ロボット立上</div></div>
+          <div class="eng-stat"><div class="eng-stat-num">6<span style="font-size:14px;">ヶ国</span></div><div class="eng-stat-label">海外SV実績</div></div>
+        </div>
+      </div>
+      <!-- ⑤ 回路設計 -->
+      <div class="engineer-card">
+        <div class="eng-header">
+          <div class="eng-avatar">E</div>
+          <div>
+            <p class="eng-role">回路設計エンジニア</p>
+            <p class="eng-meta">東京都／40代／経験18年</p>
+          </div>
+        </div>
+        <p class="eng-quote">
+          アナログ・デジタル回路設計、基板パターン設計、EMC対策まで対応。試作基板の評価からノイズ原因の切り分けまで実機ベースで素早く進めます。
+        </p>
+        <div class="eng-skills">
+          <span class="eng-skill">Altium Designer</span>
+          <span class="eng-skill">アナログ回路</span>
+          <span class="eng-skill">EMC対策</span>
+          <span class="eng-skill">基板評価</span>
+        </div>
+        <div class="eng-stats">
+          <div class="eng-stat"><div class="eng-stat-num">18<span style="font-size:14px;">年</span></div><div class="eng-stat-label">実務経験</div></div>
+          <div class="eng-stat"><div class="eng-stat-num">70<span style="font-size:14px;">件+</span></div><div class="eng-stat-label">基板設計</div></div>
+          <div class="eng-stat"><div class="eng-stat-num">100<span style="font-size:14px;">%</span></div><div class="eng-stat-label">EMC一発合格</div></div>
+        </div>
+      </div>
+      <!-- ⑥ インフラ設計 -->
+      <div class="engineer-card">
+        <div class="eng-header">
+          <div class="eng-avatar">I</div>
+          <div>
+            <p class="eng-role">インフラ設計エンジニア</p>
+            <p class="eng-meta">千葉県／50代／経験22年</p>
+          </div>
+        </div>
+        <p class="eng-quote">
+          工場電源・動力配線・エアー配管・用役設備の計画から施工管理まで対応。既存設備を止めない段取りが得意で、長期のお取引先が多いです。
+        </p>
+        <div class="eng-skills">
+          <span class="eng-skill">電源計画</span>
+          <span class="eng-skill">動力配線</span>
+          <span class="eng-skill">用役設備</span>
+          <span class="eng-skill">施工管理</span>
+        </div>
+        <div class="eng-stats">
+          <div class="eng-stat"><div class="eng-stat-num">22<span style="font-size:14px;">年</span></div><div class="eng-stat-label">実務経験</div></div>
+          <div class="eng-stat"><div class="eng-stat-num">150<span style="font-size:14px;">件+</span></div><div class="eng-stat-label">改修工事</div></div>
+          <div class="eng-stat"><div class="eng-stat-num">0<span style="font-size:14px;">件</span></div><div class="eng-stat-label">既設停止</div></div>
+        </div>
+      </div>
+      <!-- ⑦ プラント設計 -->
+      <div class="engineer-card">
+        <div class="eng-header">
+          <div class="eng-avatar">P</div>
+          <div>
+            <p class="eng-role">プラント設計エンジニア</p>
+            <p class="eng-meta">富山県／50代／経験28年</p>
+          </div>
+        </div>
+        <p class="eng-quote">
+          化学・食品プラントのライン配置、配管設計、バッチプロセス設計を担当。GMP要求にあわせたバリデーション書類の整備まで経験があります。
+        </p>
+        <div class="eng-skills">
+          <span class="eng-skill">P&ID</span>
+          <span class="eng-skill">プラントレイアウト</span>
+          <span class="eng-skill">配管設計</span>
+          <span class="eng-skill">GMP対応</span>
+        </div>
+        <div class="eng-stats">
+          <div class="eng-stat"><div class="eng-stat-num">28<span style="font-size:14px;">年</span></div><div class="eng-stat-label">実務経験</div></div>
+          <div class="eng-stat"><div class="eng-stat-num">25<span style="font-size:14px;">件+</span></div><div class="eng-stat-label">プラント案件</div></div>
+          <div class="eng-stat"><div class="eng-stat-num">15<span style="font-size:14px;">件</span></div><div class="eng-stat-label">GMPバリデ実績</div></div>
+        </div>
+      </div>
+      <!-- ⑧ 生産技術 -->
+      <div class="engineer-card">
+        <div class="eng-header">
+          <div class="eng-avatar">G</div>
+          <div>
+            <p class="eng-role">生産技術エンジニア</p>
+            <p class="eng-meta">静岡県／40代／経験16年</p>
+          </div>
+        </div>
+        <p class="eng-quote">
+          新規ラインの工程設計・治具設計・初期流動管理までを一気通貫で伴走。工程能力を確保したうえで量産判定会に臨めるよう現場とつくり込みます。
+        </p>
+        <div class="eng-skills">
+          <span class="eng-skill">工程設計</span>
+          <span class="eng-skill">治具調整</span>
+          <span class="eng-skill">SPC解析</span>
+          <span class="eng-skill">初期流動</span>
+        </div>
+        <div class="eng-stats">
+          <div class="eng-stat"><div class="eng-stat-num">16<span style="font-size:14px;">年</span></div><div class="eng-stat-label">実務経験</div></div>
+          <div class="eng-stat"><div class="eng-stat-num">45<span style="font-size:14px;">件+</span></div><div class="eng-stat-label">量産立上げ</div></div>
+          <div class="eng-stat"><div class="eng-stat-num">1.67</div><div class="eng-stat-label">平均Cpk達成</div></div>
+        </div>
+      </div>
+      <!-- ⑨ 品質管理 -->
+      <div class="engineer-card">
+        <div class="eng-header">
+          <div class="eng-avatar">Q</div>
+          <div>
+            <p class="eng-role">品質管理エンジニア</p>
+            <p class="eng-meta">広島県／40代／経験19年</p>
+          </div>
+        </div>
+        <p class="eng-quote">
+          不良解析・工程能力の見える化・顧客監査対応まで一貫対応。現場の声を拾いながら、再発防止と標準化まで落とし込むのが得意です。
+        </p>
+        <div class="eng-skills">
+          <span class="eng-skill">FMEA</span>
+          <span class="eng-skill">不良解析</span>
+          <span class="eng-skill">品質監査</span>
+          <span class="eng-skill">QC七つ道具</span>
+        </div>
+        <div class="eng-stats">
+          <div class="eng-stat"><div class="eng-stat-num">19<span style="font-size:14px;">年</span></div><div class="eng-stat-label">実務経験</div></div>
+          <div class="eng-stat"><div class="eng-stat-num">40<span style="font-size:14px;">件+</span></div><div class="eng-stat-label">量産化支援</div></div>
+          <div class="eng-stat"><div class="eng-stat-num">60<span style="font-size:14px;">%</span></div><div class="eng-stat-label">不良率低減</div></div>
+        </div>
+      </div>
+      <!-- ⑩ 設備保全 -->
+      <div class="engineer-card">
+        <div class="eng-header">
+          <div class="eng-avatar">H</div>
+          <div>
+            <p class="eng-role">設備保全エンジニア</p>
+            <p class="eng-meta">福岡県／50代／経験28年</p>
+          </div>
+        </div>
+        <p class="eng-quote">
+          予防保全プログラムの構築、日常点検の定着、振動診断による予兆検知まで支援。突発停止を計画停止に変えて稼働率を底上げしてきました。
+        </p>
+        <div class="eng-skills">
+          <span class="eng-skill">CMMS</span>
+          <span class="eng-skill">振動診断</span>
+          <span class="eng-skill">予防保全</span>
+          <span class="eng-skill">点検計画</span>
+        </div>
+        <div class="eng-stats">
+          <div class="eng-stat"><div class="eng-stat-num">28<span style="font-size:14px;">年</span></div><div class="eng-stat-label">実務経験</div></div>
+          <div class="eng-stat"><div class="eng-stat-num">35<span style="font-size:14px;">工場</span></div><div class="eng-stat-label">保全支援実績</div></div>
+          <div class="eng-stat"><div class="eng-stat-num">83<span style="font-size:14px;">%</span></div><div class="eng-stat-label">突発停止削減</div></div>
+        </div>
+      </div>
+      <!-- ⑪ 自動化構想 -->
+      <div class="engineer-card">
+        <div class="eng-header">
+          <div class="eng-avatar">A</div>
+          <div>
+            <p class="eng-role">自動化構想エンジニア</p>
+            <p class="eng-meta">埼玉県／40代／経験20年</p>
+          </div>
+        </div>
+        <p class="eng-quote">
+          既存ラインの自動化構想、ROI試算、メーカー選定までを一貫して支援。「どこから自動化すれば効果が出るか」の初期構想づくりが強みです。
+        </p>
+        <div class="eng-skills">
+          <span class="eng-skill">自動化構想</span>
+          <span class="eng-skill">ROI試算</span>
+          <span class="eng-skill">FS検討</span>
+          <span class="eng-skill">メーカー選定</span>
+        </div>
+        <div class="eng-stats">
+          <div class="eng-stat"><div class="eng-stat-num">20<span style="font-size:14px;">年</span></div><div class="eng-stat-label">実務経験</div></div>
+          <div class="eng-stat"><div class="eng-stat-num">30<span style="font-size:14px;">件+</span></div><div class="eng-stat-label">自動化構想</div></div>
+          <div class="eng-stat"><div class="eng-stat-num">2.8<span style="font-size:14px;">年</span></div><div class="eng-stat-label">平均ROI回収</div></div>
+        </div>
+      </div>
+      <!-- ⑫ 生産性改善 -->
+      <div class="engineer-card">
+        <div class="eng-header">
+          <div class="eng-avatar">K</div>
+          <div>
+            <p class="eng-role">生産性改善エンジニア</p>
+            <p class="eng-meta">栃木県／50代／経験26年</p>
+          </div>
+        </div>
+        <p class="eng-quote">
+          IE手法に基づく現場観察、段取り改善、レイアウト見直しを現場と一緒に進めます。「数字で示し、現場を動かす」改善サイクルの定着を得意としています。
+        </p>
+        <div class="eng-skills">
+          <span class="eng-skill">IE・動作分析</span>
+          <span class="eng-skill">段取り改善</span>
+          <span class="eng-skill">VSM</span>
+          <span class="eng-skill">5S</span>
+        </div>
+        <div class="eng-stats">
+          <div class="eng-stat"><div class="eng-stat-num">26<span style="font-size:14px;">年</span></div><div class="eng-stat-label">実務経験</div></div>
+          <div class="eng-stat"><div class="eng-stat-num">50<span style="font-size:14px;">件+</span></div><div class="eng-stat-label">改善プロジェクト</div></div>
+          <div class="eng-stat"><div class="eng-stat-num">35<span style="font-size:14px;">%</span></div><div class="eng-stat-label">平均工数削減</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-16">
+      <a href="#cta" class="btn-primary">まずは相談してみる
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+<!-- FAQ -->
+<section id="faq" class="section-pad bg-soft">
+  <div class="max-w-4xl mx-auto px-6">
+    <p class="tagline text-center mb-5">FAQ</p>
+    <h2 class="h2-section mb-16">よくあるご質問</h2>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-q-mark">Q.</span>見積書の金額から追加で請求が発生することはありますか？</div>
+      <div class="faq-a">ありません。基本料金と選択されたオプションは、すべて見積時に確定します。見積書に記載された金額がそのまま請求額となる「見積＝請求」をお約束しています。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-q-mark">Q.</span>オプションは必ず付けなければいけませんか？</div>
+      <div class="faq-a">いいえ。基本料金のみでもご依頼いただけます。オプションは必要な場合にのみ選択する方式です。例えば、経験年数20年以上やSV・海外案件対応が不要であれば、標準月額60万円/月のみでご利用可能です。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-q-mark">Q.</span>1ヶ月だけの依頼でも大丈夫ですか？</div>
+      <div class="faq-a">はい、1ヶ月・1人から承っています。発注単位は1ヶ月で、2ヶ月・3ヶ月・6ヶ月など任意の月数でご依頼いただけます。短納期のライン立ち上げやスポット増員にもご活用ください。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-q-mark">Q.</span>残業が発生した場合、追加料金はかかりますか？</div>
+      <div class="faq-a">標準月額60万円/月には、月間の標準稼働時間分が含まれます。標準時間を超える稼働が見込まれる場合は、事前に合意した単価で追加分をお見積いたします。追加単価も見積時に確定しますので、想定外の請求は発生しません。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-q-mark">Q.</span>どんなエンジニアが来ますか？</div>
+      <div class="faq-a">製造業での実務経験のあるエンジニアが対応します。稼働前に必ず現場担当者との事前面談を行いますので、ご不安があれば遠慮なくお伝えください。経験年数20年以上のベテランをご希望の場合は、オプションで指名が可能です。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-q-mark">Q.</span>延長や人数追加はできますか？</div>
+      <div class="faq-a">可能です。月単位での延長、人数の追加増員に対応します。追加分も同じ料金体系（月額60万円/月＋選択オプション）で、見積時に確定します。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-q-mark">Q.</span>事前確定後に稼働開始前のキャンセルは可能ですか？</div>
+      <div class="faq-a">はい、所定のキャンセルポリシーに基づきご対応いたします。エンジニアの稼働枠を事前に確保する特性上、稼働開始日までの日数に応じた所定のキャンセル料を申し受ける場合がございます。具体的な条件・料率はお見積時の契約書面にてご案内いたしますので、事前にご確認いただけます。やむを得ない事情が生じた際は、まずはお気軽にご相談ください。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-q-mark">Q.</span>秘密保持契約（NDA）は結べますか？</div>
+      <div class="faq-a">もちろんです。ご相談時に貴社書式のNDA締結を承ります。図面・設計データなどの機密情報の取り扱いについても、事前にお打ち合わせのうえ対応いたします。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-q-mark">Q.</span>複数拠点への同時派遣は可能ですか？</div>
+      <div class="faq-a">はい、対応可能です。国内複数拠点への同時配置の実績がございます。拠点ごとに必要な職種・人数・時期を伺い、一括でご提案いたします。窓口を一本化できるため、拠点ごとに個別手配する手間を削減できます。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-q-mark">Q.</span>複数名・長期の大規模依頼にも対応できますか？</div>
+      <div class="faq-a">はい。プロジェクト単位で5名以上・半年以上のご依頼も承っております。大規模案件では、ボリュームに応じたお見積をご提案いたしますので、まずはご相談ください。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-q-mark">Q.</span>購買部門からの発注フロー（注文書・検収書）に対応できますか？</div>
+      <div class="faq-a">はい、対応可能です。注文書・検収書・請求書のフォーマット指定や、貴社の調達システム・購買フローに合わせた書類対応を行っております。大手製造業様の調達部門とのお取引実績がございますので、安心してご依頼ください。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-q-mark">Q.</span>半年後・1年後を見据えた事前相談はできますか？</div>
+      <div class="faq-a">もちろんです。「来期の増産計画に合わせて人材を確保したい」「新規ライン立ち上げの時期に合わせたい」など、将来の計画段階からご相談いただけます。早めにご相談いただくことで、最適なエンジニアの事前確保が可能です。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-q-mark">Q.</span>偽装請負にはなりませんか？</div>
+      <div class="faq-a">ご安心ください。当社では、偽装請負とならないよう適正な業務委託契約に基づいた運用体制を整備しております。指揮命令系統の明確化、業務範囲の事前取り決め、定期的なコンプライアンスチェックなど、法令を遵守した運用を徹底しています。詳しくは<a href="https://robokaru-biz.com/compliance-policy/" target="_blank" rel="noopener" style="color:var(--primary-dark);text-decoration:underline;">コンプライアンスの方針について</a>をご覧ください。</div>
+    </div>
+    <div class="text-center mt-12">
+      <a href="#cta" class="btn-primary">まずは相談してみる
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- AFTER INQUIRY: 問い合わせ後の流れ -->
+<section class="bg-white" style="padding:80px 0 60px;">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="text-center" style="font-weight:900;font-size:clamp(22px,3vw,30px);color:var(--text-dark);margin-bottom:12px;">
+      お問い合わせ後の流れ
+    </h2>
+    <p class="body-text text-center mb-12" style="font-size:16px;">
+      お問い合わせ後、<strong class="text-primary-dark">営業担当がしつこくご連絡することはありません</strong>。<br>
+      必要な情報を整理し、ご検討いただける状態でお返しします。
+    </p>
+    <div style="display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:nowrap;margin-bottom:32px;">
+      <div style="display:flex;align-items:center;gap:12px;background:var(--primary-ghost);border:1px solid var(--border);border-radius:14px;padding:20px 24px;flex:1;max-width:260px;">
+        <div style="width:40px;height:40px;border-radius:10px;background:var(--primary-pale);color:var(--primary-dark);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;flex-shrink:0;">1</div>
+        <div>
+          <p style="font-weight:800;font-size:14px;color:var(--text-dark);margin:0;">ヒアリング</p>
+          <p style="font-size:12px;color:var(--text-muted);margin:2px 0 0;">職種・期間・時期を伺います</p>
+        </div>
+      </div>
+      <div style="color:var(--primary-light);font-size:20px;font-weight:900;flex-shrink:0;">→</div>
+      <div style="display:flex;align-items:center;gap:12px;background:var(--primary-ghost);border:1px solid var(--border);border-radius:14px;padding:20px 24px;flex:1;max-width:260px;">
+        <div style="width:40px;height:40px;border-radius:10px;background:var(--primary-pale);color:var(--primary-dark);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;flex-shrink:0;">2</div>
+        <div>
+          <p style="font-weight:800;font-size:14px;color:var(--text-dark);margin:0;">ご提案・お見積</p>
+          <p style="font-size:12px;color:var(--text-muted);margin:2px 0 0;">1営業日でお返しします</p>
+        </div>
+      </div>
+      <div style="color:var(--primary-light);font-size:20px;font-weight:900;flex-shrink:0;">→</div>
+      <div style="display:flex;align-items:center;gap:12px;background:var(--primary-ghost);border:1px solid var(--border);border-radius:14px;padding:20px 24px;flex:1;max-width:260px;">
+        <div style="width:40px;height:40px;border-radius:10px;background:var(--primary-pale);color:var(--primary-dark);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;flex-shrink:0;">3</div>
+        <div>
+          <p style="font-weight:800;font-size:14px;color:var(--text-dark);margin:0;">ご検討</p>
+          <p style="font-size:12px;color:var(--text-muted);margin:2px 0 0;">社内検討後にご判断ください</p>
+        </div>
+      </div>
+    </div>
+    <p class="text-center" style="font-size:14px;color:var(--text-muted);font-weight:700;">
+      ※ 費用はかかりません ／ 検討段階・情報収集でもお気軽にどうぞ
+    </p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta" class="cta-bg section-pad">
+  <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+    <p class="tagline text-white opacity-90 mb-5">CONTACT</p>
+    <h2 class="h2-section text-white mb-8">
+      まずは、<span class="text-sky-100">お気軽にご相談ください。</span><br>
+      <span style="font-size:0.7em;font-weight:700;opacity:0.95;">条件整理・情報収集の段階からお話を伺います。</span>
+    </h2>
+
+    <!-- 3-button CTA (robokaru-biz.com style) -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:36px;max-width:920px;margin-left:auto;margin-right:auto;">
+      <!-- 電話 (pink) -->
+      <a href="tel:0345006960" style="background:#DB3245;border-radius:14px;padding:22px 18px;display:flex;align-items:center;justify-content:center;gap:14px;text-decoration:none;box-shadow:0 10px 24px -10px rgba(219,50,69,0.5);transition:transform 0.2s, box-shadow 0.2s;">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.8 12.8 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.8 12.8 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        <div style="text-align:left;">
+          <p style="font-size:22px;font-weight:900;color:white;margin:0;line-height:1.1;letter-spacing:0.02em;">03-4500-6960</p>
+          <p style="font-size:12px;color:white;margin:4px 0 0;line-height:1.3;opacity:0.95;">（平日・土曜 9時〜18時）</p>
+        </div>
+      </a>
+      <!-- メールお問い合わせ (orange) -->
+      <a href="#contact-form" style="background:#EA7C14;border-radius:14px;padding:22px 18px;display:flex;align-items:center;justify-content:center;gap:14px;text-decoration:none;box-shadow:0 10px 24px -10px rgba(234,124,20,0.5);transition:transform 0.2s, box-shadow 0.2s;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <p style="font-size:17px;font-weight:900;color:white;margin:0;line-height:1.3;white-space:nowrap;">メールお問い合わせ</p>
+      </a>
+      <!-- 資料ダウンロード (light blue outline) -->
+      <a href="https://robokaru-biz.com/download/" target="_blank" rel="noopener" style="background:#E4EDFA;border:1.5px solid #1543AA;border-radius:14px;padding:22px 18px;display:flex;align-items:center;justify-content:center;gap:14px;text-decoration:none;box-shadow:0 10px 24px -10px rgba(21,67,170,0.3);transition:transform 0.2s, box-shadow 0.2s;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1543AA" stroke-width="2.2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+        <p style="font-size:17px;font-weight:900;color:#1543AA;margin:0;line-height:1.3;white-space:nowrap;">資料ダウンロード</p>
+      </a>
+    </div>
+
+    <!-- Reassurance points -->
+    <div style="background:rgba(255,255,255,0.12);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.3);border-radius:20px;padding:24px 32px;max-width:720px;margin-left:auto;margin-right:auto;">
+      <div style="display:flex;justify-content:center;gap:28px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,0.25);display:inline-flex;align-items:center;justify-content:center;color:white;font-size:12px;font-weight:900;">✓</span>
+          <span style="font-size:13px;color:white;font-weight:700;">検討段階でもOK</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,0.25);display:inline-flex;align-items:center;justify-content:center;color:white;font-size:12px;font-weight:900;">✓</span>
+          <span style="font-size:13px;color:white;font-weight:700;">条件整理だけでもOK</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,0.25);display:inline-flex;align-items:center;justify-content:center;color:white;font-size:12px;font-weight:900;">✓</span>
+          <span style="font-size:13px;color:white;font-weight:700;">相見積歓迎</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM (in-page) -->
+<section id="contact-form" class="section-pad bg-soft">
+  <div class="max-w-3xl mx-auto px-6">
+    <p class="tagline text-center mb-5">CONTACT FORM</p>
+    <h2 class="h2-section mb-8" style="font-size:clamp(26px,3.2vw,38px);">お問い合わせフォーム</h2>
+    <p class="body-text text-center mb-10" style="font-size:15px;color:var(--text);">
+      下記フォームに必要事項をご記入の上、送信してください。<br>
+      <strong class="text-primary-dark">1営業日以内</strong>に担当よりご返信いたします。
+    </p>
+    <form id="robokaru-contact" action="https://formsubmit.co/info@robokaru-biz.com" method="POST" style="background:white;border:1px solid var(--border);border-radius:20px;padding:40px 44px;box-shadow:0 8px 24px -12px rgba(14,165,233,0.12);">
+      <input type="hidden" name="_subject" value="【LP】お問い合わせ">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://effervescent-halva-dc5f54.netlify.app/?sent=1">
+
+      <div style="margin-bottom:20px;">
+        <label for="cf-company" style="display:block;font-size:14px;font-weight:800;color:var(--text-dark);margin-bottom:8px;">会社名 <span style="color:#DC2626;font-size:11px;font-weight:900;background:#FEE2E2;padding:2px 8px;border-radius:4px;margin-left:6px;">必須</span></label>
+        <input id="cf-company" type="text" name="会社名" required placeholder="株式会社○○" style="width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:10px;font-size:15px;font-family:inherit;background:white;">
+      </div>
+
+      <div style="margin-bottom:20px;">
+        <label for="cf-name" style="display:block;font-size:14px;font-weight:800;color:var(--text-dark);margin-bottom:8px;">担当者名 <span style="color:#DC2626;font-size:11px;font-weight:900;background:#FEE2E2;padding:2px 8px;border-radius:4px;margin-left:6px;">必須</span></label>
+        <input id="cf-name" type="text" name="担当者名" required placeholder="山田 太郎" style="width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:10px;font-size:15px;font-family:inherit;background:white;">
+      </div>
+
+      <div style="margin-bottom:20px;">
+        <label for="cf-tel" style="display:block;font-size:14px;font-weight:800;color:var(--text-dark);margin-bottom:8px;">電話番号 <span style="color:#DC2626;font-size:11px;font-weight:900;background:#FEE2E2;padding:2px 8px;border-radius:4px;margin-left:6px;">必須</span></label>
+        <input id="cf-tel" type="tel" name="電話番号" required placeholder="03-1234-5678" style="width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:10px;font-size:15px;font-family:inherit;background:white;">
+      </div>
+
+      <div style="margin-bottom:20px;">
+        <label for="cf-email" style="display:block;font-size:14px;font-weight:800;color:var(--text-dark);margin-bottom:8px;">メールアドレス <span style="color:#DC2626;font-size:11px;font-weight:900;background:#FEE2E2;padding:2px 8px;border-radius:4px;margin-left:6px;">必須</span></label>
+        <input id="cf-email" type="email" name="メールアドレス" required placeholder="example@company.co.jp" style="width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:10px;font-size:15px;font-family:inherit;background:white;">
+      </div>
+
+      <div style="margin-bottom:20px;">
+        <label for="cf-role" style="display:block;font-size:14px;font-weight:800;color:var(--text-dark);margin-bottom:8px;">ご希望の職種 <span style="color:var(--text-muted);font-size:11px;font-weight:700;background:#F3F4F6;padding:2px 8px;border-radius:4px;margin-left:6px;">任意</span></label>
+        <select id="cf-role" name="ご希望の職種" style="width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:10px;font-size:15px;font-family:inherit;background:white;">
+          <option value="">選択してください</option>
+          <option value="機械設計">機械設計</option>
+          <option value="制御設計">制御設計</option>
+          <option value="回路設計">回路設計</option>
+          <option value="インフラ設計">インフラ設計</option>
+          <option value="プラント設計">プラント設計</option>
+          <option value="生産技術">生産技術</option>
+          <option value="品質管理">品質管理</option>
+          <option value="設備保全">設備保全</option>
+          <option value="自動化構想">自動化構想</option>
+          <option value="生産性改善">生産性改善</option>
+          <option value="その他・未定">その他・未定</option>
+        </select>
+      </div>
+
+      <div style="margin-bottom:24px;">
+        <label for="cf-message" style="display:block;font-size:14px;font-weight:800;color:var(--text-dark);margin-bottom:8px;">お問い合わせ内容 <span style="color:var(--text-muted);font-size:11px;font-weight:700;background:#F3F4F6;padding:2px 8px;border-radius:4px;margin-left:6px;">任意</span></label>
+        <textarea id="cf-message" name="お問い合わせ内容" rows="5" placeholder="ご検討の背景、必要な時期・期間、人数などをご記入ください。" style="width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:10px;font-size:15px;font-family:inherit;background:white;resize:vertical;"></textarea>
+      </div>
+
+      <div style="background:var(--primary-ghost);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:24px;">
+        <label style="display:flex;align-items:flex-start;gap:10px;font-size:14px;font-weight:700;color:var(--text-dark);cursor:pointer;">
+          <input type="checkbox" name="プライバシーポリシー同意" value="同意" required style="margin-top:3px;width:16px;height:16px;flex-shrink:0;">
+          <span>個人情報の取り扱いについて「<a href="https://robokaru.jp/privacypolicy" target="_blank" rel="noopener" style="color:var(--primary-dark);text-decoration:underline;">プライバシーポリシー</a>」に同意します <span style="color:#DC2626;font-size:11px;font-weight:900;margin-left:4px;">必須</span></span>
+        </label>
+      </div>
+
+      <div style="text-align:center;">
+        <button type="submit" class="btn-primary" style="padding:18px 56px;font-size:17px;">
+          送信する
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:14px;">※ 送信後、自動返信メールをお送りします。</p>
+      </div>
+    </form>
+  </div>
+</section>
+<!-- NEWS (お知らせ) -->
+<section id="news" style="background:#EDF3FB;padding:80px 0 60px;">
+  <div class="max-w-5xl mx-auto px-6">
+    <div style="text-align:center;margin-bottom:48px;">
+      <div style="display:flex;justify-content:center;margin-bottom:18px;">
+        <svg width="60" height="24" viewBox="0 0 60 24"><circle cx="30" cy="4" r="4" fill="var(--primary-dark)"/><path d="M30 8 L30 16 Q30 20 34 20 L52 20" stroke="var(--primary-dark)" stroke-width="2" fill="none"/><path d="M30 8 L30 16 Q30 20 26 20 L8 20" stroke="var(--primary-dark)" stroke-width="2" fill="none"/></svg>
+      </div>
+      <h2 style="font-weight:900;font-size:clamp(26px,3.2vw,36px);color:var(--text-dark);margin:0 0 8px;">お知らせ</h2>
+      <p style="font-size:15px;font-weight:700;color:var(--primary-dark);letter-spacing:0.1em;margin:0;">News</p>
+    </div>
+    <div style="background:white;border-radius:16px;padding:36px 40px;box-shadow:0 4px 20px -8px rgba(0,0,0,0.08);">
+      <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:20px;">
+        <span style="display:inline-block;border:1px solid var(--text-dark);border-radius:4px;padding:4px 14px;font-size:13px;font-weight:700;color:var(--text-dark);">お知らせ</span>
+        <time style="font-size:15px;font-weight:700;color:var(--text-dark);line-height:1.8;">2025年07月11日</time>
+      </div>
+      <div style="display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap;">
+        <div style="flex:0 0 200px;">
+          <img src="https://robokaru-biz.com/wp-content/uploads/2025/12/news-20250711.jpg" alt="静銀リース株式会社と業務提携契約を締結" style="width:200px;height:auto;border-radius:10px;object-fit:cover;">
+          <p style="font-size:11px;color:var(--text-muted);margin-top:8px;line-height:1.5;">(左)静銀リース株式会社<br>代表取締役社長　若林 紀伸<br>(右)株式会社ロボカル<br>代表取締役　芦川　泰彰</p>
+        </div>
+        <div style="flex:1;min-width:280px;">
+          <h3 style="font-weight:900;font-size:clamp(18px,2.2vw,22px);color:var(--text-dark);margin:0 0 16px;line-height:1.5;">静銀リース株式会社と業務提携契約を締結</h3>
+          <p style="font-size:15px;line-height:1.9;color:var(--text);margin:0;">株式会社ロボカルはしずおかフィナンシャルグループ(FG)傘下の静銀リース株式会社と、製造業における人手不足や生産性向上などの課題解決支援を目的とした業務提携契約を締結しましたのでお知らせします。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANY (運営会社) -->
+<section id="company" style="background:white;padding:80px 0 60px;">
+  <div class="max-w-5xl mx-auto px-6">
+    <div style="text-align:center;margin-bottom:48px;">
+      <div style="display:flex;justify-content:center;margin-bottom:18px;">
+        <svg width="60" height="24" viewBox="0 0 60 24"><circle cx="30" cy="4" r="4" fill="var(--primary-dark)"/><path d="M30 8 L30 16 Q30 20 34 20 L52 20" stroke="var(--primary-dark)" stroke-width="2" fill="none"/><path d="M30 8 L30 16 Q30 20 26 20 L8 20" stroke="var(--primary-dark)" stroke-width="2" fill="none"/></svg>
+      </div>
+      <h2 style="font-weight:900;font-size:clamp(26px,3.2vw,36px);color:var(--text-dark);margin:0 0 8px;">運営会社</h2>
+      <p style="font-size:15px;font-weight:700;color:var(--primary-dark);letter-spacing:0.1em;margin:0;">Company</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;">
+      <div>
+        <table style="width:100%;border-collapse:collapse;font-size:15px;">
+          <tr><th style="text-align:left;padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text-dark);font-weight:800;white-space:nowrap;vertical-align:top;width:120px;">会社名</th><td style="padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text);line-height:1.7;">株式会社ロボカル</td></tr>
+          <tr><th style="text-align:left;padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text-dark);font-weight:800;white-space:nowrap;vertical-align:top;">役員</th><td style="padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text);line-height:1.7;">代表取締役　　　芦川泰彰<br>取締役　　　　　岩本敏紀</td></tr>
+          <tr><th style="text-align:left;padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text-dark);font-weight:800;white-space:nowrap;vertical-align:top;">設立</th><td style="padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text);line-height:1.7;">2021年1月</td></tr>
+          <tr><th style="text-align:left;padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text-dark);font-weight:800;white-space:nowrap;vertical-align:top;">本社所在地</th><td style="padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text);line-height:1.7;">〒102-0083 東京都千代田区麹町三丁目12番5号<br>近代ビル4階</td></tr>
+          <tr><th style="text-align:left;padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text-dark);font-weight:800;white-space:nowrap;vertical-align:top;">事業内容</th><td style="padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text);line-height:1.7;">製造業特化の業務委託エンジニア紹介サービス（機械設計・制御設計・回路設計・インフラ設計・プラント設計・生産技術・品質管理・設備保全・自動化構想・生産性改善）</td></tr>
+          <tr><th style="text-align:left;padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text-dark);font-weight:800;white-space:nowrap;vertical-align:top;">資本金</th><td style="padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text);line-height:1.7;">9,229万円</td></tr>
+          <tr><th style="text-align:left;padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text-dark);font-weight:800;white-space:nowrap;vertical-align:top;">URL</th><td style="padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text);line-height:1.7;"><a href="https://corp.robokaru.jp" target="_blank" rel="noopener" style="color:var(--primary-dark);text-decoration:underline;">https://corp.robokaru.jp</a></td></tr>
+          <tr><th style="text-align:left;padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text-dark);font-weight:800;white-space:nowrap;vertical-align:top;">許可</th><td style="padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text);line-height:1.7;"><span style="white-space:nowrap;">有料職業紹介事業　13-ユ-317292</span><br><span style="white-space:nowrap;">（厚生労働大臣許可）</span></td></tr>
+          <tr><th style="text-align:left;padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text-dark);font-weight:800;white-space:nowrap;vertical-align:top;">主要取引銀行</th><td style="padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text);line-height:1.7;">きらぼし銀行　東新宿支店<br>静岡銀行　　　東京営業部<br>千葉銀行　　　池袋支店<br>みずほ銀行　　赤坂支店<br>りそな銀行　　赤坂支店</td></tr>
+        </table>
+      </div>
+      <div>
+        <table style="width:100%;border-collapse:collapse;font-size:15px;">
+          <tr><th style="text-align:left;padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text-dark);font-weight:800;white-space:nowrap;vertical-align:top;">主要取引先</th><td style="padding:14px 16px;border-bottom:1px solid #E5E7EB;color:var(--text);line-height:1.7;">株式会社アイシン・マシンテック<br>曙ブレーキ工業株式会社<br>岡谷鋼機株式会社<br>川崎重工業株式会社<br>株式会社京都製作所<br>三恵技研工業株式会社<br>鈴与商事株式会社<br>株式会社大気社<br>ナブテスコ株式会社<br>日清紡メカトロニクス株式会社<br>平田機工株式会社<br>株式会社フジキカイ<br>株式会社ミスミグループ本社<br>（一部抜粋）</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-white border-t border-soft py-14">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-[2fr_1fr] gap-12 mb-10 items-start">
+      <div>
+        <img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/logo.svg" alt="株式会社ロボカル" style="height:40px; width:auto;" onerror="this.style.display='none';">
+        <p class="text-sm text-muted mt-4 leading-relaxed">
+          ものづくりで働く人を幸せにする。<br>
+          製造業特化・即戦力エンジニアご紹介サービス。
+        </p>
+        <p class="text-xs text-muted mt-5 leading-relaxed">
+          会社概要・所在地・代表電話などの詳細は、<a href="#company" style="color:var(--primary-dark);font-weight:800;text-decoration:underline;">運営会社</a>セクションをご覧ください。
+        </p>
+      </div>
+      <div>
+        <p class="text-sm font-black text-dark mb-3">サービス</p>
+        <ul class="space-y-2 text-sm text-muted">
+          <li><a href="#pricing" class="hover:text-primary-dark">料金</a></li>
+          <li><a href="#cases" class="hover:text-primary-dark">導入事例</a></li>
+          <li><a href="#engineers" class="hover:text-primary-dark">エンジニア</a></li>
+          <li><a href="#faq" class="hover:text-primary-dark">FAQ</a></li>
+          <li><a href="#news" class="hover:text-primary-dark">お知らせ</a></li>
+          <li><a href="#company" class="hover:text-primary-dark">運営会社</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-soft pt-6 text-center text-xs text-muted">
+      <div style="margin-bottom:10px;">
+        <a href="https://robokaru.jp/privacypolicy" target="_blank" rel="noopener" style="color:var(--primary-dark);font-weight:700;text-decoration:underline;">プライバシーポリシー</a>
+        <span style="margin:0 8px;">|</span>
+        <a href="https://robokaru-biz.com/compliance-policy/" target="_blank" rel="noopener" style="color:var(--primary-dark);font-weight:700;text-decoration:underline;">コンプライアンス方針はこちら</a>
+      </div>
+      © 2026 株式会社ロボカル All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- Floating Side CTA (追従ボタン) -->
+<aside id="sideFab" class="side-fab" aria-label="追従お問い合わせ">
+  <p class="sf-title">ご相談、ご質問がありましたら<br>お気軽にお問い合わせください</p>
+  <a href="tel:0345006960" class="sf-btn sf-tel" aria-label="電話でお問い合わせ 03-4500-6960">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.8 12.8 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.8 12.8 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+    <span>
+      <span class="sf-num">03-4500-6960</span><br>
+      <span class="sf-sub">（平日・土曜 9時〜18時）</span>
+    </span>
+  </a>
+  <a href="#contact-form" class="sf-btn sf-mail" aria-label="メールでお問い合わせ">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    <p>メールお問い合わせ</p>
+  </a>
+  <a href="https://robokaru-biz.com/download/" target="_blank" rel="noopener" class="sf-btn sf-dl" aria-label="資料ダウンロード">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1543AA" stroke-width="2.2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 15 12 18 15 15"/></svg>
+    <p>資料ダウンロード</p>
+  </a>
+  <a href="#top" class="sf-top" aria-label="ページ上部へ戻る" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="18 15 12 9 6 15"/></svg>
+  </a>
+</aside>
+
+<script>
+(function(){
+  var fab=document.getElementById('sideFab');
+  if(!fab)return;
+  function toggle(){
+    if(window.scrollY>400){fab.classList.add('visible');}
+    else{fab.classList.remove('visible');}
+  }
+  window.addEventListener('scroll',toggle,{passive:true});
+  toggle();
+})();
+</script>
+
+<!-- ============================================================
+     REVIEW MODE（LP修正指示用・本番表示には影響しません）
+     使い方:
+       1) Alt + Shift + R を押す（または URL に ?review を追加）
+       2) 右下の📝ボタンで ON/OFF 切替
+       3) ページ上の要素をクリック → 「削除／テキスト変更／コメント」を選び保存
+       4) 右上パネルの「📋 指示をコピー」でクリップボードにコピー
+       5) そのままClaudeに貼り付けるとLP修正が走ります
+     ※ モードOFF時は完全非表示、印刷時も非表示
+     ============================================================ -->
+<style id="review-mode-styles">
+  #review-launcher, #review-toolbar, #review-dialog, #review-backdrop { display: none; }
+  .review-mode-active #review-launcher { display: flex; }
+  .review-mode-active #review-toolbar { display: flex; }
+  #review-dialog.open { display: block; }
+  #review-backdrop.open { display: block; }
+  .review-mode-active [data-review-hover] {
+    outline: 2px dashed #F97316 !important;
+    outline-offset: 2px;
+    cursor: crosshair !important;
+  }
+  .review-mode-active [data-review-marked] {
+    outline: 3px solid #DC2626 !important;
+    outline-offset: 2px;
+    background: rgba(220, 38, 38, 0.08) !important;
+  }
+  #review-launcher {
+    position: fixed; bottom: 20px; left: 20px;
+    width: 52px; height: 52px; border-radius: 50%;
+    background: #DC2626; color: #fff; border: none;
+    box-shadow: 0 10px 24px rgba(220,38,38,.45);
+    z-index: 2147483000; cursor: pointer; font-size: 22px;
+    align-items: center; justify-content: center;
+    font-family: system-ui, sans-serif;
+  }
+  #review-toolbar {
+    position: fixed; top: 20px; right: 20px;
+    width: 380px; max-height: 80vh;
+    background: #fff; border: 2px solid #0284C7; border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,.25);
+    z-index: 2147482999;
+    flex-direction: column; overflow: hidden;
+    font-family: system-ui, -apple-system, "Hiragino Sans", sans-serif;
+  }
+  #review-toolbar header {
+    background: #0284C7; color: #fff;
+    padding: 12px 16px; font-weight: 800; font-size: 14px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  #review-toolbar .review-body {
+    overflow-y: auto; padding: 12px; flex: 1; min-height: 120px;
+  }
+  #review-toolbar .review-item {
+    position: relative;
+    border: 1px solid #E5E7EB; border-radius: 8px;
+    padding: 10px 30px 10px 10px; margin-bottom: 8px;
+    font-size: 13px; line-height: 1.5;
+  }
+  #review-toolbar .review-item .ri-num {
+    font-weight: 900; color: #0284C7; font-size: 12px;
+  }
+  #review-toolbar .review-item .ri-action {
+    display: inline-block; padding: 2px 8px; border-radius: 4px;
+    font-size: 11px; font-weight: 800; margin-left: 6px; color: #fff;
+  }
+  #review-toolbar .review-item .ri-action.delete { background: #DC2626; }
+  #review-toolbar .review-item .ri-action.edit { background: #F59E0B; }
+  #review-toolbar .review-item .ri-action.comment { background: #0EA5E9; }
+  #review-toolbar .review-item .ri-sec {
+    color: #0284C7; font-size: 11px; font-weight: 800; margin-top: 4px;
+  }
+  #review-toolbar .review-item .ri-sel {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 10px; color: #64748B; word-break: break-all; margin-top: 4px;
+  }
+  #review-toolbar .review-item .ri-pv {
+    color: #64748B; font-size: 11px; margin-top: 2px;
+  }
+  #review-toolbar .review-item .ri-text {
+    color: #0F172A; margin-top: 6px; font-weight: 600;
+    background: #FEF3C7; padding: 6px 8px; border-radius: 4px;
+  }
+  #review-toolbar .review-item .ri-del {
+    position: absolute; top: 6px; right: 6px;
+    background: none; border: none; color: #DC2626;
+    cursor: pointer; font-weight: 900; font-size: 14px;
+  }
+  #review-toolbar footer {
+    padding: 10px 12px; border-top: 1px solid #E5E7EB;
+    display: flex; gap: 8px; background: #F8FAFC;
+  }
+  #review-toolbar button.rb-main {
+    flex: 1; padding: 10px; background: #0284C7; color: #fff;
+    border: none; border-radius: 8px; font-weight: 800; cursor: pointer; font-size: 13px;
+  }
+  #review-toolbar button.rb-sub {
+    padding: 10px 12px; background: #fff; color: #475569;
+    border: 1px solid #CBD5E1; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 12px;
+  }
+  #review-backdrop {
+    position: fixed; inset: 0; background: rgba(15,23,42,.55);
+    z-index: 2147483100;
+  }
+  #review-dialog {
+    position: fixed; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 440px; max-width: calc(100vw - 40px);
+    background: #fff; border-radius: 14px;
+    box-shadow: 0 30px 60px rgba(0,0,0,.35);
+    z-index: 2147483200; padding: 20px;
+    font-family: system-ui, -apple-system, "Hiragino Sans", sans-serif;
+  }
+  #review-dialog h3 {
+    font-size: 15px; font-weight: 900; color: #0F172A; margin-bottom: 8px;
+  }
+  #review-dialog .rd-sec {
+    color: #0284C7; font-size: 12px; font-weight: 800; margin-bottom: 4px;
+  }
+  #review-dialog .rd-sel {
+    background: #F1F5F9; border-radius: 6px; padding: 8px;
+    font-family: ui-monospace, monospace; font-size: 11px;
+    color: #334155; word-break: break-all; margin-bottom: 8px;
+  }
+  #review-dialog .rd-pv {
+    font-size: 12px; color: #475569; margin-bottom: 10px;
+    background: #FFF7ED; padding: 6px 8px; border-radius: 4px;
+    border-left: 3px solid #F97316;
+  }
+  #review-dialog .rd-actions {
+    display: flex; gap: 6px; margin-bottom: 12px;
+  }
+  #review-dialog .rd-actions button {
+    flex: 1; padding: 10px 4px; border: 2px solid #E5E7EB;
+    background: #fff; border-radius: 8px; font-weight: 700;
+    font-size: 12px; cursor: pointer; color: #475569;
+  }
+  #review-dialog .rd-actions button.active {
+    border-color: #0284C7; background: #E0F2FE; color: #0284C7;
+  }
+  #review-dialog textarea {
+    width: 100%; min-height: 80px; padding: 10px;
+    border: 1px solid #CBD5E1; border-radius: 8px;
+    font-size: 13px; font-family: inherit; resize: vertical;
+    margin-bottom: 12px; box-sizing: border-box;
+  }
+  #review-dialog .rd-btns { display: flex; gap: 8px; }
+  #review-dialog .rd-btns button {
+    flex: 1; padding: 10px; border-radius: 8px;
+    font-weight: 800; cursor: pointer; border: none; font-size: 14px;
+  }
+  #review-dialog .rd-save { background: #0284C7; color: #fff; }
+  #review-dialog .rd-cancel { background: #F1F5F9; color: #475569; }
+  @media print {
+    #review-launcher, #review-toolbar, #review-dialog, #review-backdrop { display: none !important; }
+  }
+</style>
+
+<button id="review-launcher" title="レビューモード切替 (Alt+Shift+R)">📝</button>
+
+<aside id="review-toolbar">
+  <header>
+    <span>📝 修正指示（<span id="rt-count">0</span>件）</span>
+    <button style="background:none;border:none;color:#fff;cursor:pointer;font-weight:900;font-size:16px;" id="rt-close" title="閉じる">✕</button>
+  </header>
+  <div class="review-body" id="rt-body"></div>
+  <footer>
+    <button class="rb-sub" id="rt-clear">全消去</button>
+    <button class="rb-main" id="rt-copy">📋 指示をコピー</button>
+  </footer>
+</aside>
+
+<div id="review-backdrop"></div>
+<div id="review-dialog">
+  <h3>修正指示を追加</h3>
+  <div class="rd-sec" id="rd-section"></div>
+  <div class="rd-sel" id="rd-selector"></div>
+  <div class="rd-pv" id="rd-preview"></div>
+  <div class="rd-actions">
+    <button data-action="delete">🗑 削除</button>
+    <button data-action="edit">✎ テキスト変更</button>
+    <button data-action="comment">💬 コメント</button>
+  </div>
+  <textarea id="rd-text" placeholder="指示内容やコメントを記入（テキスト変更の場合は変更後の文言を記入）"></textarea>
+  <div class="rd-btns">
+    <button class="rd-cancel">キャンセル</button>
+    <button class="rd-save">保存</button>
+  </div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+  const STORAGE_KEY = 'robokaru-lp-review-annotations-v1';
+  let annotations = [];
+  let activeTarget = null;
+  let currentAction = 'comment';
+
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) annotations = JSON.parse(raw) || [];
+  } catch(e) { annotations = []; }
+
+  function save() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(annotations)); } catch(e) {}
+  }
+
+  function escapeHtml(s) {
+    return String(s==null?'':s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function getSelector(el) {
+    if (!el || el === document.body) return 'body';
+    const path = [];
+    let cur = el;
+    let depth = 0;
+    while (cur && cur.nodeType === 1 && cur !== document.body && depth < 6) {
+      let seg = cur.tagName.toLowerCase();
+      if (cur.id) {
+        seg += '#' + cur.id;
+        path.unshift(seg);
+        break;
+      }
+      if (cur.className && typeof cur.className === 'string') {
+        const cls = cur.className.trim().split(/\s+/)
+          .filter(c => c && !c.startsWith('review-'))
+          .slice(0, 2).join('.');
+        if (cls) seg += '.' + cls;
+      }
+      const parent = cur.parentElement;
+      if (parent) {
+        const siblings = Array.from(parent.children).filter(c => c.tagName === cur.tagName);
+        if (siblings.length > 1) {
+          seg += ':nth-of-type(' + (siblings.indexOf(cur) + 1) + ')';
+        }
+      }
+      path.unshift(seg);
+      cur = cur.parentElement;
+      depth++;
+    }
+    return path.join(' > ');
+  }
+
+  function getContext(el) {
+    let section = el.closest('section');
+    let sectionId = section ? (section.id || '') : '';
+    let sectionHeading = '';
+    if (section) {
+      const h = section.querySelector('h1, h2, h3, .tagline, .h2-section');
+      if (h) sectionHeading = (h.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 40);
+    }
+    return { sectionId, sectionHeading };
+  }
+
+  function textPreview(el) {
+    const t = (el.innerText || el.textContent || '').trim().replace(/\s+/g, ' ');
+    return t.length > 80 ? t.slice(0, 80) + '…' : t;
+  }
+
+  function refreshMarks() {
+    document.querySelectorAll('[data-review-marked]').forEach(el => el.removeAttribute('data-review-marked'));
+    annotations.forEach((a) => {
+      try {
+        const el = document.querySelector(a.selector);
+        if (el) el.setAttribute('data-review-marked', '');
+      } catch(e) {}
+    });
+  }
+
+  function renderList() {
+    const body = document.getElementById('rt-body');
+    document.getElementById('rt-count').textContent = annotations.length;
+    if (annotations.length === 0) {
+      body.innerHTML = '<p style="color:#94A3B8;font-size:12px;text-align:center;padding:30px 10px;line-height:1.6;">ページ上の要素をクリックして<br>修正指示を追加してください</p>';
+      return;
+    }
+    body.innerHTML = annotations.map((a, i) => {
+      const label = a.action === 'delete' ? '削除' : a.action === 'edit' ? 'テキスト変更' : 'コメント';
+      return '<div class="review-item">'
+        + '<button class="ri-del" data-idx="'+i+'" title="この項目を削除">✕</button>'
+        + '<span class="ri-num">#'+(i+1)+'</span>'
+        + '<span class="ri-action '+a.action+'">'+label+'</span>'
+        + (a.sectionHeading ? '<div class="ri-sec">📍 '+escapeHtml(a.sectionHeading)+'</div>' : '')
+        + '<div class="ri-sel">'+escapeHtml(a.selector)+'</div>'
+        + (a.preview ? '<div class="ri-pv">"'+escapeHtml(a.preview)+'"</div>' : '')
+        + (a.text ? '<div class="ri-text">'+escapeHtml(a.text)+'</div>' : '')
+        + '</div>';
+    }).join('');
+    body.querySelectorAll('.ri-del').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const idx = parseInt(btn.getAttribute('data-idx'));
+        annotations.splice(idx, 1);
+        save(); renderList(); refreshMarks();
+      });
+    });
+  }
+
+  function isInReviewUI(el) {
+    return el.closest && el.closest('#review-toolbar, #review-dialog, #review-backdrop, #review-launcher');
+  }
+
+  let lastHover = null;
+  document.addEventListener('mouseover', (e) => {
+    if (!document.body.classList.contains('review-mode-active')) return;
+    if (isInReviewUI(e.target)) return;
+    if (lastHover) lastHover.removeAttribute('data-review-hover');
+    e.target.setAttribute('data-review-hover', '');
+    lastHover = e.target;
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!document.body.classList.contains('review-mode-active')) return;
+    if (isInReviewUI(e.target)) return;
+    e.preventDefault();
+    e.stopPropagation();
+    activeTarget = e.target;
+    openDialog(e.target);
+  }, true);
+
+  function openDialog(el) {
+    const ctx = getContext(el);
+    document.getElementById('rd-section').textContent = ctx.sectionHeading ? '📍 ' + ctx.sectionHeading : '';
+    document.getElementById('rd-selector').textContent = getSelector(el);
+    const pv = textPreview(el);
+    const pvEl = document.getElementById('rd-preview');
+    if (pv) { pvEl.textContent = '"'+pv+'"'; pvEl.style.display = 'block'; }
+    else { pvEl.style.display = 'none'; }
+    document.getElementById('rd-text').value = '';
+    currentAction = 'comment';
+    document.querySelectorAll('#review-dialog .rd-actions button').forEach(b => {
+      b.classList.toggle('active', b.getAttribute('data-action') === 'comment');
+    });
+    document.getElementById('review-dialog').classList.add('open');
+    document.getElementById('review-backdrop').classList.add('open');
+    setTimeout(() => document.getElementById('rd-text').focus(), 50);
+  }
+
+  function closeDialog() {
+    document.getElementById('review-dialog').classList.remove('open');
+    document.getElementById('review-backdrop').classList.remove('open');
+    activeTarget = null;
+  }
+
+  document.querySelectorAll('#review-dialog .rd-actions button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentAction = btn.getAttribute('data-action');
+      document.querySelectorAll('#review-dialog .rd-actions button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  document.querySelector('#review-dialog .rd-cancel').addEventListener('click', closeDialog);
+  document.getElementById('review-backdrop').addEventListener('click', closeDialog);
+
+  document.querySelector('#review-dialog .rd-save').addEventListener('click', () => {
+    if (!activeTarget) return;
+    const ctx = getContext(activeTarget);
+    annotations.push({
+      action: currentAction,
+      selector: getSelector(activeTarget),
+      preview: textPreview(activeTarget),
+      sectionId: ctx.sectionId,
+      sectionHeading: ctx.sectionHeading,
+      text: document.getElementById('rd-text').value.trim(),
+      timestamp: Date.now()
+    });
+    save(); renderList(); refreshMarks();
+    closeDialog();
+  });
+
+  function toggleMode() {
+    document.body.classList.toggle('review-mode-active');
+    if (document.body.classList.contains('review-mode-active')) {
+      renderList();
+      refreshMarks();
+    } else {
+      if (lastHover) { lastHover.removeAttribute('data-review-hover'); lastHover = null; }
+      document.querySelectorAll('[data-review-marked]').forEach(el => el.removeAttribute('data-review-marked'));
+    }
+  }
+
+  document.getElementById('review-launcher').addEventListener('click', toggleMode);
+  document.getElementById('rt-close').addEventListener('click', toggleMode);
+
+  document.getElementById('rt-clear').addEventListener('click', () => {
+    if (annotations.length === 0) return;
+    if (!confirm('すべての修正指示を削除してよろしいですか？')) return;
+    annotations = [];
+    save(); renderList(); refreshMarks();
+  });
+
+  document.getElementById('rt-copy').addEventListener('click', () => {
+    if (annotations.length === 0) { alert('修正指示がありません'); return; }
+    const header = '# LP修正指示（robokaru-lp.html）\n\n以下の修正をお願いします。\n\n';
+    const out = header + annotations.map((a, i) => {
+      const label = a.action === 'delete' ? '削除' : a.action === 'edit' ? 'テキスト変更' : 'コメント';
+      let block = '## 修正' + (i+1) + '：' + label + '\n';
+      if (a.sectionHeading) block += '- 場所: ' + a.sectionHeading + (a.sectionId ? ' (#' + a.sectionId + ')' : '') + '\n';
+      block += '- 対象セレクタ: `' + a.selector + '`\n';
+      if (a.preview) block += '- テキスト抜粋: "' + a.preview + '"\n';
+      if (a.text) block += '- 指示内容: ' + a.text + '\n';
+      return block;
+    }).join('\n');
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(out).then(() => {
+        alert('✅ 修正指示をコピーしました。\nそのままClaudeに貼り付けてください。');
+      }).catch(() => fallbackCopy(out));
+    } else {
+      fallbackCopy(out);
+    }
+  });
+
+  function fallbackCopy(text) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); alert('✅ コピーしました。'); }
+    catch(e) { prompt('下のテキストを手動でコピーしてClaudeに貼り付けてください:', text); }
+    document.body.removeChild(ta);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    // macOSの Option（Alt）修飾時は e.key が特殊文字になるため e.code で物理キーを判定
+    const isR = (e.code === 'KeyR') || e.key === 'R' || e.key === 'r';
+    // Alt+Shift+R（Mac: Option+Shift+R）または Ctrl+Shift+L で切替
+    if ((e.altKey && e.shiftKey && isR) ||
+        (e.ctrlKey && e.shiftKey && (e.code === 'KeyL' || e.key === 'L' || e.key === 'l'))) {
+      e.preventDefault();
+      toggleMode();
+      return;
+    }
+    if (e.key === 'Escape' && document.getElementById('review-dialog').classList.contains('open')) {
+      closeDialog();
+    }
+  });
+
+  // URL に ?review が含まれる場合は起動時にONにする
+  if (/[?&]review(=|&|$)/.test(location.search)) {
+    document.body.classList.add('review-mode-active');
+    renderList();
+    refreshMarks();
+  }
+})();
+</script>
+
+</body>
+
+</html>
