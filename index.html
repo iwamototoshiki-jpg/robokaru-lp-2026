@@ -2,8 +2,43 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=1280">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ロボカル｜業界経験エンジニアを最短2週間で確保／機械設計・制御設計・生産技術ほか</title>
+
+<!-- Description -->
+<meta name="description" content="製造業特化・業界経験エンジニアを最短2週間で確保。週5日（月額80万円）／週3日（月額60万円）／週1日（月額20万円）から選べるシンプル定額制。機械設計・制御設計・生産技術・品質管理・設備保全など製造業10領域に対応。">
+<meta name="keywords" content="製造業,エンジニア派遣,機械設計,制御設計,PLC,ロボットティーチング,生産技術,品質管理,設備保全,プラント設計,自動化">
+<link rel="canonical" href="https://robokaru.jp/">
+<meta name="theme-color" content="#0284C7">
+<meta name="format-detection" content="telephone=no">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/favicon.svg">
+<link rel="alternate icon" href="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/favicon.ico">
+<link rel="apple-touch-icon" href="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/apple-touch-icon.png">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="株式会社ロボカル">
+<meta property="og:title" content="ロボカル｜業界経験エンジニアを最短2週間で確保">
+<meta property="og:description" content="製造業特化・即戦力エンジニアを最短2週間で確保。週5日/週3日/週1日から選べる月額定額（80万/60万/20万）。">
+<meta property="og:url" content="https://robokaru.jp/">
+<meta property="og:image" content="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/ogp.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ロボカル｜業界経験エンジニアを最短2週間で確保">
+<meta name="twitter:description" content="製造業特化・即戦力エンジニアを最短2週間で確保。週5日/週3日/週1日から選べる月額定額（80万/60万/20万）。">
+<meta name="twitter:image" content="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/ogp.jpg">
+
+<!-- Preconnect to external origins -->
+<link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+<link rel="preconnect" href="https://robokaru-biz.com">
+<link rel="dns-prefetch" href="https://robokaru-biz.com">
+
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   :root {
@@ -30,7 +65,26 @@
     font-size: 19px;
     line-height: 2.0;
     font-feature-settings: "palt" 1;
-    min-width: 1280px;
+  }
+  img { max-width: 100%; height: auto; }
+
+  /* A11y: 装飾SVG（aria-labelなし）をスクリーンリーダーから隠す */
+  svg:not([aria-label]):not([role="img"]) { /* no visual change */ }
+
+  /* A11y: Skip link */
+  .skip-link {
+    position: absolute; top: -48px; left: 8px;
+    background: var(--primary-dark); color: #fff;
+    padding: 10px 16px; border-radius: 0 0 8px 8px;
+    font-weight: 800; z-index: 10000;
+    transition: top 0.2s;
+  }
+  .skip-link:focus { top: 0; outline: 3px solid #fff; outline-offset: 2px; }
+
+  /* A11y: キーボードフォーカスを可視化 */
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
   }
   .font-display { letter-spacing: 0.005em; }
 
@@ -129,7 +183,7 @@
     letter-spacing: 0.14em;
     color: var(--primary-dark);
   }
-  /* PC専用レイアウト - モバイル対応なし */
+  /* レスポンシブ対応：@media ブロックは style 末尾を参照 */
 
   /* ===== Colors ===== */
   .bg-primary { background-color: var(--primary); }
@@ -420,8 +474,13 @@
     background: white;
     border: 1px solid var(--border);
     border-radius: 20px;
-    padding: 36px 32px;
+    padding: 32px 26px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* Japanese 行頭禁則（。、） - ぶら下げはせず、枠内に確実に収める */
+    line-break: strict;
   }
   .problem-card .h3-card {
     font-size: 18px;
@@ -430,6 +489,7 @@
     white-space: normal;
     word-break: keep-all;
     overflow-wrap: normal;
+    line-break: strict;
     min-height: calc(2em * 1.55);
   }
   .problem-card .h3-card > span {
@@ -437,6 +497,10 @@
   }
   .problem-card .body-text {
     white-space: normal;
+    line-break: strict;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    flex: 1; /* 残りスペースを埋めて全カードを同じ高さに */
   }
   .problem-persona {
     display: inline-flex;
@@ -452,6 +516,52 @@
   }
 
   /* ===== Pricing ===== */
+  /* 価格数字を全プランで完全に揃える共通クラス */
+  .plan-price-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4px;
+    line-height: 1;
+    height: 74px; /* 数字の高さ(72px) + 僅かな下駄 で3プランの縦位置を固定 */
+  }
+  .plan-price-num {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 72px;
+    font-weight: 900;
+    color: var(--primary-dark);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    font-variant-numeric: tabular-nums lining-nums;
+    font-feature-settings: "tnum" 1, "lnum" 1;
+    display: inline-block;
+  }
+  .plan-price-prefix {
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--text-dark);
+    line-height: 1;
+    padding-bottom: 6px; /* ベースライン合わせの微調整 */
+  }
+  .plan-price-suffix {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--primary-dark);
+    line-height: 1;
+    padding-bottom: 6px;
+  }
+  /* プランカード共通：折返し制御で全カードの高さを揃える */
+  .plan-card { word-break: keep-all; overflow-wrap: break-word; line-break: strict; }
+  .plan-card li { word-break: keep-all; line-break: strict; }
+
+  /* カードグリッドの行内で全カードを同じ高さにストレッチ */
+  .grid:has(.problem-card),
+  .grid:has(.case-card),
+  .grid:has(.engineer-card) { align-items: stretch; }
+  .grid > .problem-card,
+  .grid > .case-card,
+  .grid > .engineer-card { min-height: 100%; }
+
   .pricing-card {
     background: white;
     border: 2px solid var(--border);
@@ -867,7 +977,10 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    height: 100%;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Japanese 行頭禁則（。、） - ぶら下げはせず、枠内に確実に収める */
+    line-break: strict;
   }
   .case-card:hover {
     transform: translateY(-4px);
@@ -911,6 +1024,9 @@
     line-height: 1.95;
     margin-bottom: 20px;
     flex-grow: 1;
+    line-break: strict;
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
   .case-card .case-meta {
     border-top: 1px solid var(--soft);
@@ -924,11 +1040,15 @@
     color: var(--text-muted);
     font-weight: 700;
     letter-spacing: 0.05em;
+    word-break: keep-all;
   }
   .case-card .case-meta dd {
     color: var(--text-dark);
     font-weight: 900;
     margin: 0;
+    line-break: strict;
+    word-break: normal;
+    overflow-wrap: anywhere;
   }
   .case-ba {
     margin-top: 20px;
@@ -998,8 +1118,19 @@
     box-shadow: 0 10px 30px -14px rgba(14,165,233,0.18);
     position: relative;
     transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* Japanese 行頭禁則 - ぶら下げはせず、枠内に確実に収める */
+    line-break: strict;
   }
   .engineer-card:hover { transform: translateY(-4px); }
+  .engineer-card .eng-quote {
+    line-break: strict;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    flex: 1; /* 本文を伸ばしてstats/skillsを下端揃え */
+  }
   .engineer-card .eng-stats {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -1430,10 +1561,183 @@
 
   /* --- 25. 選択時のハイライト ---------------------------------- */
   ::selection { background: var(--primary-pale); color: var(--primary-darker); }
+
+  /* --- 26. 日本語禁則処理の最終強化（!important で全上書き） ----- */
+  /* カタカナ途中分断・句読点行頭/はみ出しを防止                      */
+  .problem-card .body-text,
+  .problem-card .h3-card,
+  .case-card .case-desc,
+  .case-card .case-title,
+  .engineer-card .eng-quote,
+  .engineer-card .eng-role {
+    word-break: keep-all !important;
+    line-break: strict !important;
+    overflow-wrap: break-word !important;
+    -webkit-line-break: strict !important;
+    text-wrap: pretty;
+  }
+  /* 1行あたりの文字数を増やし、長いカタカナ語（リソース等）が分断されないようにする */
+  .problem-card .body-text { font-size: 15px !important; line-height: 1.85 !important; }
+  .case-card .case-desc    { font-size: 14.5px !important; line-height: 1.85 !important; }
+  .engineer-card .eng-quote { font-size: 14.5px !important; line-height: 1.85 !important; }
+
+  /* ぶら下げを明示的に無効化（hanging-punctuationが子孫に継承されないように） */
+  .problem-card, .problem-card *,
+  .case-card, .case-card *,
+  .engineer-card, .engineer-card * {
+    hanging-punctuation: none !important;
+  }
+
+  /* ============================================================
+     RESPONSIVE（タブレット以下）
+     モバイル閲覧用の最低限レイアウト調整
+     ============================================================ */
+  @media (max-width: 1023px) {
+    body { font-size: 17px; line-height: 1.85; }
+    header .max-w-7xl { padding-left: 16px; padding-right: 16px; gap: 12px !important; }
+    header .max-w-7xl > div.flex.items-center.gap-3 { flex-wrap: wrap; justify-content: flex-end; }
+    header a[href="tel:0345006960"] p:first-of-type { font-size: 15px !important; }
+    header a[href="tel:0345006960"] p:last-of-type { display: none; }
+    .h1-hero { font-size: clamp(26px, 6vw, 40px) !important; line-height: 1.4 !important; }
+    .h1-hero .h1-line { white-space: normal !important; }
+    .h2-section { font-size: clamp(22px, 4.5vw, 30px) !important; }
+    .num-price { font-size: clamp(56px, 16vw, 96px) !important; }
+    .num-price-xl { font-size: clamp(64px, 18vw, 120px) !important; }
+    .section-pad { padding: 56px 0 !important; }
+    /* 3列グリッドを1〜2列に */
+    .grid.md\:grid-cols-3, .grid.lg\:grid-cols-3 { grid-template-columns: 1fr !important; }
+    .grid.md\:grid-cols-2 { grid-template-columns: 1fr !important; }
+    /* 月額プランカードを縦積み（★バッジ分のgapを確保） */
+    .plans-grid { grid-template-columns: 1fr !important; gap: 40px !important; max-width: 420px !important; }
+    .plan-price-num { font-size: 60px !important; }
+    .plan-price-row { height: 62px !important; }
+    /* Time Comparison 横並び→縦積み */
+    #top ~ section .grid.md\:grid-cols-2 > div { max-width: 100% !important; }
+    /* Company 2列→1列 */
+    #company div[style*="grid-template-columns:1fr 1fr"],
+    #company div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; gap: 20px !important; }
+    /* Before/After compare 2列→1列 */
+    .compare-box .grid.md\:grid-cols-2 { grid-template-columns: 1fr !important; gap: 24px !important; }
+    /* AFTER INQUIRY 3カード横並び→縦積み */
+    section .flex[style*="flex-wrap:nowrap"][style*="justify-content:center"] { flex-wrap: wrap !important; }
+    /* CTA 3列→1列 */
+    #cta div[style*="grid-template-columns:repeat(3,1fr)"] { grid-template-columns: 1fr !important; }
+    /* Form radio 2列→1列 */
+    #robokaru-contact div[style*="grid-template-columns:repeat(2, 1fr)"] { grid-template-columns: 1fr !important; }
+    /* Floating Side CTA 幅調整 */
+    .side-fab { max-width: 200px !important; }
+    /* News 画像・本文縦積み */
+    #news div[style*="gap:32px"] { gap: 20px !important; }
+    #news div[style*="flex:0 0 200px"] { flex: 0 0 100% !important; }
+    /* Partner logos scale */
+    .logo-item { transform: scale(0.85); }
+  }
+
+  @media (max-width: 639px) {
+    body { font-size: 16px; }
+    .section-pad { padding: 44px 0 !important; }
+    header .max-w-7xl { height: auto !important; padding-top: 10px; padding-bottom: 10px; }
+    header a[href="#contact-form"] span, header a[href*="/download/"] span { display: none; }
+    header a[href="#contact-form"], header a[href*="/download/"] { padding: 10px 12px !important; }
+    /* フォーム padding 圧縮 */
+    #robokaru-contact { padding: 24px 18px !important; }
+    /* ヒーロー 10領域タブ余白 */
+    #top div[style*="display:flex;flex-wrap:wrap;gap:8px"] span { font-size: 12px !important; padding: 6px 10px !important; }
+    /* CTAボタンパディング */
+    .btn-primary, .btn-secondary { padding: 16px 22px !important; font-size: 15px !important; }
+  }
 </style>
+
+<!-- Structured Data: Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "株式会社ロボカル",
+  "alternateName": "ROBOKARU",
+  "url": "https://robokaru.jp/",
+  "logo": "https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/logo.svg",
+  "description": "製造業特化・即戦力エンジニアのご紹介サービス。機械設計・制御設計・生産技術など10領域に対応。",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "麹町三丁目12番5号 近代ビル4階",
+    "addressLocality": "千代田区",
+    "addressRegion": "東京都",
+    "postalCode": "102-0083",
+    "addressCountry": "JP"
+  },
+  "telephone": "+81-3-4500-6960",
+  "foundingDate": "2021-01",
+  "sameAs": [
+    "https://corp.robokaru.jp",
+    "https://robokaru-biz.com"
+  ]
+}
+</script>
+
+<!-- Structured Data: Service with offer catalog -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "製造業向けエンジニア紹介サービス",
+  "provider": {
+    "@type": "Organization",
+    "name": "株式会社ロボカル"
+  },
+  "areaServed": { "@type": "Country", "name": "JP" },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "月額定額プラン",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "週5日プラン",
+        "description": "標準月額プラン・エンジニア1名・週5日稼働",
+        "price": "800000",
+        "priceCurrency": "JPY",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "800000",
+          "priceCurrency": "JPY",
+          "unitText": "MON"
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "週3日プラン",
+        "description": "エンジニア1名・週3日稼働",
+        "price": "600000",
+        "priceCurrency": "JPY",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "600000",
+          "priceCurrency": "JPY",
+          "unitText": "MON"
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "週1日プラン",
+        "description": "エンジニア1名・週1日稼働・アドバイザリー向け",
+        "price": "200000",
+        "priceCurrency": "JPY",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "200000",
+          "priceCurrency": "JPY",
+          "unitText": "MON"
+        }
+      }
+    ]
+  }
+}
+</script>
+
 </head>
 <body>
-<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-soft">
+<a href="#top" class="skip-link">メインコンテンツへスキップ</a>
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-soft" role="banner">
   <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between gap-6">
     <a href="#top" class="flex items-center gap-3 shrink-0">
       <img src="https://robokaru-biz.com/wp-content/themes/robokaru/assets/images/logo.svg" alt="株式会社ロボカル" style="height:52px; width:auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
@@ -1514,8 +1818,9 @@
       </h1>
 
       <!-- サブコピー（1文に集約） -->
-      <p class="body-text mb-10 mx-auto" style="font-size:18px; line-height:1.9; max-width:720px;">
-        製造業10領域の即戦力を、<strong class="text-primary-dark">月額60万円のシンプル定額</strong>で。
+      <p class="body-text mb-10 mx-auto" style="font-size:18px; line-height:1.9; max-width:780px;">
+        製造業10領域の即戦力を、<strong class="text-primary-dark">標準月額80万円のシンプル定額</strong>で。<br>
+        <span style="font-size:16px;">週5日／週3日／週1日から選べる、柔軟な料金プラン。</span>
       </p>
 
       <!-- CTA -->
@@ -1743,7 +2048,7 @@
           <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         </div>
         <h3 class="h3-card mb-3">発注は、1ヶ月単位。</h3>
-        <p class="body-text" style="font-size:16px;">月額60万円のシンプル定額。1ヶ月単位で発注できるから、必要な期間だけ、柔軟に現場の体制を整えられます。</p>
+        <p class="body-text" style="font-size:16px;">標準月額80万円（週5日）のシンプル定額。週5日／週3日／週1日から稼働ペースを選べ、1ヶ月単位で柔軟に延長・終了が可能です。</p>
       </div>
       <div class="pillar-card">
         <div class="pillar-num">03</div>
@@ -1770,8 +2075,8 @@
       シンプルな料金設計。
     </h2>
     <p class="body-text text-center mb-6 max-w-3xl mx-auto">
-      標準月額<strong class="text-dark">60万円/月</strong>のシンプル定額制。<br>
-      発注は<strong class="text-dark">1ヶ月単位</strong>。必要な期間だけ、必要な分だけご利用いただけます。
+      標準月額<strong class="text-dark">80万円/月（週5日）</strong>のシンプル定額制。<br>
+      <strong class="text-dark">週5日／週3日／週1日</strong>から稼働ペースを選択。発注は<strong class="text-dark">1ヶ月単位</strong>で、必要な期間だけご利用いただけます。
     </p>
     <div class="flex justify-center mb-16">
       <div class="trust-bar" style="font-size:15px;">
@@ -1780,25 +2085,97 @@
       </div>
     </div>
 
-    <h3 class="text-center mb-10" style="font-size:26px; font-weight:900; color:var(--text-dark);">標準月額：<span class="text-primary-dark">1ヶ月単位</span>のシンプル定額</h3>
+    <h3 class="text-center mb-4" style="font-size:26px; font-weight:900; color:var(--text-dark);"><span class="text-primary-dark">週日数</span>で選べる、3つの定額プラン</h3>
+    <p class="text-center mb-14" style="font-size:15px;color:var(--text-muted);font-weight:700;">エンジニア1名あたりの月額（税別）。発注単位は1ヶ月。</p>
 
-    <!-- 月額定額カード（1枚ワイド） -->
-    <div class="mb-16" style="padding-top:20px;">
-      <div class="pricing-card featured" style="max-width:720px;margin:0 auto;padding:48px 40px;text-align:center;">
-        <span class="fixed-badge">標準月額・エンジニア1名</span>
-        <p class="text-sm font-black text-muted tracking-widest mt-2 mb-2">STANDARD MONTHLY</p>
-        <h3 class="text-2xl font-black text-dark mb-6">月額定額プラン</h3>
-        <div class="mb-4">
-          <span class="price-equal">＝</span><span class="num-price">60</span><span class="price-currency">万円/月</span>
-          <p class="price-tax">（税別・エンジニア1名・月稼働）</p>
+    <!-- 月額定額カード（3プラン / バランス統一版） -->
+    <div class="plans-grid mb-12" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin-left:auto;margin-right:auto;align-items:stretch;padding-top:28px;">
+
+      <!-- 週1日プラン -->
+      <article class="plan-card" style="position:relative;display:flex;flex-direction:column;background:white;border:1px solid var(--border);border-radius:22px;padding:40px 28px 32px;box-shadow:0 4px 16px -8px rgba(15,23,42,0.06);">
+        <header style="text-align:center;">
+          <p style="font-size:12px;font-weight:900;letter-spacing:0.2em;color:var(--text-muted);margin:0 0 8px;">LIGHT</p>
+          <h4 style="font-size:22px;font-weight:900;color:var(--text-dark);margin:0 0 10px;">週1日プラン</h4>
+          <p style="font-size:13px;font-weight:700;color:var(--text-muted);margin:0 0 28px;line-height:1.7;height:48px;word-break:keep-all;overflow-wrap:break-word;display:flex;align-items:center;justify-content:center;">アドバイザリー・定例レビュー・<br>スポット技術支援に</p>
+        </header>
+        <div style="text-align:center;margin-bottom:24px;">
+          <div class="plan-price-row">
+            <span class="plan-price-prefix">月額</span>
+            <span class="plan-price-num">20</span>
+            <span class="plan-price-suffix">万円</span>
+          </div>
+          <p style="font-size:13px;font-weight:700;color:var(--text-muted);margin:10px 0 0;">（税別 / 月）</p>
         </div>
-        <div><span class="price-breakdown">発注単位：1ヶ月／2ヶ月・3ヶ月・6ヶ月など任意の月数で発注可</span></div>
-        <ul class="space-y-3 text-base mt-6 text-left" style="max-width:520px;margin:24px auto 0;">
-          <li class="flex items-start gap-2"><span class="text-primary-dark font-black">✓</span> 事前面談・稼働管理・稼働レポート込み</li>
-          <li class="flex items-start gap-2"><span class="text-primary-dark font-black">✓</span> 1ヶ月単位の発注で、柔軟に延長・終了が可能</li>
-          <li class="flex items-start gap-2"><span class="text-primary-dark font-black">✓</span> 2.5ヶ月などの半端な発注単位はなし。シンプルに「月」単位で発注いただけます</li>
+        <ul style="list-style:none;padding:0;margin:0 0 16px;display:flex;flex-direction:column;gap:10px;flex:1;">
+          <li style="display:flex;align-items:flex-start;gap:8px;font-size:14px;font-weight:700;color:var(--text-dark);"><span style="color:var(--primary-dark);font-weight:900;flex-shrink:0;">✓</span> 月4日稼働が目安</li>
+          <li style="display:flex;align-items:flex-start;gap:8px;font-size:14px;font-weight:700;color:var(--text-dark);"><span style="color:var(--primary-dark);font-weight:900;flex-shrink:0;">✓</span> 事前面談・稼働管理込み</li>
+          <li style="display:flex;align-items:flex-start;gap:8px;font-size:14px;font-weight:700;color:var(--text-dark);"><span style="color:var(--primary-dark);font-weight:900;flex-shrink:0;">✓</span> 1ヶ月単位で延長・終了が可能</li>
         </ul>
-      </div>
+        <div style="margin-top:auto;padding:10px 12px;background:var(--bg-soft);border-radius:10px;text-align:center;">
+          <p style="font-size:12px;font-weight:800;color:var(--text-muted);margin:0;">最低発注期間 <span style="color:var(--text-dark);font-size:14px;">3ヶ月</span> から</p>
+        </div>
+      </article>
+
+      <!-- 週5日プラン（中央・最もおすすめ） -->
+      <article class="plan-card plan-card-featured" style="position:relative;display:flex;flex-direction:column;background:linear-gradient(180deg,#F0F9FF 0%,#ffffff 70%);border:2px solid var(--primary);border-radius:22px;padding:40px 28px 32px;box-shadow:0 20px 48px -16px rgba(14,165,233,0.3);">
+        <span style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);background:var(--primary-dark);color:white;font-size:12px;font-weight:900;letter-spacing:0.12em;padding:8px 22px;border-radius:999px;white-space:nowrap;box-shadow:0 8px 20px -6px rgba(2,132,199,0.45);">★ 最もおすすめ</span>
+        <header style="text-align:center;">
+          <p style="font-size:12px;font-weight:900;letter-spacing:0.2em;color:var(--primary-dark);margin:0 0 8px;">STANDARD</p>
+          <h4 style="font-size:22px;font-weight:900;color:var(--text-dark);margin:0 0 10px;">週5日プラン</h4>
+          <p style="font-size:13px;font-weight:700;color:var(--text-dark);margin:0 0 28px;line-height:1.7;height:48px;word-break:keep-all;overflow-wrap:break-word;display:flex;align-items:center;justify-content:center;">ライン立上げ・量産立上げなど<br>主力プロジェクトの即戦力に</p>
+        </header>
+        <div style="text-align:center;margin-bottom:24px;">
+          <div class="plan-price-row">
+            <span class="plan-price-prefix">月額</span>
+            <span class="plan-price-num">80</span>
+            <span class="plan-price-suffix">万円</span>
+          </div>
+          <p style="font-size:13px;font-weight:700;color:var(--text-muted);margin:10px 0 0;">（税別 / 月）</p>
+        </div>
+        <ul style="list-style:none;padding:0;margin:0 0 16px;display:flex;flex-direction:column;gap:10px;flex:1;">
+          <li style="display:flex;align-items:flex-start;gap:8px;font-size:14px;font-weight:700;color:var(--text-dark);"><span style="color:var(--primary-dark);font-weight:900;flex-shrink:0;">✓</span> 月20日稼働が目安</li>
+          <li style="display:flex;align-items:flex-start;gap:8px;font-size:14px;font-weight:700;color:var(--text-dark);"><span style="color:var(--primary-dark);font-weight:900;flex-shrink:0;">✓</span> 事前面談・稼働管理込み</li>
+          <li style="display:flex;align-items:flex-start;gap:8px;font-size:14px;font-weight:700;color:var(--text-dark);"><span style="color:var(--primary-dark);font-weight:900;flex-shrink:0;">✓</span> 1ヶ月単位で延長・終了が可能</li>
+        </ul>
+        <div style="margin-top:auto;padding:10px 12px;background:rgba(14,165,233,0.1);border-radius:10px;text-align:center;">
+          <p style="font-size:12px;font-weight:800;color:var(--primary-darker);margin:0;">最低発注期間 <span style="color:var(--text-dark);font-size:14px;">1ヶ月</span> から</p>
+        </div>
+      </article>
+
+      <!-- 週3日プラン -->
+      <article class="plan-card" style="position:relative;display:flex;flex-direction:column;background:white;border:1px solid var(--border);border-radius:22px;padding:40px 28px 32px;box-shadow:0 4px 16px -8px rgba(15,23,42,0.06);">
+        <header style="text-align:center;">
+          <p style="font-size:12px;font-weight:900;letter-spacing:0.2em;color:var(--text-muted);margin:0 0 8px;">FLEX</p>
+          <h4 style="font-size:22px;font-weight:900;color:var(--text-dark);margin:0 0 10px;">週3日プラン</h4>
+          <p style="font-size:13px;font-weight:700;color:var(--text-muted);margin:0 0 28px;line-height:1.7;height:48px;word-break:keep-all;overflow-wrap:break-word;display:flex;align-items:center;justify-content:center;">設計支援・部分的な立上げ・<br>社員との並走体制に</p>
+        </header>
+        <div style="text-align:center;margin-bottom:24px;">
+          <div class="plan-price-row">
+            <span class="plan-price-prefix">月額</span>
+            <span class="plan-price-num">60</span>
+            <span class="plan-price-suffix">万円</span>
+          </div>
+          <p style="font-size:13px;font-weight:700;color:var(--text-muted);margin:10px 0 0;">（税別 / 月）</p>
+        </div>
+        <ul style="list-style:none;padding:0;margin:0 0 16px;display:flex;flex-direction:column;gap:10px;flex:1;">
+          <li style="display:flex;align-items:flex-start;gap:8px;font-size:14px;font-weight:700;color:var(--text-dark);"><span style="color:var(--primary-dark);font-weight:900;flex-shrink:0;">✓</span> 月12日稼働が目安</li>
+          <li style="display:flex;align-items:flex-start;gap:8px;font-size:14px;font-weight:700;color:var(--text-dark);"><span style="color:var(--primary-dark);font-weight:900;flex-shrink:0;">✓</span> 事前面談・稼働管理込み</li>
+          <li style="display:flex;align-items:flex-start;gap:8px;font-size:14px;font-weight:700;color:var(--text-dark);"><span style="color:var(--primary-dark);font-weight:900;flex-shrink:0;">✓</span> 1ヶ月単位で延長・終了が可能</li>
+        </ul>
+        <div style="margin-top:auto;padding:10px 12px;background:var(--bg-soft);border-radius:10px;text-align:center;">
+          <p style="font-size:12px;font-weight:800;color:var(--text-muted);margin:0;">最低発注期間 <span style="color:var(--text-dark);font-size:14px;">2ヶ月</span> から</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- プラン補足注記 -->
+    <div style="max-width:820px;margin:0 auto 64px;background:var(--primary-ghost);border:1px solid var(--border);border-radius:14px;padding:20px 28px;">
+      <p style="font-size:14px;font-weight:700;color:var(--text-dark);margin:0;line-height:1.85;">
+        <strong style="color:var(--primary-dark);">▼ プランについての注意点</strong><br>
+        ・週5日プランは1ヶ月単位で発注いただけます。<br>
+        ・週3日プランは<strong>最低発注期間2ヶ月</strong>、週1日プランは<strong>最低発注期間3ヶ月</strong>から承ります。<br>
+        ・週日数は月単位で変更可能です（例：立ち上げ期は週5日 → 安定後は週3日）。
+      </p>
     </div>
 
     <!-- Before / After -->
@@ -1822,10 +2199,10 @@
           <p class="text-center text-sm font-black text-muted mt-5">毎月バラバラ、確認に時間がかかる</p>
         </div>
         <div>
-          <p class="text-center text-sm font-black text-primary-darker tracking-widest mb-4">ロボカル（月額定額）</p>
+          <p class="text-center text-sm font-black text-primary-darker tracking-widest mb-4">ロボカル（月額定額・週日数選択制）</p>
           <div class="bar-total">
-            月額60万円/月＋選択オプション<br>
-            ＝ 見積時に全額確定
+            月額80万円／60万円／20万円<br>
+            ＋選択オプション ＝ 見積時に全額確定
           </div>
           <p class="text-center text-sm font-black text-primary-darker mt-5">見積書＝請求書。後から変わりません</p>
         </div>
@@ -1897,10 +2274,10 @@
     <!-- How it works -->
     <div class="bg-white border-2 border-primary-light rounded-2xl p-8 card-shadow mb-16 text-center" style="border-color:var(--primary-light);">
       <h4 class="text-lg font-black text-dark mb-3">料金の確定フロー</h4>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-base">
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-base flex-wrap">
         <span class="bg-primary-pale text-primary-dark font-black px-4 py-2 rounded-xl" style="background:var(--primary-pale);color:var(--primary-dark);">❶ 職種・期間・人数を伝える</span>
         <span class="text-muted font-black">→</span>
-        <span class="bg-primary-pale text-primary-dark font-black px-4 py-2 rounded-xl" style="background:var(--primary-pale);color:var(--primary-dark);">❷ 必要なオプションを選択</span>
+        <span class="bg-primary-pale text-primary-dark font-black px-4 py-2 rounded-xl" style="background:var(--primary-pale);color:var(--primary-dark);">❷ 週日数プランとオプションを選択</span>
         <span class="text-muted font-black">→</span>
         <span class="bg-primary-pale text-primary-dark font-black px-4 py-2 rounded-xl" style="background:var(--primary-pale);color:var(--primary-dark);">❸ 見積で確定＝請求額</span>
       </div>
@@ -1911,54 +2288,54 @@
     <h3 class="text-center mb-8" style="font-size:24px; font-weight:900; color:var(--text-dark);">料金<span class="text-primary-dark">ケーススタディ</span></h3>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       <div class="bg-white border border-soft rounded-2xl p-8 card-shadow">
-        <p class="text-xs font-black text-muted tracking-widest mb-2">CASE A ・ 標準プラン</p>
+        <p class="text-xs font-black text-muted tracking-widest mb-2">CASE A ・ 週5日・標準プラン</p>
         <h4 class="text-xl font-black text-dark mb-4">機械設計エンジニア 1名・3ヶ月</h4>
         <div class="flex items-baseline gap-2 mb-2">
-          <span class="text-5xl font-black text-primary-dark">180</span>
+          <span class="text-5xl font-black text-primary-dark">240</span>
           <span class="text-lg font-black text-dark">万円（税別・3ヶ月合計）</span>
         </div>
-        <p class="text-sm text-muted font-bold">月額60万円 × 3ヶ月。オプション不要なら追加費用なし。</p>
+        <p class="text-sm text-muted font-bold">週5日プラン月額80万円 × 3ヶ月。オプション不要なら追加費用なし。</p>
       </div>
       <div class="bg-white border border-soft rounded-2xl p-8 card-shadow">
-        <p class="text-xs font-black text-muted tracking-widest mb-2">CASE B ・ ベテラン指名</p>
+        <p class="text-xs font-black text-muted tracking-widest mb-2">CASE B ・ 週5日＋ベテラン指名</p>
         <h4 class="text-xl font-black text-dark mb-4">PLC制御設計 1名・6ヶ月（経験20年以上）</h4>
         <div class="flex items-baseline gap-2 mb-2">
-          <span class="text-5xl font-black text-primary-dark">480</span>
+          <span class="text-5xl font-black text-primary-dark">600</span>
           <span class="text-lg font-black text-dark">万円（税別・6ヶ月合計）</span>
         </div>
-        <p class="text-sm text-muted font-bold">月額60万＋経験20年OP 20万 = 80万/月 × 6ヶ月。</p>
+        <p class="text-sm text-muted font-bold">週5日80万＋経験20年OP 20万 = 100万/月 × 6ヶ月。</p>
       </div>
       <div class="bg-white border border-soft rounded-2xl p-8 card-shadow">
-        <p class="text-xs font-black text-muted tracking-widest mb-2">CASE C ・ SV・現場責任者</p>
+        <p class="text-xs font-black text-muted tracking-widest mb-2">CASE C ・ 週5日＋SV・現場責任者</p>
         <h4 class="text-xl font-black text-dark mb-4">ライン立ち上げSV 1名・4ヶ月</h4>
         <div class="flex items-baseline gap-2 mb-2">
-          <span class="text-5xl font-black text-primary-dark">280</span>
+          <span class="text-5xl font-black text-primary-dark">360</span>
           <span class="text-lg font-black text-dark">万円（税別・4ヶ月合計）</span>
         </div>
-        <p class="text-sm text-muted font-bold">月額60万＋SV OP 10万 = 70万/月 × 4ヶ月。</p>
+        <p class="text-sm text-muted font-bold">週5日80万＋SV OP 10万 = 90万/月 × 4ヶ月。</p>
       </div>
       <div class="bg-white border border-soft rounded-2xl p-8 card-shadow">
-        <p class="text-xs font-black text-muted tracking-widest mb-2">CASE D ・ 海外立ち上げ</p>
-        <h4 class="text-xl font-black text-dark mb-4">海外工場立ち上げSV 1名・6ヶ月</h4>
-        <div class="flex items-baseline gap-2 mb-2">
-          <span class="text-5xl font-black text-primary-dark">720</span>
-          <span class="text-lg font-black text-dark">万円〜（税別・見積確定額）</span>
-        </div>
-        <p class="text-sm text-muted font-bold">月額60万＋経験20年OP 20万＋SV OP 10万＋海外OP 30万 = 120万/月 × 6ヶ月（渡航費・宿泊費別）</p>
-      </div>
-      <div class="bg-white border border-soft rounded-2xl p-8 card-shadow">
-        <p class="text-xs font-black text-muted tracking-widest mb-2">CASE E ・ 短期・複数名</p>
+        <p class="text-xs font-black text-muted tracking-widest mb-2">CASE D ・ 週3日・短期複数名</p>
         <h4 class="text-xl font-black text-dark mb-4">ロボットティーチング 2名・2ヶ月</h4>
         <div class="flex items-baseline gap-2 mb-2">
           <span class="text-5xl font-black text-primary-dark">240</span>
           <span class="text-lg font-black text-dark">万円（税別・2ヶ月合計）</span>
         </div>
-        <p class="text-sm text-muted font-bold">月額60万円 × 2名 × 2ヶ月。増産・繁忙期の短期補強に。</p>
+        <p class="text-sm text-muted font-bold">週3日プラン月額60万円 × 2名 × 2ヶ月。増産・繁忙期の短期補強に。</p>
+      </div>
+      <div class="bg-white border border-soft rounded-2xl p-8 card-shadow">
+        <p class="text-xs font-black text-muted tracking-widest mb-2">CASE E ・ 週1日・アドバイザリー</p>
+        <h4 class="text-xl font-black text-dark mb-4">品質管理アドバイザー 1名・6ヶ月</h4>
+        <div class="flex items-baseline gap-2 mb-2">
+          <span class="text-5xl font-black text-primary-dark">120</span>
+          <span class="text-lg font-black text-dark">万円（税別・6ヶ月合計）</span>
+        </div>
+        <p class="text-sm text-muted font-bold">週1日プラン月額20万円 × 6ヶ月。定例レビュー・社内技術者育成の並走支援に。</p>
       </div>
       <div class="bg-white border border-soft rounded-2xl p-8 card-shadow" style="background:var(--primary-pale);border-color:var(--primary-light);">
         <p class="text-xs font-black text-primary-dark tracking-widest mb-2">YOUR CASE</p>
         <h4 class="text-xl font-black text-dark mb-4">貴社の条件で<br>お見積いたします</h4>
-        <p class="text-sm text-dark font-bold mb-4" style="line-height:1.9;">職種・期間・人数・オプション構成を伺い、見積時に金額を確定します。</p>
+        <p class="text-sm text-dark font-bold mb-4" style="line-height:1.9;">職種・週日数・期間・人数・オプション構成を伺い、見積時に金額を確定します。</p>
         <a href="#cta" class="inline-flex items-center gap-2 text-primary-dark font-black" style="font-size:15px;">見積を依頼する →</a>
       </div>
     </div>
@@ -2291,30 +2668,6 @@
       事前面談で、御社の現場にマッチする人材をご提案します。
     </p>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- ① 機械設計 -->
-      <div class="engineer-card">
-        <div class="eng-header">
-          <div class="eng-avatar">M</div>
-          <div>
-            <p class="eng-role">機械設計エンジニア</p>
-            <p class="eng-meta">神奈川県／40代／経験20年</p>
-          </div>
-        </div>
-        <p class="eng-quote">
-          精密機器・搬送装置の構想設計から詳細設計、部品表作成まで一貫対応しています。公差設計と組立基準を意識することで、試作の手戻りを最小化するのが得意です。
-        </p>
-        <div class="eng-skills">
-          <span class="eng-skill">SOLIDWORKS</span>
-          <span class="eng-skill">3D組立設計</span>
-          <span class="eng-skill">精密部品</span>
-          <span class="eng-skill">PDM</span>
-        </div>
-        <div class="eng-stats">
-          <div class="eng-stat"><div class="eng-stat-num">20<span style="font-size:14px;">年</span></div><div class="eng-stat-label">実務経験</div></div>
-          <div class="eng-stat"><div class="eng-stat-num">80<span style="font-size:14px;">件+</span></div><div class="eng-stat-label">設計案件実績</div></div>
-          <div class="eng-stat"><div class="eng-stat-num">98<span style="font-size:14px;">%</span></div><div class="eng-stat-label">継続指名率</div></div>
-        </div>
-      </div>
       <!-- ② 機械設計（装置系） -->
       <div class="engineer-card">
         <div class="eng-header">
@@ -2361,30 +2714,6 @@
           <div class="eng-stat"><div class="eng-stat-num">25<span style="font-size:14px;">年</span></div><div class="eng-stat-label">実務経験</div></div>
           <div class="eng-stat"><div class="eng-stat-num">50<span style="font-size:14px;">件+</span></div><div class="eng-stat-label">立上げ実績</div></div>
           <div class="eng-stat"><div class="eng-stat-num">0<span style="font-size:14px;">件</span></div><div class="eng-stat-label">稼働後停止</div></div>
-        </div>
-      </div>
-      <!-- ④ 制御設計（ロボット） -->
-      <div class="engineer-card">
-        <div class="eng-header">
-          <div class="eng-avatar">C</div>
-          <div>
-            <p class="eng-role">制御設計エンジニア</p>
-            <p class="eng-meta">愛知県／40代／経験15年</p>
-          </div>
-        </div>
-        <p class="eng-quote">
-          産業用ロボット（ABB・Kawasaki）のティーチングとオフラインシミュレーションが専門。海外工場の立上げSVも含め、言語の壁を超えて現場を回してきました。
-        </p>
-        <div class="eng-skills">
-          <span class="eng-skill">ABB RobotStudio</span>
-          <span class="eng-skill">Kawasaki K-ROSET</span>
-          <span class="eng-skill">海外SV</span>
-          <span class="eng-skill">OLP</span>
-        </div>
-        <div class="eng-stats">
-          <div class="eng-stat"><div class="eng-stat-num">15<span style="font-size:14px;">年</span></div><div class="eng-stat-label">実務経験</div></div>
-          <div class="eng-stat"><div class="eng-stat-num">120<span style="font-size:14px;">台+</span></div><div class="eng-stat-label">ロボット立上</div></div>
-          <div class="eng-stat"><div class="eng-stat-num">6<span style="font-size:14px;">ヶ国</span></div><div class="eng-stat-label">海外SV実績</div></div>
         </div>
       </div>
       <!-- ⑤ 回路設計 -->
@@ -2574,7 +2903,11 @@
     </div>
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-mark">Q.</span>オプションは必ず付けなければいけませんか？</div>
-      <div class="faq-a">いいえ。基本料金のみでもご依頼いただけます。オプションは必要な場合にのみ選択する方式です。例えば、経験年数20年以上やSV・海外案件対応が不要であれば、標準月額60万円/月のみでご利用可能です。</div>
+      <div class="faq-a">いいえ。基本料金のみでもご依頼いただけます。オプションは必要な場合にのみ選択する方式です。例えば、経験年数20年以上やSV・海外案件対応が不要であれば、標準月額80万円/月（週5日プラン）のみでご利用可能です。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><span class="faq-q-mark">Q.</span>週日数プラン（週5日／週3日／週1日）はどのように選べばよいですか？</div>
+      <div class="faq-a">ご利用シーンに応じてお選びいただけます。<strong class="text-dark">週5日プラン（月額80万円）</strong>はライン立ち上げ・量産立上げなど現場常駐が必要な主力プロジェクト向け、<strong class="text-dark">週3日プラン（月額60万円）</strong>は設計支援や社員と並走する体制、<strong class="text-dark">週1日プラン（月額20万円）</strong>は技術アドバイザリーや定例レビューなどに適しています。プロジェクトの進行フェーズに合わせて、月単位で週日数を変更することも可能です。</div>
     </div>
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-mark">Q.</span>1ヶ月だけの依頼でも大丈夫ですか？</div>
@@ -2582,7 +2915,7 @@
     </div>
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-mark">Q.</span>残業が発生した場合、追加料金はかかりますか？</div>
-      <div class="faq-a">標準月額60万円/月には、月間の標準稼働時間分が含まれます。標準時間を超える稼働が見込まれる場合は、事前に合意した単価で追加分をお見積いたします。追加単価も見積時に確定しますので、想定外の請求は発生しません。</div>
+      <div class="faq-a">各プランの月額には、週日数に応じた標準稼働時間分が含まれます（週5日＝月20日目安、週3日＝月12日目安、週1日＝月4日目安）。標準時間を超える稼働が見込まれる場合は、事前に合意した単価で追加分をお見積いたします。追加単価も見積時に確定しますので、想定外の請求は発生しません。</div>
     </div>
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-mark">Q.</span>どんなエンジニアが来ますか？</div>
@@ -2590,7 +2923,7 @@
     </div>
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-mark">Q.</span>延長や人数追加はできますか？</div>
-      <div class="faq-a">可能です。月単位での延長、人数の追加増員に対応します。追加分も同じ料金体系（月額60万円/月＋選択オプション）で、見積時に確定します。</div>
+      <div class="faq-a">可能です。月単位での延長、人数の追加増員に対応します。追加分も同じ料金体系（週日数プランの月額＋選択オプション）で、見積時に確定します。途中で週日数を変更することも可能です（例：立ち上げ期は週5日 → 安定後は週3日）。</div>
     </div>
     <div class="faq-item">
       <div class="faq-q"><span class="faq-q-mark">Q.</span>事前確定後に稼働開始前のキャンセルは可能ですか？</div>
@@ -2774,6 +3107,18 @@
         </select>
       </div>
 
+      <div style="margin-bottom:20px;">
+        <label for="cf-plan" style="display:block;font-size:14px;font-weight:800;color:var(--text-dark);margin-bottom:8px;">ご希望のプラン（週日数） <span style="color:var(--text-muted);font-size:11px;font-weight:700;background:#F3F4F6;padding:2px 8px;border-radius:4px;margin-left:6px;">任意</span></label>
+        <select id="cf-plan" name="ご希望のプラン" style="width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:10px;font-size:15px;font-family:inherit;background:white;">
+          <option value="">選択してください</option>
+          <option value="週5日プラン（月額80万円）">週5日プラン（月額80万円）</option>
+          <option value="週3日プラン（月額60万円）">週3日プラン（月額60万円）</option>
+          <option value="週1日プラン（月額20万円）">週1日プラン（月額20万円）</option>
+          <option value="複数プランを検討中">複数プランを検討中</option>
+          <option value="未定・相談したい">未定・相談したい</option>
+        </select>
+      </div>
+
       <div style="margin-bottom:24px;">
         <label for="cf-message" style="display:block;font-size:14px;font-weight:800;color:var(--text-dark);margin-bottom:8px;">お問い合わせ内容 <span style="color:var(--text-muted);font-size:11px;font-weight:700;background:#F3F4F6;padding:2px 8px;border-radius:4px;margin-left:6px;">任意</span></label>
         <textarea id="cf-message" name="お問い合わせ内容" rows="5" placeholder="ご検討の背景、必要な時期・期間、人数などをご記入ください。" style="width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:10px;font-size:15px;font-family:inherit;background:white;resize:vertical;"></textarea>
@@ -2931,453 +3276,7 @@
 })();
 </script>
 
-<!-- ============================================================
-     REVIEW MODE（LP修正指示用・本番表示には影響しません）
-     使い方:
-       1) Alt + Shift + R を押す（または URL に ?review を追加）
-       2) 右下の📝ボタンで ON/OFF 切替
-       3) ページ上の要素をクリック → 「削除／テキスト変更／コメント」を選び保存
-       4) 右上パネルの「📋 指示をコピー」でクリップボードにコピー
-       5) そのままClaudeに貼り付けるとLP修正が走ります
-     ※ モードOFF時は完全非表示、印刷時も非表示
-     ============================================================ -->
-<style id="review-mode-styles">
-  #review-launcher, #review-toolbar, #review-dialog, #review-backdrop { display: none; }
-  .review-mode-active #review-launcher { display: flex; }
-  .review-mode-active #review-toolbar { display: flex; }
-  #review-dialog.open { display: block; }
-  #review-backdrop.open { display: block; }
-  .review-mode-active [data-review-hover] {
-    outline: 2px dashed #F97316 !important;
-    outline-offset: 2px;
-    cursor: crosshair !important;
-  }
-  .review-mode-active [data-review-marked] {
-    outline: 3px solid #DC2626 !important;
-    outline-offset: 2px;
-    background: rgba(220, 38, 38, 0.08) !important;
-  }
-  #review-launcher {
-    position: fixed; bottom: 20px; left: 20px;
-    width: 52px; height: 52px; border-radius: 50%;
-    background: #DC2626; color: #fff; border: none;
-    box-shadow: 0 10px 24px rgba(220,38,38,.45);
-    z-index: 2147483000; cursor: pointer; font-size: 22px;
-    align-items: center; justify-content: center;
-    font-family: system-ui, sans-serif;
-  }
-  #review-toolbar {
-    position: fixed; top: 20px; right: 20px;
-    width: 380px; max-height: 80vh;
-    background: #fff; border: 2px solid #0284C7; border-radius: 12px;
-    box-shadow: 0 20px 40px rgba(0,0,0,.25);
-    z-index: 2147482999;
-    flex-direction: column; overflow: hidden;
-    font-family: system-ui, -apple-system, "Hiragino Sans", sans-serif;
-  }
-  #review-toolbar header {
-    background: #0284C7; color: #fff;
-    padding: 12px 16px; font-weight: 800; font-size: 14px;
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  #review-toolbar .review-body {
-    overflow-y: auto; padding: 12px; flex: 1; min-height: 120px;
-  }
-  #review-toolbar .review-item {
-    position: relative;
-    border: 1px solid #E5E7EB; border-radius: 8px;
-    padding: 10px 30px 10px 10px; margin-bottom: 8px;
-    font-size: 13px; line-height: 1.5;
-  }
-  #review-toolbar .review-item .ri-num {
-    font-weight: 900; color: #0284C7; font-size: 12px;
-  }
-  #review-toolbar .review-item .ri-action {
-    display: inline-block; padding: 2px 8px; border-radius: 4px;
-    font-size: 11px; font-weight: 800; margin-left: 6px; color: #fff;
-  }
-  #review-toolbar .review-item .ri-action.delete { background: #DC2626; }
-  #review-toolbar .review-item .ri-action.edit { background: #F59E0B; }
-  #review-toolbar .review-item .ri-action.comment { background: #0EA5E9; }
-  #review-toolbar .review-item .ri-sec {
-    color: #0284C7; font-size: 11px; font-weight: 800; margin-top: 4px;
-  }
-  #review-toolbar .review-item .ri-sel {
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    font-size: 10px; color: #64748B; word-break: break-all; margin-top: 4px;
-  }
-  #review-toolbar .review-item .ri-pv {
-    color: #64748B; font-size: 11px; margin-top: 2px;
-  }
-  #review-toolbar .review-item .ri-text {
-    color: #0F172A; margin-top: 6px; font-weight: 600;
-    background: #FEF3C7; padding: 6px 8px; border-radius: 4px;
-  }
-  #review-toolbar .review-item .ri-del {
-    position: absolute; top: 6px; right: 6px;
-    background: none; border: none; color: #DC2626;
-    cursor: pointer; font-weight: 900; font-size: 14px;
-  }
-  #review-toolbar footer {
-    padding: 10px 12px; border-top: 1px solid #E5E7EB;
-    display: flex; gap: 8px; background: #F8FAFC;
-  }
-  #review-toolbar button.rb-main {
-    flex: 1; padding: 10px; background: #0284C7; color: #fff;
-    border: none; border-radius: 8px; font-weight: 800; cursor: pointer; font-size: 13px;
-  }
-  #review-toolbar button.rb-sub {
-    padding: 10px 12px; background: #fff; color: #475569;
-    border: 1px solid #CBD5E1; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 12px;
-  }
-  #review-backdrop {
-    position: fixed; inset: 0; background: rgba(15,23,42,.55);
-    z-index: 2147483100;
-  }
-  #review-dialog {
-    position: fixed; top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 440px; max-width: calc(100vw - 40px);
-    background: #fff; border-radius: 14px;
-    box-shadow: 0 30px 60px rgba(0,0,0,.35);
-    z-index: 2147483200; padding: 20px;
-    font-family: system-ui, -apple-system, "Hiragino Sans", sans-serif;
-  }
-  #review-dialog h3 {
-    font-size: 15px; font-weight: 900; color: #0F172A; margin-bottom: 8px;
-  }
-  #review-dialog .rd-sec {
-    color: #0284C7; font-size: 12px; font-weight: 800; margin-bottom: 4px;
-  }
-  #review-dialog .rd-sel {
-    background: #F1F5F9; border-radius: 6px; padding: 8px;
-    font-family: ui-monospace, monospace; font-size: 11px;
-    color: #334155; word-break: break-all; margin-bottom: 8px;
-  }
-  #review-dialog .rd-pv {
-    font-size: 12px; color: #475569; margin-bottom: 10px;
-    background: #FFF7ED; padding: 6px 8px; border-radius: 4px;
-    border-left: 3px solid #F97316;
-  }
-  #review-dialog .rd-actions {
-    display: flex; gap: 6px; margin-bottom: 12px;
-  }
-  #review-dialog .rd-actions button {
-    flex: 1; padding: 10px 4px; border: 2px solid #E5E7EB;
-    background: #fff; border-radius: 8px; font-weight: 700;
-    font-size: 12px; cursor: pointer; color: #475569;
-  }
-  #review-dialog .rd-actions button.active {
-    border-color: #0284C7; background: #E0F2FE; color: #0284C7;
-  }
-  #review-dialog textarea {
-    width: 100%; min-height: 80px; padding: 10px;
-    border: 1px solid #CBD5E1; border-radius: 8px;
-    font-size: 13px; font-family: inherit; resize: vertical;
-    margin-bottom: 12px; box-sizing: border-box;
-  }
-  #review-dialog .rd-btns { display: flex; gap: 8px; }
-  #review-dialog .rd-btns button {
-    flex: 1; padding: 10px; border-radius: 8px;
-    font-weight: 800; cursor: pointer; border: none; font-size: 14px;
-  }
-  #review-dialog .rd-save { background: #0284C7; color: #fff; }
-  #review-dialog .rd-cancel { background: #F1F5F9; color: #475569; }
-  @media print {
-    #review-launcher, #review-toolbar, #review-dialog, #review-backdrop { display: none !important; }
-  }
-</style>
-
-<button id="review-launcher" title="レビューモード切替 (Alt+Shift+R)">📝</button>
-
-<aside id="review-toolbar">
-  <header>
-    <span>📝 修正指示（<span id="rt-count">0</span>件）</span>
-    <button style="background:none;border:none;color:#fff;cursor:pointer;font-weight:900;font-size:16px;" id="rt-close" title="閉じる">✕</button>
-  </header>
-  <div class="review-body" id="rt-body"></div>
-  <footer>
-    <button class="rb-sub" id="rt-clear">全消去</button>
-    <button class="rb-main" id="rt-copy">📋 指示をコピー</button>
-  </footer>
-</aside>
-
-<div id="review-backdrop"></div>
-<div id="review-dialog">
-  <h3>修正指示を追加</h3>
-  <div class="rd-sec" id="rd-section"></div>
-  <div class="rd-sel" id="rd-selector"></div>
-  <div class="rd-pv" id="rd-preview"></div>
-  <div class="rd-actions">
-    <button data-action="delete">🗑 削除</button>
-    <button data-action="edit">✎ テキスト変更</button>
-    <button data-action="comment">💬 コメント</button>
-  </div>
-  <textarea id="rd-text" placeholder="指示内容やコメントを記入（テキスト変更の場合は変更後の文言を記入）"></textarea>
-  <div class="rd-btns">
-    <button class="rd-cancel">キャンセル</button>
-    <button class="rd-save">保存</button>
-  </div>
-</div>
-
-<script>
-(function() {
-  'use strict';
-  const STORAGE_KEY = 'robokaru-lp-review-annotations-v1';
-  let annotations = [];
-  let activeTarget = null;
-  let currentAction = 'comment';
-
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) annotations = JSON.parse(raw) || [];
-  } catch(e) { annotations = []; }
-
-  function save() {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(annotations)); } catch(e) {}
-  }
-
-  function escapeHtml(s) {
-    return String(s==null?'':s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  }
-
-  function getSelector(el) {
-    if (!el || el === document.body) return 'body';
-    const path = [];
-    let cur = el;
-    let depth = 0;
-    while (cur && cur.nodeType === 1 && cur !== document.body && depth < 6) {
-      let seg = cur.tagName.toLowerCase();
-      if (cur.id) {
-        seg += '#' + cur.id;
-        path.unshift(seg);
-        break;
-      }
-      if (cur.className && typeof cur.className === 'string') {
-        const cls = cur.className.trim().split(/\s+/)
-          .filter(c => c && !c.startsWith('review-'))
-          .slice(0, 2).join('.');
-        if (cls) seg += '.' + cls;
-      }
-      const parent = cur.parentElement;
-      if (parent) {
-        const siblings = Array.from(parent.children).filter(c => c.tagName === cur.tagName);
-        if (siblings.length > 1) {
-          seg += ':nth-of-type(' + (siblings.indexOf(cur) + 1) + ')';
-        }
-      }
-      path.unshift(seg);
-      cur = cur.parentElement;
-      depth++;
-    }
-    return path.join(' > ');
-  }
-
-  function getContext(el) {
-    let section = el.closest('section');
-    let sectionId = section ? (section.id || '') : '';
-    let sectionHeading = '';
-    if (section) {
-      const h = section.querySelector('h1, h2, h3, .tagline, .h2-section');
-      if (h) sectionHeading = (h.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 40);
-    }
-    return { sectionId, sectionHeading };
-  }
-
-  function textPreview(el) {
-    const t = (el.innerText || el.textContent || '').trim().replace(/\s+/g, ' ');
-    return t.length > 80 ? t.slice(0, 80) + '…' : t;
-  }
-
-  function refreshMarks() {
-    document.querySelectorAll('[data-review-marked]').forEach(el => el.removeAttribute('data-review-marked'));
-    annotations.forEach((a) => {
-      try {
-        const el = document.querySelector(a.selector);
-        if (el) el.setAttribute('data-review-marked', '');
-      } catch(e) {}
-    });
-  }
-
-  function renderList() {
-    const body = document.getElementById('rt-body');
-    document.getElementById('rt-count').textContent = annotations.length;
-    if (annotations.length === 0) {
-      body.innerHTML = '<p style="color:#94A3B8;font-size:12px;text-align:center;padding:30px 10px;line-height:1.6;">ページ上の要素をクリックして<br>修正指示を追加してください</p>';
-      return;
-    }
-    body.innerHTML = annotations.map((a, i) => {
-      const label = a.action === 'delete' ? '削除' : a.action === 'edit' ? 'テキスト変更' : 'コメント';
-      return '<div class="review-item">'
-        + '<button class="ri-del" data-idx="'+i+'" title="この項目を削除">✕</button>'
-        + '<span class="ri-num">#'+(i+1)+'</span>'
-        + '<span class="ri-action '+a.action+'">'+label+'</span>'
-        + (a.sectionHeading ? '<div class="ri-sec">📍 '+escapeHtml(a.sectionHeading)+'</div>' : '')
-        + '<div class="ri-sel">'+escapeHtml(a.selector)+'</div>'
-        + (a.preview ? '<div class="ri-pv">"'+escapeHtml(a.preview)+'"</div>' : '')
-        + (a.text ? '<div class="ri-text">'+escapeHtml(a.text)+'</div>' : '')
-        + '</div>';
-    }).join('');
-    body.querySelectorAll('.ri-del').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const idx = parseInt(btn.getAttribute('data-idx'));
-        annotations.splice(idx, 1);
-        save(); renderList(); refreshMarks();
-      });
-    });
-  }
-
-  function isInReviewUI(el) {
-    return el.closest && el.closest('#review-toolbar, #review-dialog, #review-backdrop, #review-launcher');
-  }
-
-  let lastHover = null;
-  document.addEventListener('mouseover', (e) => {
-    if (!document.body.classList.contains('review-mode-active')) return;
-    if (isInReviewUI(e.target)) return;
-    if (lastHover) lastHover.removeAttribute('data-review-hover');
-    e.target.setAttribute('data-review-hover', '');
-    lastHover = e.target;
-  });
-
-  document.addEventListener('click', (e) => {
-    if (!document.body.classList.contains('review-mode-active')) return;
-    if (isInReviewUI(e.target)) return;
-    e.preventDefault();
-    e.stopPropagation();
-    activeTarget = e.target;
-    openDialog(e.target);
-  }, true);
-
-  function openDialog(el) {
-    const ctx = getContext(el);
-    document.getElementById('rd-section').textContent = ctx.sectionHeading ? '📍 ' + ctx.sectionHeading : '';
-    document.getElementById('rd-selector').textContent = getSelector(el);
-    const pv = textPreview(el);
-    const pvEl = document.getElementById('rd-preview');
-    if (pv) { pvEl.textContent = '"'+pv+'"'; pvEl.style.display = 'block'; }
-    else { pvEl.style.display = 'none'; }
-    document.getElementById('rd-text').value = '';
-    currentAction = 'comment';
-    document.querySelectorAll('#review-dialog .rd-actions button').forEach(b => {
-      b.classList.toggle('active', b.getAttribute('data-action') === 'comment');
-    });
-    document.getElementById('review-dialog').classList.add('open');
-    document.getElementById('review-backdrop').classList.add('open');
-    setTimeout(() => document.getElementById('rd-text').focus(), 50);
-  }
-
-  function closeDialog() {
-    document.getElementById('review-dialog').classList.remove('open');
-    document.getElementById('review-backdrop').classList.remove('open');
-    activeTarget = null;
-  }
-
-  document.querySelectorAll('#review-dialog .rd-actions button').forEach(btn => {
-    btn.addEventListener('click', () => {
-      currentAction = btn.getAttribute('data-action');
-      document.querySelectorAll('#review-dialog .rd-actions button').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    });
-  });
-
-  document.querySelector('#review-dialog .rd-cancel').addEventListener('click', closeDialog);
-  document.getElementById('review-backdrop').addEventListener('click', closeDialog);
-
-  document.querySelector('#review-dialog .rd-save').addEventListener('click', () => {
-    if (!activeTarget) return;
-    const ctx = getContext(activeTarget);
-    annotations.push({
-      action: currentAction,
-      selector: getSelector(activeTarget),
-      preview: textPreview(activeTarget),
-      sectionId: ctx.sectionId,
-      sectionHeading: ctx.sectionHeading,
-      text: document.getElementById('rd-text').value.trim(),
-      timestamp: Date.now()
-    });
-    save(); renderList(); refreshMarks();
-    closeDialog();
-  });
-
-  function toggleMode() {
-    document.body.classList.toggle('review-mode-active');
-    if (document.body.classList.contains('review-mode-active')) {
-      renderList();
-      refreshMarks();
-    } else {
-      if (lastHover) { lastHover.removeAttribute('data-review-hover'); lastHover = null; }
-      document.querySelectorAll('[data-review-marked]').forEach(el => el.removeAttribute('data-review-marked'));
-    }
-  }
-
-  document.getElementById('review-launcher').addEventListener('click', toggleMode);
-  document.getElementById('rt-close').addEventListener('click', toggleMode);
-
-  document.getElementById('rt-clear').addEventListener('click', () => {
-    if (annotations.length === 0) return;
-    if (!confirm('すべての修正指示を削除してよろしいですか？')) return;
-    annotations = [];
-    save(); renderList(); refreshMarks();
-  });
-
-  document.getElementById('rt-copy').addEventListener('click', () => {
-    if (annotations.length === 0) { alert('修正指示がありません'); return; }
-    const header = '# LP修正指示（robokaru-lp.html）\n\n以下の修正をお願いします。\n\n';
-    const out = header + annotations.map((a, i) => {
-      const label = a.action === 'delete' ? '削除' : a.action === 'edit' ? 'テキスト変更' : 'コメント';
-      let block = '## 修正' + (i+1) + '：' + label + '\n';
-      if (a.sectionHeading) block += '- 場所: ' + a.sectionHeading + (a.sectionId ? ' (#' + a.sectionId + ')' : '') + '\n';
-      block += '- 対象セレクタ: `' + a.selector + '`\n';
-      if (a.preview) block += '- テキスト抜粋: "' + a.preview + '"\n';
-      if (a.text) block += '- 指示内容: ' + a.text + '\n';
-      return block;
-    }).join('\n');
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(out).then(() => {
-        alert('✅ 修正指示をコピーしました。\nそのままClaudeに貼り付けてください。');
-      }).catch(() => fallbackCopy(out));
-    } else {
-      fallbackCopy(out);
-    }
-  });
-
-  function fallbackCopy(text) {
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed';
-    ta.style.left = '-9999px';
-    document.body.appendChild(ta);
-    ta.select();
-    try { document.execCommand('copy'); alert('✅ コピーしました。'); }
-    catch(e) { prompt('下のテキストを手動でコピーしてClaudeに貼り付けてください:', text); }
-    document.body.removeChild(ta);
-  }
-
-  document.addEventListener('keydown', (e) => {
-    // macOSの Option（Alt）修飾時は e.key が特殊文字になるため e.code で物理キーを判定
-    const isR = (e.code === 'KeyR') || e.key === 'R' || e.key === 'r';
-    // Alt+Shift+R（Mac: Option+Shift+R）または Ctrl+Shift+L で切替
-    if ((e.altKey && e.shiftKey && isR) ||
-        (e.ctrlKey && e.shiftKey && (e.code === 'KeyL' || e.key === 'L' || e.key === 'l'))) {
-      e.preventDefault();
-      toggleMode();
-      return;
-    }
-    if (e.key === 'Escape' && document.getElementById('review-dialog').classList.contains('open')) {
-      closeDialog();
-    }
-  });
-
-  // URL に ?review が含まれる場合は起動時にONにする
-  if (/[?&]review(=|&|$)/.test(location.search)) {
-    document.body.classList.add('review-mode-active');
-    renderList();
-    refreshMarks();
-  }
-})();
-</script>
+<!-- Review Mode（本番ビルドからは除外済み） -->
 
 </body>
 
